@@ -1,4 +1,9 @@
 <template name="games">
   <h1>Games</h1>
-  <input type="button" value="Click" />
+  
+	<h3>All Games</h3>
+	{{#each games}}
+		<h2>{{name}}</h2>
+	{{/each}}
+
 </template>

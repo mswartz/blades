@@ -1,4 +1,74 @@
 <template name="newgame">
   <h1>Let's score a game</h1>
-  <input type="button" value="Click" />
+  
+  <table>
+	  <thead>
+	  	<th>Player</th>
+	  	<th>Team</th>
+	  	<th>1</th>
+	  	<th>2</th>
+	  	<th>3</th>
+	  	<th>OT 1</th>
+	  	<th>OT 2</th>
+	  	<th>OT 3</th>
+	  	<th>Final</th>
+	 	<th>Fights</th>
+	  </thead>
+  	  <tbody>
+  	  <tr>
+	  	<td id="p1_name"><select>
+	  		<option value="mike">Mike</option>
+	  		<option value="mike">Tito</option>
+	  		<option value="mike">John</option>
+	  	</select></td>
+	  	<td id="p1_team"><select>
+	  		<option value="mike">New York</option>
+	  		<option value="mike">Minnesota</option>
+	  		<option value="mike">Toronto</option>
+	  		<option value="mike">Edmonton</option>
+	  		<option value="mike">Los Angeles</option>
+	  		<option value="mike">Chicago</option>
+	  		<option value="mike">Vancouver</option>
+	  		<option value="mike">Montreal</option>
+	  	</select></td>
+	  	<td id="p1_1p_score"><input type="text"/></td>
+	  	<td id="p1_2p_score"><input type="text"/></td>
+	  	<td id="p1_3p_score"><input type="text"/></td>
+	  	<td id="p1_1ot_score"><input type="text"/></td>
+	  	<td id="p1_2ot_score"><input type="text"/></td>
+	  	<td id="p1_3ot_score"><input type="text"/></td>
+	  	<td id="p1_fights"><input type="text"/></td>
+	 	<td id="p1_final"><input type="text"/></td>
+	 </tr>
+
+	   <tr>
+	  	<td id="p2_name"><select>
+	  		<option value="mike">Mike</option>
+	  		<option value="mike">Tito</option>
+	  		<option value="mike">John</option>
+	  	</select></td>
+	  	<td id="p2_team"><select>
+	  		<option value="mike">New York</option>
+	  		<option value="mike">Minnesota</option>
+	  		<option value="mike">Toronto</option>
+	  		<option value="mike">Edmonton</option>
+	  		<option value="mike">Los Angeles</option>
+	  		<option value="mike">Chicago</option>
+	  		<option value="mike">Vancouver</option>
+	  		<option value="mike">Montreal</option>
+	  	</select></td>
+	  	<td id="p2_1p_score"><input type="text"/></td>
+	  	<td id="p2_2p_score"><input type="text"/></td>
+	  	<td id="p2_3p_score"><input type="text"/></td>
+	  	<td id="p2_1ot_score"><input type="text"/></td>
+	  	<td id="p2_2ot_score"><input type="text"/></td>
+	  	<td id="p2_3ot_score"><input type="text"/></td>
+	  	<td id="p2_fights"><input type="text"/></td>
+	 	<td id="p2_final"><input type="text"/></td>
+	 </tr>
+
+	  </tbody>
+  </table>
+
+  <input type="submit" value="submit" class="submit" id="newgame_addgame"/>
 </template>

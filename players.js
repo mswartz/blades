@@ -19,7 +19,8 @@ Template.players.helpers({
 
 Template.players.events({
   'click input.newplayer_submitplayer' : function() {
-    var newplayer = gatherValues("newplayer", ["name", "initials", "high_rnd", "low_rnd", "handicap"]);
+    var newplayer = gatherValues("newplayer", ["name"]);
+
     Players.insert(newplayer);
   },
   'click input.player_deleteplayer' : function(){
@@ -27,6 +28,7 @@ Template.players.events({
   }
 });
 
+//Function for getting stuff from forms
 function gatherValues(schema, array) {
   var result = {};
   for ( var i = 0; i < array.length; i++) {
