@@ -41,6 +41,10 @@ Template.newgame.helpers({
 
   p2_name : function() {
     return Session.get('p2_name');
+  },
+
+  all_names : function() {
+    return Players.find().fetch();
   }
 });
 

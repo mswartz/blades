@@ -18,9 +18,9 @@
   	  <tbody>
   	  <tr>
 	  	<td><select class="name" id="p1_name">
-	  		<option value="mike">Mike</option>
-	  		<option value="Tito">Tito</option>
-	  		<option value="John">John</option>
+  			  {{#each all_names}}
+			  	<option value="{{_id}}">{{name}}</option>{{name}}
+			  {{/each}}
 	  	</select></td>
 	  	<td><select id="p1_team">
 	  		<option value="ny">New York</option>
@@ -44,9 +44,9 @@
 
   	  <tr>
 	  	<td><select class="name" id="p2_name">
-	  		<option value="mike">Mike</option>
-	  		<option value="Tito">Tito</option>
-	  		<option value="John">John</option>
+			{{#each all_names}}
+			  <option value="{{_id}}">{{name}}</option>{{name}}
+			{{/each}}
 	  	</select></td>
 	  	<td><select id="p2_team">
 	  		<option value="ny">New York</option>
