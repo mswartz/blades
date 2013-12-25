@@ -88,32 +88,29 @@ Template.newgame.events({
   },
 
   'click input#newgame_addgame' : function() {
-    var game_no = Games.find().count() + 1;
 
-    var p1_team = $('#newgame_p1_team').val();
-    var p2_team = $('#newgame_p2_team').val();
+    var p1_team = $('#p1_team').val();
+    var p2_team = $('#p2_team').val();
 
     var p1_reg_goals = {
-      '1p' : $('#newgame_p1_score_1p').val(),
-      '2p' : $('#newgame_p1_score_2p').val(),
-      '3p' : $('#newgame_p1_score_3p').val()
+      '1p' : $('#p1_score_1p').val(),
+      '2p' : $('#p1_score_2p').val(),
+      '3p' : $('#p1_score_3p').val()
     };
 
     var p2_reg_goals = {
-      '1p' : $('#newgame_p2_score_1p').val(),
-      '2p' : $('#newgame_p2_score_2p').val(),
-      '3p' : $('#newgame_p2_score_3p').val()
+      '1p' : $('#p2_score_1p').val(),
+      '2p' : $('#p2_score_2p').val(),
+      '3p' : $('#p2_score_3p').val()
     };
 
-    var p1_fights = $('#newgame_p1_fights').val();
-    var p2_fights = $('#newgame_p2_fights').val();
+    var p1_fights = $('#p1_fights').val();
+    var p2_fights = $('#p2_fights').val();
 
-    var p1_final = $('#newgame_p1_final').val();
-    var p2_final = $('#newgame_p2_final').val();
+    var p1_final = parseInt($('#p1_final').text());
+    var p2_final = parseInt($('#p2_final').text());
 
     Games.insert({
-      'game_no' : game_no,
-
       'p1_id' : Session.get('p1_id'),
       'p2_id' : Session.get('p2_id'),
 

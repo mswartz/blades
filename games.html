@@ -5,6 +5,7 @@
 	<h3>All Games</h3>
 	{{#each games}}
 		<h2>{{_id}}</h2>
+		{{p1_final}}
 		<h5>{{p1_id}} vs {{p2_id}}</h5>
 		{{#each p1}} {{name}} {{/each}} vs {{#each p2}} {{name}} {{/each}}
 		<hr>
