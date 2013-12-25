@@ -1,7 +1,7 @@
 <template name="newgame">
   <h1>Let's score game {{game_no}}</h1>
   {{p1_name}}: {{p1_points}}, {{p2_name}}: {{p2_points}}
-  <input id="ot_counter" type="number" min="0" max="20" placeholder="0" />
+  <input id="ot_counter" type="number" min="0" max="20" value="0" />
   {{ot_count}}
   
   <table>
@@ -43,7 +43,7 @@
 	  	{{/each}}
 
 
-	  	<td><input id="p1_fights" type="number"/></td>
+	  	<td><input value="0" id="p1_fights" type="number"/></td>
 	 	<td id="p1_final">{{p1_points}}</td>
 	 </tr>
 
@@ -69,7 +69,7 @@
 	  	{{#each ot_inputs}}
 	  		<td><input value="0" class="p2_pts pts" id="p2_score_{{ot}}ot" type="number"/></td>
 	  	{{/each}}
-	  	<td><input id="p2_fights" type="number"/></td>
+	  	<td><input value="0" id="p2_fights" type="number"/></td>
 	 	<td id="p2_final">{{p2_points}}</td>
 	 </tr>
 
