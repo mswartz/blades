@@ -11,16 +11,18 @@
 	  	<th>1</th>
 	  	<th>2</th>
 	  	<th>3</th>
-	  	{{#each ot_inputs}}
+	  	{{#each ot_scores}}
 	  		<th>OT {{ot}}</th>
 	  	{{/each}}
 	  	<th>Fights</th>
 	 	<th>Final</th>
 	  </thead>
   	  <tbody>
+
+  	  <!-- Player 1 -->
   	  <tr>
 	  	<td><select class="name" id="p1_name">
-  			  {{#each all_names}}
+  			  {{#each players}}
 			  	<option value="{{_id}}">{{name}}</option>{{name}}
 			  {{/each}}
 	  	</select></td>
@@ -38,7 +40,7 @@
 	  	<td><input value="0" class="p1_pts pts" id="p1_score_2p" type="number"/></td>
 	  	<td><input value="0" class="p1_pts pts" id="p1_score_3p" type="number"/></td>
 
-	  	{{#each ot_inputs}}
+	  	{{#each ot_scores}}
 	  		<td><input value="0" class="p1_pts pts" id="p1_score_{{ot}}ot" type="number"/></td>
 	  	{{/each}}
 
@@ -47,9 +49,11 @@
 	 	<td id="p1_final">{{p1_points}}</td>
 	 </tr>
 
+
+	 <!-- Player 2 -->
   	  <tr>
 	  	<td><select class="name" id="p2_name">
-			{{#each all_names}}
+			{{#each players}}
 			  <option value="{{_id}}">{{name}}</option>{{name}}
 			{{/each}}
 	  	</select></td>
@@ -66,12 +70,14 @@
 	  	<td><input value="0" class="p2_pts pts" id="p2_score_1p" type="number"/></td>
 	  	<td><input value="0" class="p2_pts pts" id="p2_score_2p" type="number"/></td>
 	  	<td><input value="0" class="p2_pts pts" id="p2_score_3p" type="number"/></td>
-	  	{{#each ot_inputs}}
+	  	{{#each ot_scores}}
 	  		<td><input value="0" class="p2_pts pts" id="p2_score_{{ot}}ot" type="number"/></td>
 	  	{{/each}}
 	  	<td><input value="0" id="p2_fights" type="number"/></td>
 	 	<td id="p2_final">{{p2_points}}</td>
 	 </tr>
+
+
 
 	  </tbody>
   </table>

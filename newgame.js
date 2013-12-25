@@ -20,6 +20,7 @@ Session.setDefault('p2_id', 'Player2');
 Session.setDefault('ot_count', 0);
 
 Template.newgame.helpers({
+  //Get the players
   players : function(){
     var players = Players.find({}).fetch();
     return players;
@@ -31,22 +32,27 @@ Template.newgame.helpers({
     return count;
   },
 
+  //P1 points
   p1_points : function() {
     return Session.get('p1_pts');
   },
 
+  //P2 Points
   p2_points : function() {
     return Session.get('p2_pts');
   },
 
+  //P1 ID
   p1_id : function() {
     return Session.get('p1_id');
   },
 
+  //P2 ID
   p2_id : function() {
     return Session.get('p2_id');
   },
 
+  //Display P1 name
   p1_name : function() {
     var p1_name = Players.findOne({_id:Session.get('p1_id')});
     if(p1_name){
@@ -54,6 +60,7 @@ Template.newgame.helpers({
     }
   },
 
+  //Display P2 name
   p2_name : function() {
     var p2_name = Players.findOne({_id:Session.get('p2_id')});
     if(p2_name){
@@ -61,26 +68,29 @@ Template.newgame.helpers({
     }
   },
 
+  //Get players from Players collection for choosing
   all_names : function() {
     return Players.find().fetch();
   },
 
-  ot_inputs : function(){
-    var ot_inputs = [];
+  //Dynamically add OT inputs
+  ot_scores : function(){
+    var ot_scores = [];
     var ot_count = Session.get('ot_count');
 
     if(ot_count){
       for(var i=0; i<ot_count; i++){
-        ot_inputs[i] = {
+        ot_scores[i] = {
           'ot' : i+1
         }
       }
     }
-    return ot_inputs;
+    return ot_scores;
   }
 });
 
 Template.newgame.events({
+  //Update points on the fly
   'blur input.pts' : function() {
     var p1_pts = 0;
     var p2_pts = 0;
@@ -97,32 +107,37 @@ Template.newgame.events({
     Session.set('p2_pts', p2_pts);
   },
 
+  //How many overtimes?
   'click #ot_counter' : function(){
     Session.set('ot_count', $('#ot_counter').val());
   },
 
+  //Select your player
   'blur select.name' : function() {
     Session.set('p1_id', $('#p1_name').val());
     Session.set('p2_id', $('#p2_name').val());
   },
 
   'click input#newgame_addgame' : function() {
-
+    //Get player teams
     var p1_team = $('#p1_team').val();
     var p2_team = $('#p2_team').val();
 
+    //Get p1 reg goals
     var p1_reg_goals = {
       '1p' : $('#p1_score_1p').val(),
       '2p' : $('#p1_score_2p').val(),
       '3p' : $('#p1_score_3p').val()
     };
 
+    //Get p2 reg goals
     var p2_reg_goals = {
       '1p' : $('#p2_score_1p').val(),
       '2p' : $('#p2_score_2p').val(),
       '3p' : $('#p2_score_3p').val()
     };
 
+    //Get OT scores (if any)
     if(Session.get('ot_count')>0){
 
       var p1_ot_goals = {};
@@ -135,25 +150,36 @@ Template.newgame.events({
 
     }
 
+    //Find fights
     var p1_fights = $('#p1_fights').val();
     var p2_fights = $('#p2_fights').val();
 
+    //Find Final scores
     var p1_final = parseInt($('#p1_final').text());
     var p2_final = parseInt($('#p2_final').text());
 
     Games.insert({
+      //Add player IDs
       'p1_id' : Session.get('p1_id'),
       'p2_id' : Session.get('p2_id'),
 
+      //Add chosen teams
+      'p1_id' : p1_team,
+      'p2_id' : p1_team,
+
+      //Add reg goals
       'p1_reg_goals' : p1_reg_goals,
       'p2_reg_goals' : p2_reg_goals,
 
+      //Add OT goals
       'p1_ot_goals' : p1_ot_goals,
       'p2_ot_goals' : p2_ot_goals,
 
+      //Add fights
       'p1_fights' : p1_fights,
       'p2_fights' : p2_fights,
 
+      //Add final scores
       'p1_final' : p1_final,
       'p2_final' : p2_final
     });
