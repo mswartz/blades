@@ -1,6 +1,8 @@
 <template name="newgame">
   <h1>Let's score game {{game_no}}</h1>
   {{p1_name}}: {{p1_points}}, {{p2_name}}: {{p2_points}}
+  <input id="ot_counter" type="number" min="0" max="20" placeholder="0" />
+  {{ot_count}}
   
   <table>
 	  <thead>
@@ -9,9 +11,9 @@
 	  	<th>1</th>
 	  	<th>2</th>
 	  	<th>3</th>
-	  	<th>OT 1</th>
-	  	<th>OT 2</th>
-	  	<th>OT 3</th>
+	  	{{#each ot_inputs}}
+	  		<th>OT {{ot}}</th>
+	  	{{/each}}
 	  	<th>Fights</th>
 	 	<th>Final</th>
 	  </thead>
@@ -32,13 +34,16 @@
 	  		<option value="van">Vancouver</option>
 	  		<option value="mtl">Montreal</option>
 	  	</select></td>
-	  	<td><input value="0" class="p1_pts pts" id="p1_score_1p" type="text"/></td>
-	  	<td><input value="0" class="p1_pts pts" id="p1_score_2p" type="text"/></td>
-	  	<td><input value="0" class="p1_pts pts" id="p1_score_3p" type="text"/></td>
-	  	<td><input value="0" class="p1_pts pts" id="p1_score_1ot" type="text"/></td>
-	  	<td><input value="0" class="p1_pts pts" id="p1_score_2ot" type="text"/></td>
-	  	<td><input value="0" class="p1_pts pts" id="p1_3ot_score" type="text"/></td>
-	  	<td><input id="p1_fights" type="text"/></td>
+	  	<td><input value="0" class="p1_pts pts" id="p1_score_1p" type="number"/></td>
+	  	<td><input value="0" class="p1_pts pts" id="p1_score_2p" type="number"/></td>
+	  	<td><input value="0" class="p1_pts pts" id="p1_score_3p" type="number"/></td>
+
+	  	{{#each ot_inputs}}
+	  		<td><input value="0" class="p1_pts pts" id="p1_score_{{ot}}ot" type="number"/></td>
+	  	{{/each}}
+
+
+	  	<td><input id="p1_fights" type="number"/></td>
 	 	<td id="p1_final">{{p1_points}}</td>
 	 </tr>
 
@@ -58,14 +63,14 @@
 	  		<option value="van">Vancouver</option>
 	  		<option value="mtl">Montreal</option>
 	  	</select></td>
-	  	<td><input value="0" class="p2_pts pts" id="p2_score_1p" type="text"/></td>
-	  	<td><input value="0" class="p2_pts pts" id="p2_score_2p" type="text"/></td>
-	  	<td><input value="0" class="p2_pts pts" id="p2_score_3p" type="text"/></td>
-	  	<td><input value="0" class="p2_pts pts" id="p2_score_1ot" type="text"/></td>
-	  	<td><input value="0" class="p2_pts pts" id="p2_score_2ot" type="text"/></td>
-	  	<td><input value="0" class="p2_pts pts" id="p2_3ot_score" type="text"/></td>
-	  	<td><input id="p2_fights" type="text"/></td>
-	 	<td id="p1_final">{{p2_points}}</td>
+	  	<td><input value="0" class="p2_pts pts" id="p2_score_1p" type="number"/></td>
+	  	<td><input value="0" class="p2_pts pts" id="p2_score_2p" type="number"/></td>
+	  	<td><input value="0" class="p2_pts pts" id="p2_score_3p" type="number"/></td>
+	  	{{#each ot_inputs}}
+	  		<td><input value="0" class="p2_pts pts" id="p2_score_{{ot}}ot" type="number"/></td>
+	  	{{/each}}
+	  	<td><input id="p2_fights" type="number"/></td>
+	 	<td id="p2_final">{{p2_points}}</td>
 	 </tr>
 
 	  </tbody>

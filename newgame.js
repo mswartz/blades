@@ -17,6 +17,7 @@ Session.setDefault('p2_name', 'Player 2');
 Session.setDefault('p1_id', 'Player1');
 Session.setDefault('p2_id', 'Player2');
 
+Session.setDefault('ot_count', 0);
 
 Template.newgame.helpers({
   players : function(){
@@ -62,6 +63,20 @@ Template.newgame.helpers({
 
   all_names : function() {
     return Players.find().fetch();
+  },
+
+  ot_inputs : function(){
+    var ot_inputs = [];
+    var ot_count = Session.get('ot_count');
+
+    if(ot_count){
+      for(var i=0; i<ot_count; i++){
+        ot_inputs[i] = {
+          'ot' : i+1
+        }
+      }
+    }
+    return ot_inputs;
   }
 });
 
@@ -80,6 +95,10 @@ Template.newgame.events({
 
     Session.set('p1_pts', p1_pts);
     Session.set('p2_pts', p2_pts);
+  },
+
+  'click #ot_counter' : function(){
+    Session.set('ot_count', $('#ot_counter').val());
   },
 
   'blur select.name' : function() {
@@ -104,6 +123,18 @@ Template.newgame.events({
       '3p' : $('#p2_score_3p').val()
     };
 
+    if(Session.get('ot_count')>0){
+
+      var p1_ot_goals = {};
+      var p2_ot_goals = {};
+
+      for(var i = 0; i<=Session.get('ot_count')-1; i++){
+        p1_ot_goals[(i+1)+'ot'] = parseInt($('#p1_score_'+(i+1)+'ot').val());
+        p2_ot_goals[(i+1)+'ot'] = parseInt($('#p2_score_'+(i+1)+'ot').val());
+      }
+
+    }
+
     var p1_fights = $('#p1_fights').val();
     var p2_fights = $('#p2_fights').val();
 
@@ -116,6 +147,9 @@ Template.newgame.events({
 
       'p1_reg_goals' : p1_reg_goals,
       'p2_reg_goals' : p2_reg_goals,
+
+      'p1_ot_goals' : p1_ot_goals,
+      'p2_ot_goals' : p2_ot_goals,
 
       'p1_fights' : p1_fights,
       'p2_fights' : p2_fights,
