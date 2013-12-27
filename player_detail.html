@@ -1,6 +1,15 @@
 <template name="player_detail">
-  <h1>Players:</h1>
-
-  {{player_id}}
-
+  {{#each player}}
+  	<h1>{{name}}</h1>
+  	<hr>
+  	<ul>
+  		<li>Game Wins: <strong>{{game_wins}}</strong></li>
+  		<li>Game Losses: <strong>{{game_losses}}</strong></li>
+  		<li>Fights won: <strong>{{fight_wins}}</strong></li>
+  		<li>Fights lost: <strong>{{fight_losses}}</strong></li>
+  		<li>Goals Scored: <strong>{{game_wins}}</strong></li>
+  		<li>Goals Allowed: <strong>{{game_wins}}</strong></li>
+	</ul>
+	</hr>
+  {{/each}}
 </template>
