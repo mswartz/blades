@@ -120,11 +120,11 @@ Template.newgame.events({
   },
 
   'click input#newgame_addgame' : function() {
-    //Get player teams
+    //1. Get player teams
     var p1_team = $('#p1_team').val();
     var p2_team = $('#p2_team').val();
 
-    //Find game winner & loser
+    //2. Find game winner & loser
     var game_winner;
     var game_loser;
 
@@ -139,7 +139,7 @@ Template.newgame.events({
       game_loser = Session.get('p1_id');
     }
 
-    //Find fights winner & loser
+    //3. Find fights winner & loser or tied
     var fight_winner;
     var fight_loser;
 
@@ -158,21 +158,21 @@ Template.newgame.events({
       console.log('TIED');
     }
 
-    //Get p1 reg goals
+    //4a. Get p1 reg goals
     var p1_reg_goals = {
       '1p' : $('#p1_score_1p').val(),
       '2p' : $('#p1_score_2p').val(),
       '3p' : $('#p1_score_3p').val()
     };
 
-    //Get p2 reg goals
+    //4b. Get p2 reg goals
     var p2_reg_goals = {
       '1p' : $('#p2_score_1p').val(),
       '2p' : $('#p2_score_2p').val(),
       '3p' : $('#p2_score_3p').val()
     };
 
-    //Get OT scores (if any)
+    //5. Get OT scores (if any)
     if(Session.get('ot_count')>0){
       var p1_ot_goals = {};
       var p2_ot_goals = {};
@@ -183,39 +183,36 @@ Template.newgame.events({
       }
     }
 
-    //Find fights
-    var p1_fights = $('#p1_fights').val();
-    var p2_fights = $('#p2_fights').val();
 
-    //Find Final scores
-    var p1_final = parseInt($('#p1_final').text());
-    var p2_final = parseInt($('#p2_final').text());
-
-
+    //Save this game 
     Games.insert({
-      //Add player IDs
+      //1. Add player IDs
       'p1_id' : Session.get('p1_id'),
       'p2_id' : Session.get('p2_id'),
 
-      //Add chosen teams
-      'p1_id' : p1_team,
-      'p2_id' : p1_team,
+      //2. Add chosen teams
+      'p1_team' : p1_team,
+      'p2_team' : p1_team,
 
-      //Add reg goals
+      //3. Add reg goals
       'p1_reg_goals' : p1_reg_goals,
       'p2_reg_goals' : p2_reg_goals,
 
-      //Add OT goals
+      //4. Add OT goals
       'p1_ot_goals' : p1_ot_goals,
       'p2_ot_goals' : p2_ot_goals,
 
-      //Add fights
+      //5. Add fights
       'p1_fights' : p1_fights,
       'p2_fights' : p2_fights,
+      'fight_winner' : fight_winner,
+      'fight_loser' : fight_loser,
 
-      //Add final scores
-      'p1_final' : p1_final,
-      'p2_final' : p2_final
+      //6. Add final scores
+      'p1_final' : p1_pts,
+      'p2_final' : p2_pts,
+      'game_winner' : game_winner,
+      'game_loser' : game_loser,
     });
   }
 });
