@@ -108,12 +108,12 @@ Template.newgame.events({
   },
 
   //How many overtimes?
-  'click #ot_counter' : function(){
+  'change #ot_counter' : function(){
     Session.set('ot_count', $('#ot_counter').val());
   },
 
   //Select your player
-  'blur select.name' : function() {
+  'change select.name' : function() {
     Session.set('p1_id', $('#p1_name').val());
     Session.set('p2_id', $('#p2_name').val());
   },
