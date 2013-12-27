@@ -57,9 +57,10 @@ if (Meteor.isClient) {
       //This can check to make sure the player exists
       before: function() {
         if(Players.find({_id:this.params._id}).count()>0){
-          console.log('found');
+          this.render();
         } else {
-          console.log('not found');
+          this.render('notFound');
+          this.stop();
         }
       },
       //If all is well, load the template with the player_id
