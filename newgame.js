@@ -214,6 +214,24 @@ Template.newgame.events({
       'game_winner' : game_winner,
       'game_loser' : game_loser,
     });
+
+    //Update Player 1
+    Players.update(Session.get('p1_id'), 
+      {$inc: {
+        goals_scored : p1_pts, 
+        goals_allowed : p2_pts,
+        fights_won : p1_fights,
+        fights_lost : p2_fights
+    }});
+
+    //Update Player 2
+    Players.update(Session.get('p2_id'), 
+      {$inc: {
+        goals_scored : p2_pts, 
+        goals_allowed : p1_pts,
+        fights_won : p2_fights,
+        fights_lost : p1_fights
+    }});
   }
 });
 
