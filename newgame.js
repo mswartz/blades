@@ -215,6 +215,15 @@ Template.newgame.events({
       'game_loser' : game_loser,
     });
 
+    //Update Game winners
+    if(game_winner == Session.get('p1_id')){
+      Players.update(Session.get('p1_id'), {$inc: { games_won : 1 }});
+      Players.update(Session.get('p2_id'), {$inc: { games_lost : 1 }});
+    } else {
+      Players.update(Session.get('p2_id'), {$inc: { games_won : 1 }});
+      Players.update(Session.get('p1_id'), {$inc: { games_lost : 1 }});
+    }
+
     //Update Player 1
     Players.update(Session.get('p1_id'), 
       {$inc: {
