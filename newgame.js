@@ -19,6 +19,7 @@ Session.setDefault('p2_id', 'Player2');
 
 Session.setDefault('ot_count', 0);
 
+
 Template.newgame.helpers({
   //Get the players
   players : function(){
@@ -123,6 +124,40 @@ Template.newgame.events({
     var p1_team = $('#p1_team').val();
     var p2_team = $('#p2_team').val();
 
+    //Find game winner & loser
+    var game_winner;
+    var game_loser;
+
+    var p1_pts = Session.get('p1_pts');
+    var p2_pts = Session.get('p2_pts');
+
+    if(p1_pts == Math.max(p1_pts, p2_pts)){
+      game_winner = Session.get('p1_id');
+      game_loser = Session.get('p2_id');
+    } else {
+      game_winner = Session.get('p2_id');
+      game_loser = Session.get('p1_id');
+    }
+
+    //Find fights winner & loser
+    var fight_winner;
+    var fight_loser;
+
+    var p1_fights = parseInt($('#p1_fights').val());
+    var p2_fights = parseInt($('#p2_fights').val());
+
+    if(p1_fights > p2_fights){
+      fights_winner = Session.get('p1_id');
+      fights_loser = Session.get('p2_id');
+      console.log('p1 fight win');
+    } else if(p2_fights > p1_fights){
+      fights_winner = Session.get('p2_id');
+      fights_loser = Session.get('p1_id');
+      console.log('p2 fight win');
+    } else {
+      console.log('TIED');
+    }
+
     //Get p1 reg goals
     var p1_reg_goals = {
       '1p' : $('#p1_score_1p').val(),
@@ -139,7 +174,6 @@ Template.newgame.events({
 
     //Get OT scores (if any)
     if(Session.get('ot_count')>0){
-
       var p1_ot_goals = {};
       var p2_ot_goals = {};
 
@@ -147,7 +181,6 @@ Template.newgame.events({
         p1_ot_goals[(i+1)+'ot'] = parseInt($('#p1_score_'+(i+1)+'ot').val());
         p2_ot_goals[(i+1)+'ot'] = parseInt($('#p2_score_'+(i+1)+'ot').val());
       }
-
     }
 
     //Find fights
@@ -157,6 +190,7 @@ Template.newgame.events({
     //Find Final scores
     var p1_final = parseInt($('#p1_final').text());
     var p2_final = parseInt($('#p2_final').text());
+
 
     Games.insert({
       //Add player IDs
