@@ -10,6 +10,7 @@
 <h3>All Players</h3>
 {{#each players}}
 	<h2>{{name}}</h2>
+	<small>{{_id}}</small>
 	<input type="submit" class="player_deleteplayer" data-id="{{_id}}" value="Delete Player"/>
 {{/each}}
 

@@ -40,6 +40,34 @@ if (Meteor.isClient) {
       path: '/players',
       template: 'players'
     });
+
+    // Player Detail
+    this.route('playerDetail', {
+      // matches: '/posts/1'
+      path: '/players/:_id',
+      template: 'player_detail',
+      data: function () {
+        // this.params is available inside the data function
+        var player_id = this.params._id;
+
+        return {
+          id : player_id
+        }
+      },
+      //This can check to make sure the player exists
+      before: function() {
+        if(Players.find({_id:this.params._id}).count()>0){
+          console.log('found');
+        } else {
+          console.log('not found');
+        }
+      },
+      //If all is well, load the template with the player_id
+      load: function() {
+        Session.set('player_id', this.params._id);
+      }
+    });
+
   });
 
 }
