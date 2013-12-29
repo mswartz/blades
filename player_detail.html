@@ -13,6 +13,9 @@
   		<li>Goals Allowed: <strong>{{goals_allowed}}</strong></li>
   		<li>Wins as Player 1: <strong>{{p1_wins}}</strong></li>
   		<li>Wins as Player 2: <strong>{{p2_wins}}</strong></li>
+  		{{#each p1_reg_pts}}
+  			{{p1_score_p1}}
+  		{{/each}}
 	</ul>
 	</hr>
   {{/each}}

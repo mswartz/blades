@@ -160,16 +160,16 @@ Template.newgame.events({
 
     //4a. Get p1 reg goals
     var p1_reg_goals = {
-      '1p' : $('#p1_score_1p').val(),
-      '2p' : $('#p1_score_2p').val(),
-      '3p' : $('#p1_score_3p').val()
+      '1p' : parseInt($('#p1_score_1p').val()),
+      '2p' : parseInt($('#p1_score_2p').val()),
+      '3p' : parseInt($('#p1_score_3p').val())
     };
 
     //4b. Get p2 reg goals
     var p2_reg_goals = {
-      '1p' : $('#p2_score_1p').val(),
-      '2p' : $('#p2_score_2p').val(),
-      '3p' : $('#p2_score_3p').val()
+      '1p' : parseInt($('#p2_score_1p').val()),
+      '2p' : parseInt($('#p2_score_2p').val()),
+      '3p' : parseInt($('#p2_score_3p').val()),
     };
 
     //5. Get OT scores (if any)
