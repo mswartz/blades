@@ -5,13 +5,50 @@
   <input type="text" placeholder="Player Name" id="newplayer_name"/>
   <input type="submit" value="Add Player" class="newplayer_submitplayer"/>
 
+<hr>
+<h3>Top Goal Scorers</h3>
+<table border="1">
+<thead>
+	<th>Name</th>
+	<th>Goals Scored</th>
+	<th>Goals Allowed</th>
+</thead>
+<tbody>
+{{#each scorers}}
+<tr>
+	<td><a href="players/{{_id}}">{{name}}</a></td>
+	<td>{{goals_scored}}</td>
+	<td>{{goals_allowed}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
 
+<hr>
 
 <h3>All Players</h3>
+
+<table border="1">
+<thead>
+	<th>Name</th>
+	<th>ID</th>
+	<th>Games Played</th>
+	<th>Win record</th>
+	<th>Fights</th>
+	<th>Delete</th>
+</thead>
+<tbody>
 {{#each players}}
-	<h2>{{name}}</h2>
-	<a href="players/{{_id}}">{{_id}}</a>
-	<input type="submit" class="player_deleteplayer" data-id="{{_id}}" value="Delete Player"/>
+<tr>
+	<td><a href="players/{{_id}}">{{name}}</a></td>
+	<td><a href="players/{{_id}}">{{_id}}</a></td>
+	<td>{{games_played}}</td>
+	<td>{{games_won}} / {{games_lost}}</td>
+	<td>{{fights_won}} / {{games_lost}}</td>
+	<td><input type="submit" class="player_deleteplayer" data-id="{{_id}}" value="Delete Player"/></td>
+</tr>
 {{/each}}
+</tbody>
+</table>
 
 </template>
