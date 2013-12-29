@@ -2,14 +2,28 @@
   {{#each player}}
   	<h1>{{name}}</h1>
   	<hr>
+  	<h2>Player Collection Data</h2>
   	<ul>
+		<li>Games Played: <strong>{{games_played}}</strong></li>
   		<li>Game Wins: <strong>{{games_won}}</strong></li>
   		<li>Game Losses: <strong>{{games_lost}}</strong></li>
   		<li>Fights won: <strong>{{fights_won}}</strong></li>
   		<li>Fights lost: <strong>{{fights_lost}}</strong></li>
   		<li>Goals Scored: <strong>{{goals_scored}}</strong></li>
   		<li>Goals Allowed: <strong>{{goals_allowed}}</strong></li>
+  		<li>Wins as Player 1: <strong>{{p1_wins}}</strong></li>
+  		<li>Wins as Player 2: <strong>{{p2_wins}}</strong></li>
 	</ul>
 	</hr>
   {{/each}}
+  	<h2>Calculated Data</h2>
+	{{#each stats}}
+  	<ul>
+  		<li>Game Win Ratio: <strong>{{win_avg}}</strong></li>
+  		<li>Fight win ratio: <strong>{{fight_avg}}</strong></li>
+  		<li>Goals scored average: <strong>{{gs_avg}}</strong></li>
+  		<li>Goals allowed average: <strong>{{ga_avg}}</strong></li>
+	</ul>
+	{{/each}}
+	</hr>
 </template>
