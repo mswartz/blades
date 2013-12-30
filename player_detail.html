@@ -19,7 +19,8 @@
 	</ul>
 	</hr>
   {{/each}}
-  	<h2>Calculated Data</h2>
+
+  <h2>Calculated Data</h2>
 	{{#each stats}}
   	<ul>
   		<li>Game Win Ratio: <strong>{{win_avg}}</strong></li>
@@ -29,4 +30,11 @@
 	</ul>
 	{{/each}}
 	</hr>
+
+  <h2>Game appearances</h2>
+      <ul>  
+  {{#each games}}
+    <li>{{game_no}} {{_id}}</li>
+  {{/each}}
+  </ul>
 </template>

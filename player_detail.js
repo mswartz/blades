@@ -31,6 +31,11 @@ if (Meteor.isClient) {
 	  	}
 
 	  	return stats;
+	  },
+	  games : function(){
+	  	var games = Games.find({ $or: [{'p1_id':Session.get('player_id')}, {'p2_id':Session.get('player_id')}]}, {sort: {'game_no':1}}).fetch();
+	  	return games;
+
 	  }
 	});
 }

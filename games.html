@@ -3,12 +3,41 @@
   <h5>There have been {{total_games}} games recorded.</h5>
   
 	<h3>All Games</h3>
+	<table border="1">
+		<thead>
+		<th>Game No</th>
+		<th>Game ID</th>
+		<th>Players</th>
+		<th>1p</th>
+		<th>2p</th>
+		<th>3p</th>
+		<th>Fights</th>
+		<th>Final</th>
+		</thead>
+
+		<tbody>
 	{{#each games}}
-		<h2>{{_id}}</h2>
-		{{p1_final}}
-		<h5>{{p1_id}} vs {{p2_id}}</h5>
-		{{#each p1}} {{name}} {{/each}} vs {{#each p2}} {{name}} {{/each}}
+		<tr>
+			<td rowspan="2">{{game_no}}</td>
+			<td rowspan="2">{{_id}}</td>
+			<td>Player 1 name</td>
+			<td>p1_1p score</td>
+			<td>p1_2p score</td>
+			<td>p1_3p score</td>
+			<td>p1 fights</td>
+			<td>p1 final</td>
+		</tr>
+		<tr>
+			<td>Player 2 name</td>
+			<td>p2_1p score</td>
+			<td>p2_2p score</td>
+			<td>p2_3p score</td>
+			<td>p2 fights</td>
+			<td>p2 final</td>
+		</tr>
 		<hr>
 	{{/each}}
+		</tbody>
+	</table>
 
 </template>

@@ -20,6 +20,8 @@ Session.setDefault('p2_id', 'Player2');
 Session.setDefault('ot_count', 0);
 
 
+
+
 Template.newgame.helpers({
   //Get the players
   players : function(){
@@ -30,6 +32,7 @@ Template.newgame.helpers({
   //get us the game number
   game_no : function(){
     var count = Games.find().count() + 1;
+    Session.set('game_no', count);
     return count;
   },
 
@@ -119,6 +122,7 @@ Template.newgame.events({
     Session.set('p2_id', $('#p2_name').val());
   },
 
+  //Submit the game
   'click input#newgame_addgame' : function() {
     //1. Get player teams
     var p1_team = $('#p1_team').val();
@@ -131,7 +135,7 @@ Template.newgame.events({
     var p1_pts = Session.get('p1_pts');
     var p2_pts = Session.get('p2_pts');
 
-    if(p1_pts == Math.max(p1_pts, p2_pts)){
+    if(p1_pts > p2_pts){
       game_winner = Session.get('p1_id');
       game_loser = Session.get('p2_id');
     } else {
@@ -186,31 +190,38 @@ Template.newgame.events({
 
     //Save this game 
     Games.insert({
-      //1. Add player IDs
+      //Add game_no
+      'game_no' : Session.get('game_no'),
+
+      //Add player IDs and names
       'p1_id' : Session.get('p1_id'),
       'p2_id' : Session.get('p2_id'),
 
-      //2. Add chosen teams
-      'p1_team' : p1_team,
-      'p2_team' : p1_team,
+      'p1_name' : Session.get('p1_name'),
+      'p2_name' : Session.get('p2_name'),
 
-      //3. Add reg goals
+      //Add chosen teams
+      'p1_team' : p1_team,
+      'p2_team' : p2_team,
+
+      //Add reg goals
       'p1_reg_goals' : p1_reg_goals,
       'p2_reg_goals' : p2_reg_goals,
 
-      //4. Add OT goals
+      //Add OT goals
       'p1_ot_goals' : p1_ot_goals,
       'p2_ot_goals' : p2_ot_goals,
 
-      //5. Add fights
+      //Add fights
       'p1_fights' : p1_fights,
       'p2_fights' : p2_fights,
       'fight_winner' : fight_winner,
       'fight_loser' : fight_loser,
 
-      //6. Add final scores
+      //Add final scores
       'p1_final' : p1_pts,
       'p2_final' : p2_pts,
+
       'game_winner' : game_winner,
       'game_loser' : game_loser,
     });
