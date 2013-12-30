@@ -20,6 +20,89 @@
 	</hr>
   {{/each}}
 
+  <h2>Goal Distribution PLACEHOLDER</h2>
+  <ul>
+    <li>1p goals: <strong>{{1p_goals}}</strong></li>
+    <li>2p goals: <strong>{{1p_goals}}</strong></li>
+    <li>3p goals: <strong>{{1p_goals}}</strong></li>
+    <li>OT1</li>
+    <li>OT2</li>
+  </ul>
+
+  <hr>
+
+  <h2>Record vs Opponents PLACEHOLDER</h2>
+<table border="1">
+  <thead>
+    <th>Opponent</th>
+    <th>Games played</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Win avg</th>
+    <th>Fights won</th>
+    <th>Fights lost</th>
+    <th>Fights avg</th>
+    <th>Goals Scored</th>
+    <th>Goals Allowed</th>
+    <th>Goal avg</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Tito</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>.5</td>
+    <td>5</td>
+    <td>1</td>
+    <td>5</td>
+    <td>12</td>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+    <tr>
+    <td>Tito</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>.5</td>
+    <td>5</td>
+    <td>1</td>
+    <td>5</td>
+    <td>12</td>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+    <tr>
+    <td>Tito</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>.5</td>
+    <td>5</td>
+    <td>1</td>
+    <td>5</td>
+    <td>12</td>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+    <tr>
+    <td>Tito</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>.5</td>
+    <td>5</td>
+    <td>1</td>
+    <td>5</td>
+    <td>12</td>
+    <td>3</td>
+    <td>4</td>
+  </tr>
+  </tbody>
+</table>
+  <hr>
+
   <h2>Calculated Data</h2>
 	{{#each stats}}
   	<ul>
@@ -34,6 +117,13 @@
   <h2>Game appearances</h2>
       <ul>  
   {{#each games}}
+    <li>{{game_no}} {{_id}}</li>
+  {{/each}}
+  </ul>
+  <hr>
+    <h2>Game Wins</h2>
+      <ul>  
+  {{#each wins}}
     <li>{{game_no}} {{_id}}</li>
   {{/each}}
   </ul>
