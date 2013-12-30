@@ -164,6 +164,12 @@ Template.newgame.events({
       console.log('TIED');
     }
 
+    //Get regular goals
+    var reg_goals = [];
+
+    for(var i = 0; i<3; i++){
+      reg_goals[i] = {period : i+1, p1_score : parseInt($('#p1_score_'+(i+1)+'p').val()), p2_score : parseInt($('#p2_score_'+(i+1)+'p').val())};
+    }
 
     //Get OT scores (if any)
     if(Session.get('ot_count')>0){
@@ -193,13 +199,7 @@ Template.newgame.events({
       'p2_team' : p2_team,
 
       //Add reg goals
-      'p1_1p' : parseInt($('#p1_score_1p').val()),
-      'p1_2p' : parseInt($('#p1_score_2p').val()),
-      'p1_3p' : parseInt($('#p1_score_3p').val()),
-
-      'p2_1p' : parseInt($('#p2_score_1p').val()),
-      'p2_2p' : parseInt($('#p2_score_2p').val()),
-      'p2_3p' : parseInt($('#p2_score_3p').val()),
+      'reg_goals' : reg_goals,
 
       //Add OT goals
       'ot_goals' : ot_goals,

@@ -10,9 +10,9 @@
 		<th>Game No</th>
 		<th>Game ID</th>
 		<th>Players</th>
-		<th>1p</th>
-		<th>2p</th>
-		<th>3p</th>
+		{{#each reg_goals}}
+			<th>{{period}}</th>
+		{{/each}}
 		{{#each ot_goals}}
 			<th>OT {{ot_num}}</th>
 		{{/each}}
@@ -25,9 +25,9 @@
 			<td rowspan="2">{{game_no}}</td>
 			<td rowspan="2">{{_id}}</td>
 			<td>{{p1_name}}</td>
-			<td>{{p1_1p}}</td>
-			<td>{{p1_2p}}</td>
-			<td>{{p1_3p}}</td>
+			{{#each reg_goals}}
+				<td>{{p1_score}}</td>
+			{{/each}}
 			{{#each ot_goals}}
 				<td>{{p1_score}}</td>
 			{{/each}}
@@ -36,9 +36,9 @@
 		</tr>
 		<tr>
 			<td>{{p2_name}}</td>
-			<td>{{p2_1p}}</td>
-			<td>{{p2_2p}}</td>
-			<td>{{p2_3p}}</td>
+			{{#each reg_goals}}
+				<td>{{p2_score}}</td>
+			{{/each}}
 			{{#each ot_goals}}
 				<td>{{p2_score}}</td>
 			{{/each}}
