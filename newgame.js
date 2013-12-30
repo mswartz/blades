@@ -247,8 +247,8 @@ Template.newgame.events({
         'p1_games' : 1,
         'goals_scored' : p2_pts, 
         'goals_allowed' : p1_pts,
-        'fights_won' : p2_fights,
-        'fights_lost' : p1_fights
+        'fights_won' : p1_fights,
+        'fights_lost' : p2_fights
     }});
 
     //Update Player 2
