@@ -161,7 +161,7 @@ Template.newgame.events({
       fights_loser = Session.get('p1_id');
       console.log('p2 fight win');
     } else {
-      console.log('TIED');
+      console.log('FIGHTS TIED');
     }
 
     //Get regular goals
@@ -176,8 +176,18 @@ Template.newgame.events({
       var ot_goals = [];
 
       for(var i = 0; i<=Session.get('ot_count')-1; i++){
-        var ot = 'ot'+i;
+        var ot = (i+1)+'ot';
         ot_goals[i] = {ot_num : i+1, p1_score : parseInt($('#p1_score_'+(i+1)+'ot').val()), p2_score : parseInt($('#p2_score_'+(i+1)+'ot').val()) };
+        
+        //Create variable keys so we can pass them in the Players.update
+        var p1_ot_key = {};
+        var p2_ot_key = {};
+        p1_ot_key[ot+'_goals']=ot_goals[i].p1_score;
+        p2_ot_key[ot+'_goals']=ot_goals[i].p2_score;
+
+        //Update OT scores on the fly
+        Players.update({_id : Session.get('p1_id')}, {$inc: p1_ot_key});
+        Players.update({_id : Session.get('p2_id')}, {$inc: p2_ot_key});
       }
     }
 
@@ -230,23 +240,29 @@ Template.newgame.events({
     //Update Player 1
     Players.update(Session.get('p1_id'), 
       {$inc: {
-        games_played : 1,
-        p1_games : 1,
-        goals_scored : p1_pts, 
-        goals_allowed : p2_pts,
-        fights_won : p1_fights,
-        fights_lost : p2_fights
+        'games_played' : 1,
+        '1p_goals' : reg_goals[0].p1_score,
+        '2p_goals' : reg_goals[1].p1_score,
+        '3p_goals' : reg_goals[2].p1_score,
+        'p1_games' : 1,
+        'goals_scored' : p2_pts, 
+        'goals_allowed' : p1_pts,
+        'fights_won' : p2_fights,
+        'fights_lost' : p1_fights
     }});
 
     //Update Player 2
     Players.update(Session.get('p2_id'), 
       {$inc: {
-        games_played : 1,
-        p2_games : 1,
-        goals_scored : p2_pts, 
-        goals_allowed : p1_pts,
-        fights_won : p2_fights,
-        fights_lost : p1_fights
+        'games_played' : 1,
+        '1p_goals' : reg_goals[0].p2_score,
+        '2p_goals' : reg_goals[1].p2_score,
+        '3p_goals' : reg_goals[2].p2_score,
+        'p2_games' : 1,
+        'goals_scored' : p2_pts, 
+        'goals_allowed' : p1_pts,
+        'fights_won' : p2_fights,
+        'fights_lost' : p1_fights
     }});
   }
 });
