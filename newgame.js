@@ -60,6 +60,7 @@ Template.newgame.helpers({
   p1_name : function() {
     var p1_name = Players.findOne({_id:Session.get('p1_id')});
     if(p1_name){
+      Session.set('p1_name', p1_name.name);
       return p1_name.name;
     }
   },
@@ -68,6 +69,7 @@ Template.newgame.helpers({
   p2_name : function() {
     var p2_name = Players.findOne({_id:Session.get('p2_id')});
     if(p2_name){
+      Session.set('p2_name', p2_name.name);
       return p2_name.name;
     }
   },
@@ -124,11 +126,11 @@ Template.newgame.events({
 
   //Submit the game
   'click input#newgame_addgame' : function() {
-    //1. Get player teams
+    //Get player teams
     var p1_team = $('#p1_team').val();
     var p2_team = $('#p2_team').val();
 
-    //2. Find game winner & loser
+    //Find game winner & loser
     var game_winner;
     var game_loser;
 
@@ -143,7 +145,7 @@ Template.newgame.events({
       game_loser = Session.get('p1_id');
     }
 
-    //3. Find fights winner & loser or tied
+    //Find fights winner & loser or tied
     var fight_winner;
     var fight_loser;
 
@@ -162,21 +164,8 @@ Template.newgame.events({
       console.log('TIED');
     }
 
-    //4a. Get p1 reg goals
-    var p1_reg_goals = {
-      '1p' : parseInt($('#p1_score_1p').val()),
-      '2p' : parseInt($('#p1_score_2p').val()),
-      '3p' : parseInt($('#p1_score_3p').val())
-    };
 
-    //4b. Get p2 reg goals
-    var p2_reg_goals = {
-      '1p' : parseInt($('#p2_score_1p').val()),
-      '2p' : parseInt($('#p2_score_2p').val()),
-      '3p' : parseInt($('#p2_score_3p').val()),
-    };
-
-    //5. Get OT scores (if any)
+    //Get OT scores (if any)
     if(Session.get('ot_count')>0){
       var p1_ot_goals = {};
       var p2_ot_goals = {};
@@ -205,8 +194,13 @@ Template.newgame.events({
       'p2_team' : p2_team,
 
       //Add reg goals
-      'p1_reg_goals' : p1_reg_goals,
-      'p2_reg_goals' : p2_reg_goals,
+      'p1_1p' : parseInt($('#p1_score_1p').val()),
+      'p1_2p' : parseInt($('#p1_score_2p').val()),
+      'p1_3p' : parseInt($('#p1_score_3p').val()),
+
+      'p2_1p' : parseInt($('#p2_score_1p').val()),
+      'p2_2p' : parseInt($('#p2_score_2p').val()),
+      'p2_3p' : parseInt($('#p2_score_3p').val()),
 
       //Add OT goals
       'p1_ot_goals' : p1_ot_goals,

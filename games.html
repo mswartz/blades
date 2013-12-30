@@ -3,6 +3,8 @@
   <h5>There have been {{total_games}} games recorded.</h5>
   
 	<h3>All Games</h3>
+	
+	{{#each games}}
 	<table border="1">
 		<thead>
 		<th>Game No</th>
@@ -16,28 +18,29 @@
 		</thead>
 
 		<tbody>
-	{{#each games}}
 		<tr>
 			<td rowspan="2">{{game_no}}</td>
 			<td rowspan="2">{{_id}}</td>
-			<td>Player 1 name</td>
-			<td>p1_1p score</td>
-			<td>p1_2p score</td>
-			<td>p1_3p score</td>
-			<td>p1 fights</td>
-			<td>p1 final</td>
+			<td>{{p1_name}}</td>
+			<td>{{p1_1p}}</td>
+			<td>{{p1_2p}}</td>
+			<td>{{p1_3p}}</td>
+			<td>{{p1_fights}}</td>
+			<td>{{p1_final}}</td>
 		</tr>
 		<tr>
-			<td>Player 2 name</td>
-			<td>p2_1p score</td>
-			<td>p2_2p score</td>
-			<td>p2_3p score</td>
-			<td>p2 fights</td>
-			<td>p2 final</td>
+			<td>{{p2_name}}</td>
+			<td>{{p2_1p}}</td>
+			<td>{{p2_2p}}</td>
+			<td>{{p2_3p}}</td>
+			<td>{{p2_fights}}</td>
+			<td>{{p2_final}}</td>
 		</tr>
-		<hr>
-	{{/each}}
+
 		</tbody>
 	</table>
+	{{/each}}
+			<hr>
+
 
 </template>
