@@ -245,8 +245,8 @@ Template.newgame.events({
         '2p_goals' : reg_goals[1].p1_score,
         '3p_goals' : reg_goals[2].p1_score,
         'p1_games' : 1,
-        'goals_scored' : p2_pts, 
-        'goals_allowed' : p1_pts,
+        'goals_scored' : p1_pts, 
+        'goals_allowed' : p2_pts,
         'fights_won' : p1_fights,
         'fights_lost' : p2_fights
     }});
