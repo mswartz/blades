@@ -117,7 +117,17 @@ Template.newgame.events({
   'change select.name' : function() {
     Session.set('p1_id', $('#p1_name').val());
     Session.set('p2_id', $('#p2_name').val());
+
+    //get the preferred team for each player and filter the select menu
+    var p1_data = Players.find({_id : Session.get('p1_id')}).fetch();
+    Session.set('p1_team', p1_data[0].team);
+    $('#p1_team').val(p1_data[0].team);
+
+    var p2_data = Players.find({_id : Session.get('p2_id')}).fetch();
+    Session.set('p2_team', p2_data[0].team);
+    $('#p2_team').val(p2_data[0].team);
   },
+
 
   //Submit the game
   'click input#newgame_addgame' : function() {
