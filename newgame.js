@@ -167,12 +167,11 @@ Template.newgame.events({
 
     //Get OT scores (if any)
     if(Session.get('ot_count')>0){
-      var p1_ot_goals = {};
-      var p2_ot_goals = {};
+      var ot_goals = [];
 
       for(var i = 0; i<=Session.get('ot_count')-1; i++){
-        p1_ot_goals[(i+1)+'ot'] = parseInt($('#p1_score_'+(i+1)+'ot').val());
-        p2_ot_goals[(i+1)+'ot'] = parseInt($('#p2_score_'+(i+1)+'ot').val());
+        var ot = 'ot'+i;
+        ot_goals[i] = {ot_num : i+1, p1_score : parseInt($('#p1_score_'+(i+1)+'ot').val()), p2_score : parseInt($('#p2_score_'+(i+1)+'ot').val()) };
       }
     }
 
@@ -203,8 +202,7 @@ Template.newgame.events({
       'p2_3p' : parseInt($('#p2_score_3p').val()),
 
       //Add OT goals
-      'p1_ot_goals' : p1_ot_goals,
-      'p2_ot_goals' : p2_ot_goals,
+      'ot_goals' : ot_goals,
 
       //Add fights
       'p1_fights' : p1_fights,
