@@ -23,7 +23,10 @@ Template.players.helpers({
 
 Template.players.events({
   'click input.newplayer_submitplayer' : function() {
-    var newplayer = gatherValues("newplayer", ["name"]);
+    var newplayer = {
+      'name' : $('#newplayer_name').val(),
+      'team' : $('#newplayer_team').val()
+    }
 
     Players.insert(newplayer);
   },
@@ -31,15 +34,5 @@ Template.players.events({
     Players.remove(this._id);
   }
 });
-
-//Function for getting stuff from forms
-function gatherValues(schema, array) {
-  var result = {};
-  for ( var i = 0; i < array.length; i++) {
-    var value = $('#'+schema+"_"+array[i]).val();
-    result[array[i]] = value;
-  }
-  return result;
-}
 
 }//isClient

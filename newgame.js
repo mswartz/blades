@@ -10,16 +10,11 @@ if (Meteor.isClient) {
 
 Session.setDefault('p1_pts', 0);
 Session.setDefault('p2_pts', 0);
-
 Session.setDefault('p1_name', 'Player 1');
 Session.setDefault('p2_name', 'Player 2');
-
 Session.setDefault('p1_id', 'Player1');
 Session.setDefault('p2_id', 'Player2');
-
 Session.setDefault('ot_count', 0);
-
-
 
 
 Template.newgame.helpers({
