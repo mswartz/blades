@@ -3,11 +3,9 @@
 M A I N
 
 **********************************/
-
 // Set up collections for 
 Players = new Meteor.Collection("players");
 Games = new Meteor.Collection("games");
-
 
 if (Meteor.isClient) {
 
@@ -101,6 +99,7 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
+
   Meteor.startup(function () {
     // Games.remove({});
     // Players.remove({});

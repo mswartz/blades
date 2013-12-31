@@ -242,7 +242,115 @@ Template.newgame.events({
       Players.update(Session.get('p1_id'), {$inc: { games_lost : 1, p1_losses : 1 }});
     }
 
+
+
+    // Update players opponent stats for the player they're facing
+
+    // HUGE write-around here, Meteor won't allow client code to modify
+    // collections with anything but the _id (no _id AND opponents.id), 
+    // so while I could do all this junk with MongoDB selectors I need to do it this way
+    // until I figure out how to do it the 'meteor way'.
+
+    var p1data = Players.findOne({_id: Session.get('p1_id')});
+    var p2data = Players.findOne({_id: Session.get('p2_id')});
+
+    var p1_exists = false;
+    var p2_exists = false;
+
+    var p1_index = 0;
+    var p2_index = 0;
+
+    var p1_opp = {
+      name: Session.get('p1_name'),
+      id: Session.get('p1_id'),
+      games_played: 0,
+      games_won: 0,
+      games_lost: 0,
+      goals_scored: 0,
+      goals_allowed: 0,
+      fights_total: 0,
+      fights_won: 0,
+      fights_lost: 0
+    };
+
+    var p2_opp = {
+      name: Session.get('p2_name'),
+      id: Session.get('p2_id'),
+      games_played: 0,
+      games_won: 0,
+      games_lost: 0,
+      goals_scored: 0,
+      goals_allowed: 0,
+      fights_total: 0,
+      fights_won: 0,
+      fights_lost: 0
+    };
+
+    //If there are no opponent records for this player, add them
+    if(p1data.opponents == undefined){
+      console.log('not found');
+      p2_exists = true;
+      Players.update({_id:Session.get('p1_id')}, {$addToSet: {'opponents':p2_opp}});
+    } else {
+        // iterate each p1.opponent looking for the right index
+        for(var i = 0; i<p1data.opponents.length; i++){
+          if(p1data.opponents[i].id == Session.get('p2_id')){
+            p2_exists = true;
+            p2_index = i;
+          } 
+        };  
+    }
+
+    if(p2data.opponents == undefined){
+      console.log('not found');
+      p1_exists = true;
+      Players.update({_id:Session.get('p2_id')}, {$addToSet: {'opponents':p1_opp}});
+    } else {
+        // iterate each p2.opponent looking for the right index
+        for(var i = 0; i<p2data.opponents.length; i++){
+          if(p2data.opponents[i].id == Session.get('p1_id')){
+            p1_exists = true;
+            p1_index = i;
+          } 
+        };
+    }
+
+    //If the opponents don't exist in each others opponent tables, add them
+    if(!p1_exists){
+      console.log('Player 1 has never faced Player 2');
+      Players.update({_id: Session.get('p2_id')}, {$addToSet: {'opponents': p1_opp}});
+    }
+
+    if(!p2_exists){
+      console.log('Player 2 has never faced Player 1');
+      Players.update({_id: Session.get('p1_id')}, {$addToSet: {'opponents': p2_opp}});
+    }
+
+    
+    //NOW we can finally increment the Opponent stats 
+    //TODO: pass ALL the vars in to this thing, hopefully in a smarter way like with an Object
+    
+    //Player 1 first
+    Meteor.call("incrementOpponent", Session.get('p1_id'), Session.get('p2_id'), function(error, affectedDocs) {
+      if (error) {
+        console.log(error.message);
+      } else {
+        console.log('were good');
+      }
+    });
+
+    //Now we do Player 2
+    Meteor.call("incrementOpponent", Session.get('p2_id'), Session.get('p1_id'), function(error, affectedDocs) {
+      if (error) {
+        console.log(error.message);
+      } else {
+        console.log('were good');
+      }
+    });
+
+
     //Update Player 1
+
     Players.update(Session.get('p1_id'), 
       {$inc: {
         'games_played' : 1,
@@ -274,3 +382,6 @@ Template.newgame.events({
 
 
 }//isClient
+
+if(Meteor.isServer){
+}

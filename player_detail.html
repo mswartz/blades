@@ -29,10 +29,21 @@
     <li>OT3: <strong>{{3ot_goals}}</strong></li>
     <li>OT4: <strong>{{4ot_goals}}</strong></li>
   </ul>
-  {{/each}}
-  <hr>
 
-  <h2>Record vs Opponents PLACEHOLDER</h2>
+
+    <h2>Record vs Opponents PLACEHOLDER</h2>
+
+  {{#each opponents}}
+    {{name}}
+    {{id}}
+    {{goals_scored}}
+  {{/each}}
+
+  <hr>
+  {{/each}}
+
+
+
 <table border="1">
   <thead>
     <th>Opponent</th>
