@@ -287,6 +287,7 @@ Template.newgame.events({
     };
 
     //If there are no opponent records for this player, add them
+    //Add p2_opp to p1
     if(p1data.opponents == undefined){
       console.log('not found');
       p2_exists = true;
@@ -301,6 +302,7 @@ Template.newgame.events({
         };  
     }
 
+    //Add p1_opp to p2
     if(p2data.opponents == undefined){
       console.log('not found');
       p1_exists = true;
@@ -330,8 +332,43 @@ Template.newgame.events({
     //NOW we can finally increment the Opponent stats 
     //TODO: pass ALL the vars in to this thing, hopefully in a smarter way like with an Object
     
+    var p1_opp_stats = {};
+
+    p1_opp_stats = {
+      'games_played': 1,
+      'goals_scored': p1_pts,
+      'goals_allowed': p2_pts,
+      'fights_total': p1_fights + p2_fights,
+      'fights_won': p1_fights,
+      'fights_lost': p2_fights
+    };
+
+    var p2_opp_stats = {
+      'games_played': 1,
+      'goals_scored': p2_pts,
+      'goals_allowed': p1_pts,
+      'fights_total': p1_fights + p2_fights,
+      'fights_won': p2_fights,
+      'fights_lost': p1_fights
+    };
+
+    if(game_winner == Session.get('p1_id')){
+      p1_opp_stats['games_lost'] = 0;
+      p1_opp_stats['games_won'] = 1;
+      p2_opp_stats['games_lost'] = 1;
+      p2_opp_stats['games_won'] = 0;
+    } else {
+      p1_opp_stats['games_lost'] = 1;
+      p1_opp_stats['games_won'] = 0;
+      p2_opp_stats['games_lost'] = 0;
+      p2_opp_stats['games_won'] = 1;
+    }
+
+
+    console.log(p1_opp_stats.games_won);
+
     //Player 1 first
-    Meteor.call("incrementOpponent", Session.get('p1_id'), Session.get('p2_id'), function(error, affectedDocs) {
+    Meteor.call("incrementOpponent", Session.get('p1_id'), Session.get('p2_id'), p1_opp_stats, function(error, affectedDocs) {
       if (error) {
         console.log(error.message);
       } else {
@@ -339,8 +376,8 @@ Template.newgame.events({
       }
     });
 
-    //Now we do Player 2
-    Meteor.call("incrementOpponent", Session.get('p2_id'), Session.get('p1_id'), function(error, affectedDocs) {
+    //Player 2 next
+    Meteor.call("incrementOpponent", Session.get('p2_id'), Session.get('p1_id'), p2_opp_stats, function(error, affectedDocs) {
       if (error) {
         console.log(error.message);
       } else {
@@ -349,7 +386,8 @@ Template.newgame.events({
     });
 
 
-    //Update Player 1
+
+    //Update Player 1's other stats
 
     Players.update(Session.get('p1_id'), 
       {$inc: {
