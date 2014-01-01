@@ -2,10 +2,6 @@
 
 G A M E S
 
-- Display all players
-- Add new Players
-- Delete Players
-
 **********************************/
 
 if (Meteor.isClient) {
@@ -33,12 +29,8 @@ Template.games.helpers({
   },
 
   game_range : function(){
-    var range = [];
-    
-    range[0] = {range_lower: 1, range_upper: 50 };
-    range[1] = {range_lower: 51, range_upper: 100 };
-
-    return range;
+    // Use the Paginate function and return the range;
+    return Paginate(Games.find({}).count(), Session.get('results_num'));
   }
 });
 
