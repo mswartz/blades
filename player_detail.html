@@ -80,16 +80,13 @@
 	</hr>
 
   <h2>Game appearances</h2>
-      <ul>  
   {{#each games}}
-    <li>{{game_no}} {{_id}}</li>
+    {{>game}}
   {{/each}}
-  </ul>
   <hr>
-    <h2>Game Wins</h2>
-      <ul>  
+  
+  <h2>Game Wins</h2>
   {{#each wins}}
-    <li>{{game_no}} {{_id}}</li>
+    {{>game}}
   {{/each}}
-  </ul>
 </template>
