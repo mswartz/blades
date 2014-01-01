@@ -2,6 +2,13 @@
   <h1>All Games</h1>
   <h5>There have been {{total_games}} games recorded.</h5>
   <p>Sort by <a href="#" id="game_no_asc">Game Number Ascending</a> <a href="#" id="game_no_desc">Game Number Descending</a></p>
+  
+  <select id="game_range">
+	  <option value="1">1-50</option>
+	  <option value="51">51-100</option>
+	  <option value="101">101-150</option>
+	  <option value="151">151-200</option>
+  </select>
 	
 	{{#each games}}
 		{{>game}}
