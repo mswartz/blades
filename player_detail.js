@@ -3,6 +3,7 @@
 P L A Y E R  D E T A I L
 
 **********************************/
+
 if (Meteor.isClient) {
 	Session.setDefault('sort_by', 1);
 	Session.setDefault('game_range', 1);

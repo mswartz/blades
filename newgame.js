@@ -248,14 +248,6 @@ Template.newgame.events({
       'game_loser' : game_loser,
     });
 
-    //Update Game winners
-    if(game_winner == Session.get('p1_id')){
-      Players.update(Session.get('p1_id'), {$inc: { games_won : 1, p1_wins : 1 }});
-      Players.update(Session.get('p2_id'), {$inc: { games_lost : 1, p2_losses : 1 }});
-    } else {
-      Players.update(Session.get('p2_id'), {$inc: { games_won : 1, p2_wins : 1 }});
-      Players.update(Session.get('p1_id'), {$inc: { games_lost : 1, p1_losses : 1 }});
-    }
 
 
 
@@ -413,6 +405,7 @@ Template.newgame.events({
         'fights_won' : p1_fights,
         'fights_lost' : p2_fights,
         'gos' : p1_gos,
+        'shutouts' : 0
     }});
 
     //Update Player 2
@@ -428,7 +421,26 @@ Template.newgame.events({
         'fights_won' : p2_fights,
         'fights_lost' : p1_fights,
         'gos' : p1_gos,
+        'shutouts' : 0
     }});
+
+    //Check for shutouts
+    if (p2_pts == 0){
+      Players.update(Session.get('p1_id'), {$inc: {'shutouts': 1}});
+    }
+
+    if (p1_pts == 0){
+      Players.update(Session.get('p2_id'), {$inc: {'shutouts': 1}});
+    }
+
+    //Update Game winners
+    if(game_winner == Session.get('p1_id')){
+      Players.update(Session.get('p1_id'), {$inc: { games_won : 1, p1_wins : 1 }});
+      Players.update(Session.get('p2_id'), {$inc: { games_lost : 1, p2_losses : 1 }});
+    } else {
+      Players.update(Session.get('p2_id'), {$inc: { games_won : 1, p2_wins : 1 }});
+      Players.update(Session.get('p1_id'), {$inc: { games_lost : 1, p1_losses : 1 }});
+    }
   }
 });
 
