@@ -243,6 +243,7 @@ Template.newgame.events({
       'p1_final' : p1_pts,
       'p2_final' : p2_pts,
 
+      //Add winners
       'game_winner' : game_winner,
       'game_loser' : game_loser,
     });
@@ -379,8 +380,6 @@ Template.newgame.events({
     }
 
 
-    console.log(p1_opp_stats.games_won);
-
     //Player 1 first
     Meteor.call("incrementOpponent", Session.get('p1_id'), Session.get('p2_id'), p1_opp_stats, function(error, affectedDocs) {
       if (error) {
@@ -398,7 +397,6 @@ Template.newgame.events({
         console.log('were good');
       }
     });
-
 
 
     //Update Player 1's other stats

@@ -16,9 +16,9 @@ Template.games.helpers({
     var games;
 
     if(Session.get('sort_by')=='game_no_desc'){
-      games = Games.find({game_no: {$gte: Session.get('game_range')}}, {sort: {game_no : -1}}).fetch();
+      games = Games.find({game_no: {$gte: Session.get('game_range')}}, {sort: {game_no : -1}, limit: Session.get('results_num')}).fetch();
     } else if (Session.get('sort_by')=='game_no_asc') {
-      games = Games.find({game_no: {$gte: Session.get('game_range')}}, {sort: {game_no : 1}}).fetch();
+      games = Games.find({game_no: {$gte: Session.get('game_range')}}, {sort: {game_no : 1}, limit: Session.get('results_num')}).fetch();
     }
 
     return games;
