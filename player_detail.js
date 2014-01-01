@@ -29,6 +29,7 @@ if (Meteor.isClient) {
 		player[0].fight_avg = player[0].fights_won / (player[0].fights_won + player[0].fights_lost);
 	  	player[0].gs_avg = player[0].goals_scored / player[0].games_played;
 	  	player[0].ga_avg = player[0].goals_allowed / player[0].games_played;
+	  	player[0].so_avg = player[0].shutouts / player[0].games_played;
 
 	  	//now return the player with the opp stats to the template
 	  	return player;
