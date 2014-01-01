@@ -1,11 +1,9 @@
 <template name="game_detail">
  {{#each game}}
  	<h1>Game No. {{game_no}}</h1>
- 	<h3><a href="players/{{p1_id}}">{{p1_name}}</a> vs <a href="players/{{p2_id}}">{{p2_name}}</a></h3>
+ 	<h3><a href="players/{{game.p1_id}}">{{game.p1_name}}</a> vs <a href="players/{{game.p2_id}}">{{game.p2_name}}</a></h3>
 
  	{{>game}}
 
  {{/each}}
- 	
-
 </template>

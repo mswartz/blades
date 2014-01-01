@@ -10,15 +10,16 @@ G A M E S
 
 if (Meteor.isClient) {
 
+Session.setDefault('sort_by', 'game_no_asc');
+
 Template.games.helpers({
   games : function(){
-    var games = Games.find({}).fetch();
+    var games;
 
-    for(var i = 0; i<games.length; i++){
-    	var p1 = Players.find({_id:games[i].p1_id});
-    	var p2 = Players.find({_id:games[i].p2_id});
-    	games[i].p1 = p1;
-    	games[i].p2 = p2;
+    if(Session.get('sort_by')=='game_no_desc'){
+      games = Games.find({}, {sort: {game_no : -1}}).fetch();
+    } else if (Session.get('sort_by')=='game_no_asc') {
+      games = Games.find({}, {sort: {game_no : 1}}).fetch();
     }
 
     return games;
@@ -28,6 +29,15 @@ Template.games.helpers({
   	return Games.find().count();
   }
 });
+
+Template.games.events({
+  'click #game_no_asc' : function() {
+    Session.set('sort_by', 'game_no_asc');
+  },
+  'click #game_no_desc' : function() {
+    Session.set('sort_by', 'game_no_desc');
+  }
+})
 
 
 }//isClient
