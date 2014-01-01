@@ -1,3 +1,5 @@
+//Eventually perform most DB updates here
+
 Meteor.methods({
   incrementOpponent: function (player1Id, player2Id, p1_stats) {
     check(player1Id, String);
