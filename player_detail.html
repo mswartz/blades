@@ -64,20 +64,21 @@
   {{/each}}
     </tbody>
   </table>
-  {{/each}}
+
+
+    <h2>Calculated Data</h2>
+    <ul>
+      <li>Game Win Ratio: <strong>{{win_avg}}</strong></li>
+      <li>Fight win ratio: <strong>{{fight_avg}}</strong></li>
+      <li>Goals scored average: <strong>{{gs_avg}}</strong></li>
+      <li>Goals allowed average: <strong>{{ga_avg}}</strong></li>
+  </ul>
 
   <hr>
+  {{/each}}
 
-  <h2>Calculated Data</h2>
-	{{#each stats}}
-  	<ul>
-  		<li>Game Win Ratio: <strong>{{win_avg}}</strong></li>
-  		<li>Fight win ratio: <strong>{{fight_avg}}</strong></li>
-  		<li>Goals scored average: <strong>{{gs_avg}}</strong></li>
-  		<li>Goals allowed average: <strong>{{ga_avg}}</strong></li>
-	</ul>
-	{{/each}}
-	</hr>
+
+
 
   <h2>Game appearances</h2>
   {{#each games}}

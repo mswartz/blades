@@ -11,26 +11,23 @@ if (Meteor.isClient) {
 	  	return Session.get('player_id');
 	  },
 	  player : function(){
-	  	return Players.find({_id : Session.get('player_id')}).fetch();
-	  },
-	  stats : function(){
-	  	var player_data = Players.find({_id : Session.get('player_id')}).fetch();
+	  	//get the player form the Players collection
+	  	var player = Players.find({_id : Session.get('player_id')}).fetch();
 
-	  	var win_avg = player_data[0].games_won / player_data[0].games_played;
-		var fight_avg = player_data[0].fights_won / (player_data[0].fights_won + player_data[0].fights_lost);
-	  	var gs_avg = player_data[0].goals_scored / player_data[0].games_played;
-	  	var ga_avg = player_data[0].goals_allowed / player_data[0].games_played;
-
-	  	var stats = [];
-
-	  	stats[0] = {
-	  		'win_avg' : win_avg,
-	  		'fight_avg' : fight_avg,
-	  		'gs_avg' : gs_avg,
-	  		'ga_avg' : ga_avg
+	  	//Crunch opponent stats
+	  	for(var i = 0; i<player[0].opponents.length; i++){
+	  		player[0].opponents[i].games_avg = player[0].opponents[i].games_won / player[0].opponents[i].games_played;
+	  		player[0].opponents[i].fights_avg = player[0].opponents[i].fights_won / (player[0].opponents[i].fights_won + player[0].opponents[i].fights_lost);
 	  	}
 
-	  	return stats;
+	  	//Crunch the player stats
+	  	player[0].win_avg = player[0].games_won / player[0].games_played;
+		player[0].fight_avg = player[0].fights_won / (player[0].fights_won + player[0].fights_lost);
+	  	player[0].gs_avg = player[0].goals_scored / player[0].games_played;
+	  	player[0].ga_avg = player[0].goals_allowed / player[0].games_played;
+
+	  	//now return the player with the opp stats to the template
+	  	return player;
 	  },
 	  games : function(){
 	  	var games = Games.find({ $or: [{'p1_id':Session.get('player_id')}, {'p2_id':Session.get('player_id')}]}, {sort: {'game_no':1}}).fetch();
