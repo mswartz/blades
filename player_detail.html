@@ -31,88 +31,41 @@
   </ul>
 
 
-    <h2>Record vs Opponents PLACEHOLDER</h2>
+  <h2>Record vs Opponents</h2>
 
+  <table border="1">
+    <thead>
+      <th>Versus</th>
+      <th>Games Won</th>
+      <th>Games Lost</th>
+      <th>Games Played</th>
+      <th>Games Avg</th>
+      <th>Goals Scored</th>
+      <th>Goals Allowed</th>
+      <th>Fights won</th>
+      <th>Fights lost</th>
+      <th>Fights avg</th>
+    </thead>
+
+    <tbody>
   {{#each opponents}}
-    {{name}}
-    {{id}}
-    {{goals_scored}}
+    <tr>
+      <td><a href="{{id}}">{{name}}</a></td>
+      <td>{{games_won}}</td>
+      <td>{{games_lost}}</td>
+      <td>{{games_played}}</td>
+      <td>{{games_avg}}</td>
+      <td>{{goals_scored}}</td>
+      <td>{{goals_allowed}}</td>
+      <td>{{fights_won}}</td>
+      <td>{{fights_lost}}</td>
+      <td>{{fights_avg}}</td>
+    </tr>
+  {{/each}}
+    </tbody>
+  </table>
   {{/each}}
 
-  <hr>
-  {{/each}}
-
-
-
-<table border="1">
-  <thead>
-    <th>Opponent</th>
-    <th>Games played</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th>Win avg</th>
-    <th>Fights won</th>
-    <th>Fights lost</th>
-    <th>Fights avg</th>
-    <th>Goals Scored</th>
-    <th>Goals Allowed</th>
-    <th>Goal avg</th>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Tito</td>
-    <td>2</td>
-    <td>1</td>
-    <td>1</td>
-    <td>.5</td>
-    <td>5</td>
-    <td>1</td>
-    <td>5</td>
-    <td>12</td>
-    <td>3</td>
-    <td>4</td>
-  </tr>
-    <tr>
-    <td>Tito</td>
-    <td>2</td>
-    <td>1</td>
-    <td>1</td>
-    <td>.5</td>
-    <td>5</td>
-    <td>1</td>
-    <td>5</td>
-    <td>12</td>
-    <td>3</td>
-    <td>4</td>
-  </tr>
-    <tr>
-    <td>Tito</td>
-    <td>2</td>
-    <td>1</td>
-    <td>1</td>
-    <td>.5</td>
-    <td>5</td>
-    <td>1</td>
-    <td>5</td>
-    <td>12</td>
-    <td>3</td>
-    <td>4</td>
-  </tr>
-    <tr>
-    <td>Tito</td>
-    <td>2</td>
-    <td>1</td>
-    <td>1</td>
-    <td>.5</td>
-    <td>5</td>
-    <td>1</td>
-    <td>5</td>
-    <td>12</td>
-    <td>3</td>
-    <td>4</td>
-  </tr>
-  </tbody>
-</table>
   <hr>
 
   <h2>Calculated Data</h2>
