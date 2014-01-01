@@ -186,7 +186,7 @@ Template.newgame.events({
 
       for(var i = 0; i<=Session.get('ot_count')-1; i++){
         var ot = (i+1)+'ot';
-        ot_goals[i] = {ot_num : i+1, p1_score : parseInt($('#p1_score_'+(i+1)+'ot').val()), p2_score : parseInt($('#p2_score_'+(i+1)+'ot').val()) };
+        ot_goals[i] = {ot_num : i+1, p1_score : parseInt($('#p1_score_'+(i+1)+'ot').val()), p2_score : parseInt($('#p2_score_'+(i+1)+'ot').val())};
         
         //Create variable keys so we can pass them in the Players.update
         var p1_ot_key = {};

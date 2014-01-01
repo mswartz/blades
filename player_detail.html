@@ -19,15 +19,11 @@
 	</ul>
 	</hr>
 
-  <h2>Goal Distribution PLACEHOLDER</h2>
+  <h2>Goal Distribution</h2>
   <ul>
     <li>1p goals: <strong>{{1p_goals}}</strong></li>
     <li>2p goals: <strong>{{2p_goals}}</strong></li>
     <li>3p goals: <strong>{{3p_goals}}</strong></li>
-    <li>OT1: <strong>{{1ot_goals}}</strong></li>
-    <li>OT2: <strong>{{2ot_goals}}</strong></li>
-    <li>OT3: <strong>{{3ot_goals}}</strong></li>
-    <li>OT4: <strong>{{4ot_goals}}</strong></li>
   </ul>
 
 
@@ -78,16 +74,21 @@
   {{/each}}
 
 
-
-
   <h2>Game appearances</h2>
+
+  <p>Sort by <a href="#" id="game_no_asc">Game Number Ascending</a> <a href="#" id="game_no_desc">Game Number Descending</a> <a href="#" id="sort_wins">Wins</a> <a href="#" id="sort_losses">Losses</a> <a href="#" id="sort_none">None</a></p>
+
+  <input type="number" min="1" max="100" id="results_num" value="50"/>
+  
+  <select id="game_range">
+  {{#each game_range}}
+    <option value="{{range_lower}}">{{range_lower}} - {{range_upper}}</option>
+  {{/each}}
+  </select>
+
   {{#each games}}
     {{>game}}
   {{/each}}
   <hr>
   
-  <h2>Game Wins</h2>
-  {{#each wins}}
-    {{>game}}
-  {{/each}}
 </template>
