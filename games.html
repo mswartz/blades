@@ -1,58 +1,9 @@
 <template name="games">
-  <h1>Games</h1>
+  <h1>All Games</h1>
   <h5>There have been {{total_games}} games recorded.</h5>
-  
-	<h3>All Games</h3>
 	
 	{{#each games}}
-	<table border="1">
-		<thead>
-		<th>Game No</th>
-		<th>Game ID</th>
-		<th>Players</th>
-		<th>Team</th>
-		{{#each reg_goals}}
-			<th>{{period}}</th>
-		{{/each}}
-		{{#each ot_goals}}
-			<th>OT {{ot_num}}</th>
-		{{/each}}
-		<th>Fights</th>
-		<th>Final</th>
-		</thead>
-
-		<tbody>
-		<tr>
-			<td rowspan="2">{{game_no}}</td>
-			<td rowspan="2"><a href="/games/{{_id}}">{{_id}}</a></td>
-			<td><a href="/players/{{p1_id}}">{{p1_name}}</a></td>
-			<td>{{p1_team}}</td>
-			{{#each reg_goals}}
-				<td>{{p1_score}}</td>
-			{{/each}}
-			{{#each ot_goals}}
-				<td>{{p1_score}}</td>
-			{{/each}}
-			<td>{{p1_fights}}</td>
-			<td>{{p1_final}}</td>
-		</tr>
-		<tr>
-			<td><a href="/players/{{p2_id}}">{{p2_name}}</a></td>
-			<td>{{p2_team}}</td>
-			{{#each reg_goals}}
-				<td>{{p2_score}}</td>
-			{{/each}}
-			{{#each ot_goals}}
-				<td>{{p2_score}}</td>
-			{{/each}}
-			<td>{{p2_fights}}</td>
-			<td>{{p2_final}}</td>
-		</tr>
-
-		</tbody>
-	</table>
+		{{>game}}
 	{{/each}}
-			<hr>
-
 
 </template>
