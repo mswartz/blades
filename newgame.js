@@ -10,10 +10,6 @@ if (Meteor.isClient) {
 
 Session.setDefault('p1_pts', 0);
 Session.setDefault('p2_pts', 0);
-Session.setDefault('p1_name', 'Player 1');
-Session.setDefault('p2_name', 'Player 2');
-Session.setDefault('p1_id', 'Player1');
-Session.setDefault('p2_id', 'Player2');
 Session.setDefault('ot_count', 0);
 
 
@@ -57,6 +53,8 @@ Template.newgame.helpers({
     if(p1_name){
       Session.set('p1_name', p1_name.name);
       return p1_name.name;
+    } else {
+      return "Choose Player 1";
     }
   },
 
@@ -66,6 +64,8 @@ Template.newgame.helpers({
     if(p2_name){
       Session.set('p2_name', p2_name.name);
       return p2_name.name;
+    } else {
+      return "Choose Player 2";
     }
   },
 
@@ -208,7 +208,7 @@ Template.newgame.events({
       //Add date info
       'date_created' : date_created,
       'date_parsed' : date_parsed,
-      
+
       //Add game_no
       'game_no' : Session.get('game_no'),
 
@@ -436,6 +436,3 @@ Template.newgame.events({
 
 
 }//isClient
-
-if(Meteor.isServer){
-}
