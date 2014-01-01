@@ -131,6 +131,10 @@ Template.newgame.events({
 
   //Submit the game
   'click input#newgame_addgame' : function() {
+    //Create a date so we can sort by this
+    var date_created = new Date();
+    var date_parsed = Date.parse(date_created);
+
     //Get player teams
     var p1_team = $('#p1_team').val();
     var p2_team = $('#p2_team').val();
@@ -201,6 +205,10 @@ Template.newgame.events({
 
     //Save this game 
     Games.insert({
+      //Add date info
+      'date_created' : date_created,
+      'date_parsed' : date_parsed,
+      
       //Add game_no
       'game_no' : Session.get('game_no'),
 
