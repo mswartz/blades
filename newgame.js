@@ -196,6 +196,8 @@ Template.newgame.events({
       }
     }
 
+    var p1_gos = parseInt($('#p1_gos').val());
+    var p2_gos = parseInt($('#p2_gos').val());
 
     //Save this game 
     Games.insert({
@@ -224,6 +226,10 @@ Template.newgame.events({
       'p2_fights' : p2_fights,
       'fight_winner' : fight_winner,
       'fight_loser' : fight_loser,
+
+      //Add final scores
+      'p1_gos' : p1_gos,
+      'p2_gos' : p2_gos,
 
       //Add final scores
       'p1_final' : p1_pts,
@@ -399,7 +405,8 @@ Template.newgame.events({
         'goals_scored' : p1_pts, 
         'goals_allowed' : p2_pts,
         'fights_won' : p1_fights,
-        'fights_lost' : p2_fights
+        'fights_lost' : p2_fights,
+        'gos' : p1_gos,
     }});
 
     //Update Player 2
@@ -413,7 +420,8 @@ Template.newgame.events({
         'goals_scored' : p2_pts, 
         'goals_allowed' : p1_pts,
         'fights_won' : p2_fights,
-        'fights_lost' : p1_fights
+        'fights_lost' : p1_fights,
+        'gos' : p1_gos,
     }});
   }
 });

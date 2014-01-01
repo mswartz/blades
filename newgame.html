@@ -14,6 +14,7 @@
 	  	{{#each ot_scores}}
 	  		<th>OT {{ot}}</th>
 	  	{{/each}}
+	  	<th>GOS?</th>
 	  	<th>Fights</th>
 	 	<th>Final</th>
 	  </thead>
@@ -44,7 +45,7 @@
 	  		<td><input value="0" class="p1_pts pts" id="p1_score_{{ot}}ot" type="number"/></td>
 	  	{{/each}}
 
-
+	  	<td><input value="0" id="p1_gos" type="number"/></td>
 	  	<td><input value="0" id="p1_fights" type="number"/></td>
 	 	<td id="p1_final">{{p1_points}}</td>
 	 </tr>
@@ -73,6 +74,7 @@
 	  	{{#each ot_scores}}
 	  		<td><input value="0" class="p2_pts pts" id="p2_score_{{ot}}ot" type="number"/></td>
 	  	{{/each}}
+	  	<td><input value="0" id="p2_gos" type="number"/></td>
 	  	<td><input value="0" id="p2_fights" type="number"/></td>
 	 	<td id="p2_final">{{p2_points}}</td>
 	 </tr>
