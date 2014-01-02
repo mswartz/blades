@@ -45,6 +45,14 @@ if (Meteor.isClient) {
 			};
 			return goal_data;
 		},
+		'defense_leaders' : function(){
+			var data = Players.find({}, {sort: {'goals_allowed': 1}}).fetch();
+			for(var i = 0; i<data.length; i++){
+				var gapg_avg = data[i].goals_allowed / data[i].games_played;
+				data[i].gapg_avg = gapg_avg.toFixed(1);
+			};
+			return data;
+		},
 		'fight_leaders' : function(){
 			var fight_data = Players.find({}, {sort: {'fights_won': -1}}).fetch();
 			for(var i = 0; i<fight_data.length; i++){
@@ -54,6 +62,6 @@ if (Meteor.isClient) {
 				fight_data[i].fpg_avg = fpg_avg.toFixed(1);
 			};
 			return fight_data;
-		},
+		}
 	});
 }

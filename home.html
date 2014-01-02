@@ -13,7 +13,7 @@
   </ul>
     {{/each}}
 
-  <h3>Wins Leaderboard</h3>
+  <h3>Most Wins</h3>
   <table border="1">
   	<thead>
   		<th>Player</th>
@@ -34,7 +34,7 @@
   </table>
 
 	<hr>
-  <h3>Goals Leaderboard</h3>
+  <h3>Most Goals</h3>
   <table border="1">
   	<thead>
   		<th>Player</th>
@@ -54,8 +54,33 @@
   </tbody>
   </table>
 
-	<hr>
-  <h3>Fights Leaderboard</h3>
+<hr>
+
+  <h3>Best defense</h3>
+  <table border="1">
+  	<thead>
+  		<th>Player</th>
+  		<th>Goals allowed</th>
+  		<th>Goals Scored</th>
+  		<th>Games_won</th>
+  		<th>GA avg</th>
+	</thead>
+	<tbody>
+  {{#each defense_leaders}}
+  <tr>
+  	<td>{{name}}</td>
+  	<td>{{goals_allowed}}</td>
+  	<td>{{goals_scored}}</td>
+  	<td>{{games_won}}</td>
+  	<td>{{gapg_avg}}</td>
+  </tr>
+  {{/each}}
+  </tbody>
+  </table>
+
+<hr>
+
+  <h3>Best fighter</h3>
   <table border="1">
   	<thead>
   		<th>Player</th>
