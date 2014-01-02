@@ -10,30 +10,67 @@
   </ul>
 
   <h3>Wins Leaderboard</h3>
+  <table border="1">
+  	<thead>
+  		<th>Player</th>
+  		<th>Wins</th>
+  		<th>Losses</th>
+  		<th>Win %</th>
+	</thead>
+	<tbody>
+  {{#each game_leaders}}
+  <tr>
+  	<td>{{name}}</td>
+  	<td>{{games_won}}</td>
+  	<td>{{games_lost}}</td>
+  	<td>{{game_avg}}</td>
+  </tr>
+  {{/each}}
+  </tbody>
+  </table>
 
-   <ol>
-	  <li>John</li>
-	  <li>Mike</li>
-	  <li>Tito</li>
-	  <li>Jeff</li>
-  </ol>
-
+	<hr>
   <h3>Goals Leaderboard</h3>
+  <table border="1">
+  	<thead>
+  		<th>Player</th>
+  		<th>Goals Scored</th>
+  		<th>Goals Allowed</th>
+  		<th>Goals / Game</th>
+	</thead>
+	<tbody>
+  {{#each goal_leaders}}
+  <tr>
+  	<td>{{name}}</td>
+  	<td>{{goals_scored}}</td>
+  	<td>{{goals_allowed}}</td>
+  	<td>{{gpg_avg}}</td>
+  </tr>
+  {{/each}}
+  </tbody>
+  </table>
 
-   <ol>
-	  <li>John</li>
-	  <li>Mike</li>
-	  <li>Tito</li>
-	  <li>Jeff</li>
-  </ol>
-
-   <h3>Fights Leaderboard</h3>
-
-   <ol>
-	  <li>John</li>
-	  <li>Mike</li>
-	  <li>Tito</li>
-	  <li>Jeff</li>
-  </ol>
+	<hr>
+  <h3>Fights Leaderboard</h3>
+  <table border="1">
+  	<thead>
+  		<th>Player</th>
+  		<th>Fights Won</th>
+  		<th>Fights Lost</th>
+  		<th>Fights / Game</th>
+  		<th>Fight avg</th>
+	</thead>
+	<tbody>
+  {{#each fight_leaders}}
+  <tr>
+  	<td>{{name}}</td>
+  	<td>{{fights_won}}</td>
+  	<td>{{fights_lost}}</td>
+  	<td>{{fpg_avg}}</td>
+  	<td>{{fight_avg}}</td>
+  </tr>
+  {{/each}}
+  </tbody>
+  </table>
 
 </template>
