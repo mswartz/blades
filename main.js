@@ -103,6 +103,5 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     // Games.remove({});
     // Players.remove({});
-    // Players.update({}, {$set: {'shutouts': 0}});
   });
 }

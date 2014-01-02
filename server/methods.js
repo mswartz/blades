@@ -17,7 +17,8 @@ Meteor.methods({
         'opponents.$.goals_allowed' : p1_stats.goals_allowed,
         'opponents.$.fights_total' : p1_stats.fights_total,
         'opponents.$.fights_won' : p1_stats.fights_won,
-        'opponents.$.fights_lost' : p1_stats.fights_lost
+        'opponents.$.fights_lost' : p1_stats.fights_lost,
+        'opponents.$.shutouts' : p1_stats.shutouts
       }
     }, function(error, affectedDocs) {
       if (error) {

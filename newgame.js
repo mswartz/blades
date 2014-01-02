@@ -277,7 +277,8 @@ Template.newgame.events({
       goals_allowed: 0,
       fights_total: 0,
       fights_won: 0,
-      fights_lost: 0
+      fights_lost: 0,
+      shutouts: 0
     };
 
     var p2_opp = {
@@ -290,7 +291,8 @@ Template.newgame.events({
       goals_allowed: 0,
       fights_total: 0,
       fights_won: 0,
-      fights_lost: 0
+      fights_lost: 0,
+      shutouts: 0
     };
 
     //If there are no opponent records for this player, add them
@@ -339,15 +341,13 @@ Template.newgame.events({
     //NOW we can finally increment the Opponent stats 
     //TODO: pass ALL the vars in to this thing, hopefully in a smarter way like with an Object
     
-    var p1_opp_stats = {};
-
-    p1_opp_stats = {
+    var p1_opp_stats = {
       'games_played': 1,
       'goals_scored': p1_pts,
       'goals_allowed': p2_pts,
       'fights_total': p1_fights + p2_fights,
       'fights_won': p1_fights,
-      'fights_lost': p2_fights
+      'fights_lost': p2_fights,
     };
 
     var p2_opp_stats = {
@@ -356,7 +356,7 @@ Template.newgame.events({
       'goals_allowed': p1_pts,
       'fights_total': p1_fights + p2_fights,
       'fights_won': p2_fights,
-      'fights_lost': p1_fights
+      'fights_lost': p1_fights,
     };
 
     if(game_winner == Session.get('p1_id')){
@@ -369,6 +369,13 @@ Template.newgame.events({
       p1_opp_stats['games_won'] = 0;
       p2_opp_stats['games_lost'] = 0;
       p2_opp_stats['games_won'] = 1;
+    }
+
+    if(p2_pts == 0){
+      p1_opp_stats['shutouts'] = 1;
+    } 
+    if(p1_pts == 0){
+      p2_opp_stats['shutouts'] = 1;
     }
 
 
