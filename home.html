@@ -2,12 +2,16 @@
   <h1>Welcome to Blades!</h1>
   
   <h3>Games Summary</h3>
+  {{#each meta_stats}}
   <ul>
-	  <li>There have been <strong>100 games</strong></li>
-	  <li>There have been <strong>4000 goals scored</strong></li>
-	  <li>There have been <strong>2200 fights</strong></li>
-	  <li>There have been <strong>27 goals on self</strong></li>
+	  <li>There have been <strong>{{games_tot}} games</strong></li>
+	  <li>There have been <strong>{{goals_tot}} goals scored</strong></li>
+	  <li>There have been <strong>{{fights_tot}} fights</strong></li>
+	  <li>There have been <strong>{{gos_tot}} goals on self</strong></li>
+	  <li>With an average of <strong>{{gpg_avg}} goals per game</strong></li>
+	  <li>And an average of <strong>{{fpg_avg}} fights per game</strong></li>
   </ul>
+    {{/each}}
 
   <h3>Wins Leaderboard</h3>
   <table border="1">

@@ -1,5 +1,34 @@
 if (Meteor.isClient) {
 	Template.home.helpers({
+		'meta_stats' : function(){
+			var data = Games.find({}).fetch();
+			var games_tot = data.length;
+			var goals_tot = 0;
+			var fights_tot = 0;
+			var gos_tot = 0;
+
+			for (var i=0; i<games_tot; i++){
+				goals_tot = goals_tot + (data[i].p1_final + data[i].p2_final);
+				fights_tot = fights_tot + (data[i].p1_fights + data[i].p2_fights);
+				gos_tot = gos_tot + (data[i].p1_gos + data[i].p2_gos);
+			}
+
+			var gpg_avg = goals_tot/games_tot;
+			var fpg_avg = fights_tot/games_tot;
+	
+			var metadata = [];
+			metadata[0] = {
+				'games_tot' : games_tot,
+				'goals_tot' : goals_tot,
+				'fights_tot' : fights_tot,
+				'gos_tot' : gos_tot,
+				'gpg_avg' : gpg_avg.toFixed(1),
+				'fpg_avg' : fpg_avg.toFixed(1)
+			};
+			console.log(metadata);
+
+			return metadata;
+		},
 		'game_leaders' : function(){
 			var game_data = Players.find({}, {sort: {'games_won': -1}}).fetch();
 			for(var i = 0; i<game_data.length; i++){
