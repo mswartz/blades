@@ -9,6 +9,7 @@ Games = new Meteor.Collection("games");
 
 if (Meteor.isClient) {
 
+  //Configure iron-router
   Router.configure({
     notFoundTemplate: 'notFound' // this will render
   });
@@ -99,8 +100,8 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-
   Meteor.startup(function () {
+    // Uncomment if you want to reset the collections
     // Games.remove({});
     // Players.remove({});
   });
