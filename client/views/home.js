@@ -29,6 +29,14 @@ if (Meteor.isClient) {
 
 			return metadata;
 		},
+		'player_streaks' : function(){
+			var game_data = Players.find({}, {sort: {'current_streak': -1}}).fetch();
+			for(var i = 0; i<game_data.length; i++){
+				
+				
+			};
+			return game_data;
+		},
 		'game_leaders' : function(){
 			var game_data = Players.find({}, {sort: {'games_won': -1}}).fetch();
 			for(var i = 0; i<game_data.length; i++){

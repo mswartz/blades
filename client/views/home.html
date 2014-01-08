@@ -13,6 +13,22 @@
   </ul>
     {{/each}}
 
+  <h3>Current streaks</h3>
+  <table border="1">
+    <thead>
+      <th>Player</th>
+      <th>Streak</th>
+  </thead>
+  <tbody>
+  {{#each player_streaks}}
+  <tr>
+    <td>{{name}}</td>
+    <td>{{current_streak}}</td>
+  </tr>
+  {{/each}}
+  </tbody>
+  </table>
+
   <h3>Most Wins</h3>
   <table border="1">
   	<thead>
