@@ -448,6 +448,10 @@ Template.newgame.events({
       Players.update(Session.get('p2_id'), {$inc: { games_won : 1, p2_wins : 1 }});
       Players.update(Session.get('p1_id'), {$inc: { games_lost : 1, p1_losses : 1 }});
     }
+
+    //Update player streak records
+    updatePlayerStreak(Session.get('p1_id'));
+    updatePlayerStreak(Session.get('p2_id'));
   }
 });
 
