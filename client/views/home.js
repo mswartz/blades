@@ -25,7 +25,6 @@ if (Meteor.isClient) {
 				'gpg_avg' : gpg_avg.toFixed(1),
 				'fpg_avg' : fpg_avg.toFixed(1)
 			};
-			console.log(metadata);
 
 			return metadata;
 		},

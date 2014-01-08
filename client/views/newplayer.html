@@ -1,0 +1,30 @@
+<template name="newplayer">
+
+	{{loginButtons}}
+	
+  <h1>Add a player</h1>
+  
+  <h3>Add a new player</h3>
+
+  <h4>Player name</h4>
+  <input type="text" placeholder="Player Name" id="newplayer_name"/>
+
+  <h4>Preferred team</h4>
+  <select id="newplayer_team">
+  		<option value="ny">New York</option>
+  		<option value="min">Minnesota</option>
+  		<option value="tor">Toronto</option>
+  		<option value="edm">Edmonton</option>
+  		<option value="la">Los Angeles</option>
+  		<option value="chi">Chicago</option>
+  		<option value="van">Vancouver</option>
+  		<option value="mtl">Montreal</option>
+	</select>
+
+	<h4>Background image</h4>
+
+
+
+  <input type="submit" value="Add Player" class="newplayer_submitplayer"/>
+
+</template>

@@ -67,6 +67,12 @@ if (Meteor.isClient) {
       template: 'players'
     });
 
+    //New Player
+    this.route('newplayer', {
+      path: '/newplayer',
+      template: 'newplayer'
+    });
+
     // Player Detail
     this.route('playerDetail', {
       // matches: '/posts/1'
