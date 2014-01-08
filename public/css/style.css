@@ -1,0 +1,52 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #eeeeee;
+  font-family: "Helvetica neue";
+}
+
+.nav-panel {
+  width: 50px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  position: fixed;
+  background-color: #180e20;
+}
+
+.nav-btns {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.nav-btns li a {
+  margin-bottom: 1px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.nav-btns li a:hover {
+  background-color: white;
+}
+
+.info-panel {
+  margin-left: 70px;
+}
+
+table {
+  background-color: #FFF;
+}
+table thead {
+  border-bottom: 1px solid #CCC;
+}
+table thead th {
+  font-weight: bold;
+}
+table tbody tr {
+  border-bottom: 1px solid #EEE;
+}
+table tbody tr td {
+  border: 1px;
+}

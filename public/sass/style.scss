@@ -1,0 +1,61 @@
+$purple: #180E20;
+$gray: #EEE;
+
+body {
+	// background-color: black;
+	padding: 0;
+	margin: 0;
+	background-color: $gray;
+	font-family: "Helvetica neue";
+}
+
+.nav-panel {
+	width: 50px;
+	left: 0;
+	top: 0;
+	height: 100%;
+	bottom: 0;
+	position: fixed;
+	background-color: $purple;
+}
+
+.nav-btns {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+
+	li a {
+		margin-bottom: 1px;
+		display: block;
+		width: 50px;
+		height: 50px;
+		background-color: rgba(0,0,0,.5);
+
+		&:hover {
+			background-color: white;
+		}
+	}
+}
+
+.info-panel {
+	margin-left: 70px;
+}
+
+table {
+	background-color: #FFF;
+
+	thead {
+		border-bottom: 1px solid #CCC;
+		th {
+			font-weight: bold;
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 1px solid #EEE;
+			td {
+				border: 1px;
+			}
+		}
+	}
+}
