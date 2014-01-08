@@ -1,4 +1,6 @@
 <template name="player_detail">
+<div class="info-panel">
+
   {{#each player}}
   	<h1>{{name}}</h1>
   	<hr>
@@ -21,7 +23,16 @@
   			{{p1_score_p1}}
   		{{/each}}
 	</ul>
-	</hr>
+	 
+   <h2>Calculated Data</h2>
+    <ul>
+      <li>Game Win avg: <strong>{{win_avg}}</strong></li>
+      <li>Fight win per game avg: <strong>{{fight_avg}}</strong></li>
+      <li>Goals scored per game avg: <strong>{{gs_avg}}</strong></li>
+      <li>Goals allowed per game avg: <strong>{{ga_avg}}</strong></li>
+      <li>Shutout average: <strong>{{so_avg}}</strong></li>
+  </ul>
+
 
   <h2>Goal Distribution</h2>
   <ul>
@@ -33,7 +44,7 @@
 
   <h2>Record vs Opponents</h2>
 
-  <table border="1">
+  <table class="table">
     <thead>
       <th>Opponent</th>
       <th>Games Won</th>
@@ -67,17 +78,6 @@
     </tbody>
   </table>
 
-
-    <h2>Calculated Data</h2>
-    <ul>
-      <li>Game Win avg: <strong>{{win_avg}}</strong></li>
-      <li>Fight win per game avg: <strong>{{fight_avg}}</strong></li>
-      <li>Goals scored per game avg: <strong>{{gs_avg}}</strong></li>
-      <li>Goals allowed per game avg: <strong>{{ga_avg}}</strong></li>
-      <li>Shutout average: <strong>{{so_avg}}</strong></li>
-  </ul>
-
-  <hr>
   {{/each}}
 
 
@@ -96,6 +96,6 @@
   {{#each games}}
     {{>game}}
   {{/each}}
-  <hr>
-  
+
+</div>  
 </template>

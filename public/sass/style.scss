@@ -1,12 +1,20 @@
+@import "base";
+
+//Colors!
 $purple: #180E20;
-$gray: #EEE;
+$gray: #E9E9E9;
+$blue: #BDE7FF;
+$red: #A3053A;
+$green: #239E00;
+$yellow: #C9C009;
+$orange: #DD730A;
 
 body {
 	// background-color: black;
 	padding: 0;
-	margin: 0;
+	margin-left: 70px;
 	background-color: $gray;
-	font-family: "Helvetica neue";
+	font-family: "Helvetica Neue";
 }
 
 .nav-panel {
@@ -32,30 +40,56 @@ body {
 		background-color: rgba(0,0,0,.5);
 
 		&:hover {
-			background-color: white;
+			background-color: $blue;
 		}
 	}
 }
 
 .info-panel {
-	margin-left: 70px;
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
-table {
+.table {
+	width: 100%;
 	background-color: #FFF;
+	border-collapse: collapse;
 
 	thead {
 		border-bottom: 1px solid #CCC;
 		th {
+			padding: 5px;
 			font-weight: bold;
+			font-size: 10px;
+			text-transform: uppercase;
+			background-color: $blue;
 		}
 	}
 	tbody {
 		tr {
 			border-bottom: 1px solid #EEE;
+
+			&:nth-child(2n-1) {
+				background-color: #F3F1F3;
+			}
 			td {
-				border: 1px;
+				text-align: center;
+				padding: 10px;
+				border: 1px solid #EEE;
 			}
 		}
 	}
+}
+
+
+.l-5050 {
+	@include media-grid(2, 100px);
+
+	.media-block {
+		margin-bottom: 60px;
+	}
+}
+
+.big-number {
+	font-size: 48px;
 }

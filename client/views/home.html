@@ -4,33 +4,59 @@
   <h3>Games Summary</h3>
   {{#each meta_stats}}
   <ul>
-	  <li>There have been <strong>{{games_tot}} games</strong></li>
-	  <li>There have been <strong>{{goals_tot}} goals scored</strong></li>
-	  <li>There have been <strong>{{fights_tot}} fights</strong></li>
-	  <li>There have been <strong>{{gos_tot}} goals on self</strong></li>
-	  <li>With an average of <strong>{{gpg_avg}} goals per game</strong></li>
-	  <li>And an average of <strong>{{fpg_avg}} fights per game</strong></li>
+	  <li>There have been <strong><span class="big-number">{{games_tot}} games</span></strong></li>
+	  <li>There have been <strong><span class="big-number">{{goals_tot}} goals scored</span></strong></li>
+	  <li>There have been <strong><span class="big-number">{{fights_tot}} fights</span></strong></li>
+	  <li>There have been <strong><span class="big-number">{{gos_tot}} goals on self</span></strong></li>
+	  <li>With an average of <strong><span class="big-number">{{gpg_avg}} goals per game</span></strong></li>
+	  <li>And an average of <strong><span class="big-number">{{fpg_avg}} fights per game</span></strong></li>
   </ul>
     {{/each}}
 
-  <h3>Current streaks</h3>
-  <table border="1">
+  <div class="l-5050">
+
+  <div class="media-block">
+    <h3>Current streaks</h3>
+    <table class="table">
+      <thead>
+        <th>Player</th>
+        <th>Streak</th>
+    </thead>
+    <tbody>
+    {{#each player_streaks}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{current_streak}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+    </table>
+  </div>
+
+
+<div class="media-block">
+  <h3>Longest streaks</h3>
+  <table class="table">
     <thead>
       <th>Player</th>
-      <th>Streak</th>
+      <th>Win Streak</th>
+      <th>Losing Streak</th>
   </thead>
   <tbody>
   {{#each player_streaks}}
   <tr>
     <td>{{name}}</td>
-    <td>{{current_streak}}</td>
+    <td>{{win_streak_record}}</td>
+    <td>{{loss_streak_record}}</td>
   </tr>
   {{/each}}
   </tbody>
   </table>
+</div>
 
+<div class="media-block">
   <h3>Most Wins</h3>
-  <table border="1">
+  <table class="table">
   	<thead>
   		<th>Player</th>
   		<th>Wins</th>
@@ -48,10 +74,11 @@
   {{/each}}
   </tbody>
   </table>
+</div>
+<div class="media-block">
 
-	<hr>
   <h3>Most Goals</h3>
-  <table border="1">
+  <table class="table">
   	<thead>
   		<th>Player</th>
   		<th>Goals Scored</th>
@@ -69,11 +96,12 @@
   {{/each}}
   </tbody>
   </table>
+</div>
 
-<hr>
 
+<div class="media-block">
   <h3>Best defense</h3>
-  <table border="1">
+  <table class="table">
   	<thead>
   		<th>Player</th>
   		<th>Goals allowed</th>
@@ -94,10 +122,11 @@
   </tbody>
   </table>
 
-<hr>
+</div>
+<div class="media-block">
 
   <h3>Best fighter</h3>
-  <table border="1">
+  <table class="table">
   	<thead>
   		<th>Player</th>
   		<th>Fights Won</th>
@@ -117,6 +146,6 @@
   {{/each}}
   </tbody>
   </table>
-
+</div>
 </div>
 </template>
