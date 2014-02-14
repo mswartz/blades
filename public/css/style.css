@@ -295,7 +295,7 @@ button {
 }
 @media (max-width: 699px) {
   .nav-btns {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -335,17 +335,45 @@ button {
   color: #180e20;
 }
 
+.nav-icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.home-icon {
+  background: url(../icons/hamburger.svg) no-repeat;
+}
+
+.score-icon {
+  background: url(../icons/hamburger.svg) no-repeat;
+}
+
+.ap-icon {
+  background: url(../icons/hamburger.svg) no-repeat;
+}
+
+.np-icon {
+  background: url(../icons/hamburger.svg) no-repeat;
+}
+
+.ag-icon {
+  background: url(../icons/hamburger.svg) no-repeat;
+}
+
 .logo-mod {
   padding: 20px;
 }
 @media (max-width: 699px) {
   .logo-mod {
     height: 50px;
-    position: absolute;
+    position: fixed;
+    z-index: 1;
     top: 0;
     right: 0;
     left: 0;
-    background-color: #180e20;
+    background-color: #bde7ff;
     padding: 0;
   }
 }

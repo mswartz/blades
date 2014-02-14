@@ -13,7 +13,10 @@
 
 .nav-btns {
 	@include mq(max, $nav-break) {
-		@include absolute(0 n 0 0);
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
 		background-color: $purple;
 		width: $nav;
 		@include trans;
@@ -44,11 +47,41 @@
 	}
 
 }
+
+.nav-icon {
+	@include size(15);
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.home-icon {
+	background: url(../icons/hamburger.svg) no-repeat;
+}
+
+.score-icon {
+	background: url(../icons/hamburger.svg) no-repeat;
+}
+
+.ap-icon {
+	background: url(../icons/hamburger.svg) no-repeat;
+}
+
+.np-icon {
+	background: url(../icons/hamburger.svg) no-repeat;
+}
+.ag-icon {
+	background: url(../icons/hamburger.svg) no-repeat;
+}
+
 .logo-mod {
 	@include mq(max, $nav-break) {
 		height: 50px;
-		@include absolute(0 0 n 0);
-		background-color: $purple;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		left: 0;
+		background-color: $blue;
 		padding: 0;
 	}
 	padding: 20px;
