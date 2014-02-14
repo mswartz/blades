@@ -1,5 +1,5 @@
 <template name="home">
-<div class="info-panel">
+<div class="page-container">
   
   <h3>Games Summary</h3>
   {{#each meta_stats}}
@@ -16,6 +16,7 @@
   <div class="l-5050">
 
   <div class="media-block">
+  <div class="info-panel">
     <h3>Current streaks</h3>
     <table class="table">
       <thead>
@@ -32,9 +33,12 @@
     </tbody>
     </table>
   </div>
+  </div>
 
 
 <div class="media-block">
+  <div class="info-panel">
+
   <h3>Longest streaks</h3>
   <table class="table">
     <thead>
@@ -52,9 +56,12 @@
   {{/each}}
   </tbody>
   </table>
+  </div>
 </div>
 
 <div class="media-block">
+  <div class="info-panel">
+
   <h3>Most Wins</h3>
   <table class="table">
   	<thead>
@@ -74,8 +81,12 @@
   {{/each}}
   </tbody>
   </table>
+  </div>
 </div>
+
 <div class="media-block">
+  <div class="info-panel">
+
 
   <h3>Most Goals</h3>
   <table class="table">
@@ -96,10 +107,13 @@
   {{/each}}
   </tbody>
   </table>
+  </div>
 </div>
 
 
 <div class="media-block">
+  <div class="info-panel">
+
   <h3>Best defense</h3>
   <table class="table">
   	<thead>
@@ -121,9 +135,12 @@
   {{/each}}
   </tbody>
   </table>
-
 </div>
+</div>
+
 <div class="media-block">
+  <div class="info-panel">
+
 
   <h3>Best fighter</h3>
   <table class="table">
@@ -146,6 +163,7 @@
   {{/each}}
   </tbody>
   </table>
+  </div>
 </div>
 </div>
 </template>

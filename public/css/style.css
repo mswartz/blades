@@ -315,40 +315,63 @@ body {
   background-color: #bde7ff;
 }
 
-.info-panel {
+.page-container {
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.table {
+.info-panel {
+  padding: 10px;
+  background-color: #D8D8D7;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.table, .table-input {
   width: 100%;
   background-color: #FFF;
   border-collapse: collapse;
 }
-.table thead {
+.table thead, .table-input thead {
   border-bottom: 1px solid #CCC;
 }
-.table thead th {
+.table thead th, .table-input thead th {
   padding: 5px;
   font-weight: bold;
   font-size: 10px;
   text-transform: uppercase;
   background-color: #bde7ff;
 }
-.table tbody tr {
+.table tbody tr, .table-input tbody tr {
   border-bottom: 1px solid #EEE;
 }
-.table tbody tr:nth-child(2n-1) {
-  background-color: #F3F1F3;
-}
-.table tbody tr td {
+.table tbody tr td, .table-input tbody tr td {
   text-align: center;
   padding: 10px;
   border: 1px solid #EEE;
 }
+.table tbody tr:nth-child(2n-1), .table-input tbody tr:nth-child(2n-1) {
+  background-color: #F3F1F3;
+}
+
+input, select {
+  font-size: 16px;
+}
+
+.table-input .input-number {
+  width: 60px;
+  padding: 10px;
+  border: 0;
+}
+.table-input .input-number:focus {
+  outline: none;
+}
 
 .l-5050 {
-  margin-left: -100px;
+  margin-left: -50px;
   *zoom: 1;
 }
 .l-5050:after {
@@ -358,7 +381,7 @@ body {
 }
 .l-5050 > .media-block {
   float: left;
-  padding-left: 100px;
+  padding-left: 50px;
   width: 50%;
 }
 .l-5050 > .media-block:nth-of-type(2n+3) {

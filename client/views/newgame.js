@@ -92,7 +92,7 @@ Template.newgame.helpers({
 
 Template.newgame.events({
   //Update points on the fly
-  'blur input.pts' : function() {
+  'click input.pts' : function() {
     var p1_pts = 0;
     var p2_pts = 0;
 
