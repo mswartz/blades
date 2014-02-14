@@ -49,28 +49,44 @@
 }
 
 .nav-icon {
-	@include size(15);
 	display: inline-block;
 	margin-right: 10px;
+	@include size(18);
+	margin-bottom: -3px;
 }
 
 .home-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(../icons/home.svg) no-repeat;
+	.nav-link:hover & {
+		background: url(../icons/home-dark.svg) no-repeat;
+	}
 }
 
 .score-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(../icons/sticks.svg) no-repeat;
+	.nav-link:hover & {
+		background: url(../icons/sticks-dark.svg) no-repeat;
+	}
 }
 
 .ap-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(../icons/player.svg) no-repeat;
+	.nav-link:hover & {
+		background: url(../icons/player-dark.svg) no-repeat;
+	}
 }
 
 .np-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(../icons/plus.svg) no-repeat;
+	.nav-link:hover & {
+		background: url(../icons/plus-dark.svg) no-repeat;
+	}
 }
 .ag-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(../icons/sticks.svg) no-repeat;
+	.nav-link:hover & {
+		background: url(../icons/sticks-dark.svg) no-repeat;
+	}
 }
 
 .logo-mod {
@@ -81,7 +97,7 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		background-color: $blue;
+		background-color: $purple;
 		padding: 0;
 	}
 	padding: 20px;

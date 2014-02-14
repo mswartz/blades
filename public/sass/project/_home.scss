@@ -2,8 +2,11 @@
 
 
 .l-5050 {
-	@include mq(900px){
+	@include mq(760px, 1600px){
 		@include media-grid(2, 50px);
+	}
+	@include mq(1600px){
+		@include media-grid(3, 50px);
 	}
 
 	.media-block {
@@ -41,4 +44,18 @@
 
 .summary-h {
 	display: none;
+}
+
+.logo-bg {
+	fill: #fff;
+	.logo:hover &{
+		fill: $blue;
+	}
+}
+
+.logo {
+	display: none;
+	width:80%;
+	margin: 0 auto;
+	max-width: 700px;
 }
