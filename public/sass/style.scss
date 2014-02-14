@@ -1,63 +1,43 @@
 @import "../bower_components/upbase/components/base";
 
-//Colors!
-$purple: #180E20;
-$gray: #E9E9E9;
-$blue: #BDE7FF;
-$red: #A3053A;
-$green: #239E00;
-$yellow: #C9C009;
-$orange: #DD730A;
+@import "project/variables";
 
-// Sizes
-$nav: 200px;
+@import "project/nav";
 
+@import "project/home";
 
 body {
 	// background-color: black;
-	padding: 30px;
-	margin-left: $nav;
 	background-color: $gray;
-	font-family: "Helvetica Neue";
-}
-
-.nav-panel {
-	width: $nav;
-	left: 0;
-	top: 0;
-	height: 100%;
-	bottom: 0;
-	position: fixed;
-	background-color: $purple;
-}
-
-.nav-btns {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-
-	li a {
-		margin-bottom: 1px;
-		display: block;
-		width: 50px;
-		height: 50px;
-		background-color: rgba(0,0,0,.5);
-
-		&:hover {
-			background-color: $blue;
-		}
+	font-family: "proxima nova";
+	margin-left: 0;
+	@include mq(max, $nav-break) {
+		padding-top: 50px;
+	}
+	@include mq($nav-break) {
+		padding-top: 0px;
+		margin-left: $nav;
 	}
 }
+
 
 .page-container {
 	max-width: 1000px;
 	margin: 0 auto;
+	padding: 30px;
 }
 
-.info-panel {
-	padding: 10px;
-	background-color: #D8D8D7;
-	@include border-radius(6px);
+.logo-mod,
+.home-topper,
+.page-container {
+
+	@include mq(max, $nav-break) {
+		@include trans;
+		@include transform(translate3d(0, 0, 0));
+		.nav-active & {
+			@include transform(translate3d($nav, 0, 0));
+		}
+	}
 }
 
 .table, .table-input {
@@ -73,6 +53,7 @@ body {
 			font-size: 10px;
 			text-transform: uppercase;
 			background-color: $blue;
+			letter-spacing: 1px;
 		}
 	}
 	tbody {
@@ -105,15 +86,6 @@ input, select {
 		&:focus {
 			outline: none;
 		}
-	}
-}
-
-
-.l-5050 {
-	@include media-grid(2, 50px);
-
-	.media-block {
-		margin-bottom: 60px;
 	}
 }
 

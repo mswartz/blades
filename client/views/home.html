@@ -1,169 +1,175 @@
 <template name="home">
-<div class="page-container">
-  
-  <h3>Games Summary</h3>
-  {{#each meta_stats}}
-  <ul>
-	  <li>There have been <strong><span class="big-number">{{games_tot}} games</span></strong></li>
-	  <li>There have been <strong><span class="big-number">{{goals_tot}} goals scored</span></strong></li>
-	  <li>There have been <strong><span class="big-number">{{fights_tot}} fights</span></strong></li>
-	  <li>There have been <strong><span class="big-number">{{gos_tot}} goals on self</span></strong></li>
-	  <li>With an average of <strong><span class="big-number">{{gpg_avg}} goals per game</span></strong></li>
-	  <li>And an average of <strong><span class="big-number">{{fpg_avg}} fights per game</span></strong></li>
-  </ul>
-    {{/each}}
 
-  <div class="l-5050">
+    <div class="home-topper">
+    </div>
 
-  <div class="media-block">
-  <div class="info-panel">
-    <h3>Current streaks</h3>
-    <table class="table">
-      <thead>
-        <th>Player</th>
-        <th>Streak</th>
-    </thead>
-    <tbody>
-    {{#each player_streaks}}
-    <tr>
-      <td>{{name}}</td>
-      <td>{{current_streak}}</td>
-    </tr>
-    {{/each}}
-    </tbody>
-    </table>
-  </div>
-  </div>
+    <div class="page-container">
+
+    <h2 class="home-h2">Leaderboards</h2>
+    <div class="l-5050">
+
+    <div class="media-block">
+        <div class="info-panel">
+            <h3 class="info-panel-h3">Current streaks</h3>
+            <table class="table">
+                <thead>
+                    <th>Player</th>
+                    <th>Streak</th>
+                </thead>
+                <tbody>
+                    {{#each player_streaks}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{current_streak}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
-<div class="media-block">
-  <div class="info-panel">
+    <div class="media-block">
+      <div class="info-panel">
 
-  <h3>Longest streaks</h3>
-  <table class="table">
-    <thead>
-      <th>Player</th>
-      <th>Win Streak</th>
-      <th>Losing Streak</th>
-  </thead>
-  <tbody>
-  {{#each player_streaks}}
-  <tr>
-    <td>{{name}}</td>
-    <td>{{win_streak_record}}</td>
-    <td>{{loss_streak_record}}</td>
-  </tr>
-  {{/each}}
-  </tbody>
-  </table>
-  </div>
-</div>
+      <h3 class="info-panel-h3">Longest streaks</h3>
+      <table class="table">
+        <thead>
+          <th>Player</th>
+          <th>Win Streak</th>
+          <th>Losing Streak</th>
+      </thead>
+      <tbody>
+      {{#each player_streaks}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{win_streak_record}}</td>
+        <td>{{loss_streak_record}}</td>
+      </tr>
+      {{/each}}
+      </tbody>
+      </table>
+      </div>
+    </div>
 
-<div class="media-block">
-  <div class="info-panel">
+    <div class="media-block">
+      <div class="info-panel">
 
-  <h3>Most Wins</h3>
-  <table class="table">
-  	<thead>
-  		<th>Player</th>
-  		<th>Wins</th>
-  		<th>Losses</th>
-  		<th>Win %</th>
-	</thead>
-	<tbody>
-  {{#each game_leaders}}
-  <tr>
-  	<td>{{name}}</td>
-  	<td>{{games_won}}</td>
-  	<td>{{games_lost}}</td>
-  	<td>{{game_avg}}</td>
-  </tr>
-  {{/each}}
-  </tbody>
-  </table>
-  </div>
-</div>
+      <h3 class="info-panel-h3">Most Wins</h3>
+      <table class="table">
+      	<thead>
+      		<th>Player</th>
+      		<th>Wins</th>
+      		<th>Losses</th>
+      		<th>Win %</th>
+    	</thead>
+    	<tbody>
+      {{#each game_leaders}}
+      <tr>
+      	<td>{{name}}</td>
+      	<td>{{games_won}}</td>
+      	<td>{{games_lost}}</td>
+      	<td>{{game_avg}}</td>
+      </tr>
+      {{/each}}
+      </tbody>
+      </table>
+      </div>
+    </div>
 
-<div class="media-block">
-  <div class="info-panel">
-
-
-  <h3>Most Goals</h3>
-  <table class="table">
-  	<thead>
-  		<th>Player</th>
-  		<th>Goals Scored</th>
-  		<th>Goals Allowed</th>
-  		<th>Goals / Game</th>
-	</thead>
-	<tbody>
-  {{#each goal_leaders}}
-  <tr>
-  	<td>{{name}}</td>
-  	<td>{{goals_scored}}</td>
-  	<td>{{goals_allowed}}</td>
-  	<td>{{gpg_avg}}</td>
-  </tr>
-  {{/each}}
-  </tbody>
-  </table>
-  </div>
-</div>
+    <div class="media-block">
+      <div class="info-panel">
 
 
-<div class="media-block">
-  <div class="info-panel">
-
-  <h3>Best defense</h3>
-  <table class="table">
-  	<thead>
-  		<th>Player</th>
-  		<th>Goals allowed</th>
-  		<th>Goals Scored</th>
-  		<th>Games_won</th>
-  		<th>GA avg</th>
-	</thead>
-	<tbody>
-  {{#each defense_leaders}}
-  <tr>
-  	<td>{{name}}</td>
-  	<td>{{goals_allowed}}</td>
-  	<td>{{goals_scored}}</td>
-  	<td>{{games_won}}</td>
-  	<td>{{gapg_avg}}</td>
-  </tr>
-  {{/each}}
-  </tbody>
-  </table>
-</div>
-</div>
-
-<div class="media-block">
-  <div class="info-panel">
+      <h3 class="info-panel-h3">Most Goals</h3>
+      <table class="table">
+      	<thead>
+      		<th>Player</th>
+      		<th>Goals Scored</th>
+      		<th>Goals Allowed</th>
+      		<th>Goals / Game</th>
+    	</thead>
+    	<tbody>
+      {{#each goal_leaders}}
+      <tr>
+      	<td>{{name}}</td>
+      	<td>{{goals_scored}}</td>
+      	<td>{{goals_allowed}}</td>
+      	<td>{{gpg_avg}}</td>
+      </tr>
+      {{/each}}
+      </tbody>
+      </table>
+      </div>
+    </div>
 
 
-  <h3>Best fighter</h3>
-  <table class="table">
-  	<thead>
-  		<th>Player</th>
-  		<th>Fights Won</th>
-  		<th>Fights Lost</th>
-  		<th>Fights / Game</th>
-  		<th>Fight avg</th>
-	</thead>
-	<tbody>
-  {{#each fight_leaders}}
-  <tr>
-  	<td>{{name}}</td>
-  	<td>{{fights_won}}</td>
-  	<td>{{fights_lost}}</td>
-  	<td>{{fpg_avg}}</td>
-  	<td>{{fight_avg}}</td>
-  </tr>
-  {{/each}}
-  </tbody>
-  </table>
-  </div>
-</div>
-</div>
+    <div class="media-block">
+      <div class="info-panel">
+
+      <h3 class="info-panel-h3">Best defense</h3>
+      <table class="table">
+      	<thead>
+      		<th>Player</th>
+      		<th>Goals allowed</th>
+      		<th>Goals Scored</th>
+      		<th>Games_won</th>
+      		<th>GA avg</th>
+    	</thead>
+    	<tbody>
+      {{#each defense_leaders}}
+      <tr>
+      	<td>{{name}}</td>
+      	<td>{{goals_allowed}}</td>
+      	<td>{{goals_scored}}</td>
+      	<td>{{games_won}}</td>
+      	<td>{{gapg_avg}}</td>
+      </tr>
+      {{/each}}
+      </tbody>
+      </table>
+    </div>
+    </div>
+
+    <div class="media-block">
+        <div class="info-panel">
+            <h3 class="info-panel-h3">Best fighter</h3>
+              <table class="table">
+              	<thead>
+              		<th>Player</th>
+              		<th>Fights Won</th>
+              		<th>Fights Lost</th>
+              		<th>Fights / Game</th>
+              		<th>Fight avg</th>
+            	</thead>
+            	<tbody>
+                    {{#each fight_leaders}}
+                    <tr>
+                      	<td>{{name}}</td>
+                      	<td>{{fights_won}}</td>
+                      	<td>{{fights_lost}}</td>
+                      	<td>{{fpg_avg}}</td>
+                      	<td>{{fight_avg}}</td>
+                   </tr>
+                     {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+        <h2 class="home-h2">Games Summary</h2>
+        {{#each meta_stats}}
+        <ul class="summary-list">
+            <li><i class="summary-h">There have been </i><strong><span class="big-number">{{games_tot}} games</span></strong></li>
+            <li><i class="summary-h">There have been </i><strong><span class="big-number">{{goals_tot}} goals scored</span></strong></li>
+            <li><i class="summary-h">There have been </i><strong><span class="big-number">{{fights_tot}} fights</span></strong></li>
+            <li><i class="summary-h">There have been </i><strong><span class="big-number">{{gos_tot}} goals on self</span></strong></li>
+            <li><i class="summary-h">With an average of </i><strong><span class="big-number">{{gpg_avg}} goals per game</span></strong></li>
+            <li><i class="summary-h">And an average of </i><strong><span class="big-number">{{fpg_avg}} fights per game</span></strong></li>
+        </ul>
+        {{/each}}
+
 </template>

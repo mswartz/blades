@@ -1,0 +1,79 @@
+
+.nav-panel {
+	@include mq($nav-break) {
+		width: $nav;
+		left: 0;
+		top: 0;
+		height: 100%;
+		bottom: 0;
+		position: fixed;
+		background-color: $purple;
+	}
+}
+
+.nav-btns {
+	@include mq(max, $nav-break) {
+		@include absolute(0 n 0 0);
+		background-color: $purple;
+		width: $nav;
+		@include trans;
+		@include transform(translate3d(-$nav, 0, 0));
+		.nav-active & {
+			@include transform(translate3d(0, 0, 0));
+		}
+	}
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+
+	li a {
+		display: block;
+		width: 100%;
+		padding: 20px;
+		text-align: left;
+		font-size: 18px;
+		font-weight: 300;
+		color: #fff;
+		text-decoration: none;
+		vertical-align:  middle;
+
+		&:hover {
+			background-color: $blue;
+			color: $purple;
+		}
+	}
+
+}
+.logo-mod {
+	@include mq(max, $nav-break) {
+		height: 50px;
+		@include absolute(0 0 n 0);
+		background-color: $purple;
+		padding: 0;
+	}
+	padding: 20px;
+}
+.blades-h {
+	@include mq(max, $nav-break) {
+		@include absolute(0 40px n 40px);
+		text-align: center;
+		font-size: 19px;
+		padding: 15px;
+		font-weight: 500;
+	}
+	text-decoration: none;
+	font-size: 40px;
+	font-weight: 200;
+	color: #fff;
+}
+
+.hamburger {
+	@include input-default;
+	@include size(25px);
+	text-indent: -9999pc;
+	background: url(../icons/hamburger.svg) no-repeat;
+	@include absolute(13px 0 0 13px);
+	@include mq($nav-break) {
+		display: none;
+	}
+}
