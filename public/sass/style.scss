@@ -49,12 +49,18 @@ body {
 	}
 }
 
-.info-panel {
+.page-container {
 	max-width: 1000px;
 	margin: 0 auto;
 }
 
-.table {
+.info-panel {
+	padding: 10px;
+	background-color: #D8D8D7;
+	@include border-radius(6px);
+}
+
+.table, .table-input {
 	width: 100%;
 	background-color: #FFF;
 	border-collapse: collapse;
@@ -72,22 +78,39 @@ body {
 	tbody {
 		tr {
 			border-bottom: 1px solid #EEE;
-
-			&:nth-child(2n-1) {
-				background-color: #F3F1F3;
-			}
+			
 			td {
 				text-align: center;
 				padding: 10px;
 				border: 1px solid #EEE;
 			}
+
+			&:nth-child(2n-1) {
+				background-color: #F3F1F3;
+			}
+		}
+	}
+}
+
+input, select {
+	font-size: 16px;
+}
+
+.table-input {
+	.input-number {
+		width: 60px;
+		padding: 10px;
+		border: 0;
+
+		&:focus {
+			outline: none;
 		}
 	}
 }
 
 
 .l-5050 {
-	// @include media-grid(2, 100px);
+	@include media-grid(2, 50px);
 
 	.media-block {
 		margin-bottom: 60px;

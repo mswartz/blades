@@ -6,14 +6,11 @@ NEW PLAYER
 
 if (Meteor.isClient) {
 
-Template.players.helpers({
-  players : function(){
-    var players = Players.find({}).fetch();
-    return players;
-  }
+Template.newplayer.helpers({
+  //nuffin here
 });
 
-Template.players.events({
+Template.newplayer.events({
   'click input.newplayer_submitplayer' : function() {
     var newplayer = {
       'name' : $('#newplayer_name').val(),
