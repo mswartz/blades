@@ -1,4 +1,4 @@
-@import "base";
+@import "../bower_components/upbase/components/base";
 
 //Colors!
 $purple: #180E20;
@@ -9,16 +9,20 @@ $green: #239E00;
 $yellow: #C9C009;
 $orange: #DD730A;
 
+// Sizes
+$nav: 200px;
+
+
 body {
 	// background-color: black;
-	padding: 0;
-	margin-left: 70px;
+	padding: 30px;
+	margin-left: $nav;
 	background-color: $gray;
 	font-family: "Helvetica Neue";
 }
 
 .nav-panel {
-	width: 50px;
+	width: $nav;
 	left: 0;
 	top: 0;
 	height: 100%;
@@ -83,7 +87,7 @@ body {
 
 
 .l-5050 {
-	@include media-grid(2, 100px);
+	// @include media-grid(2, 100px);
 
 	.media-block {
 		margin-bottom: 60px;
