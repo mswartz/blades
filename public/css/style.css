@@ -276,7 +276,7 @@ button {
   margin-right: 0;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 700px) {
   .nav-panel {
     width: 225px;
     left: 0;
@@ -293,7 +293,7 @@ button {
   margin: 0;
   list-style-type: none;
 }
-@media (max-width: 999px) {
+@media (max-width: 699px) {
   .nav-btns {
     position: fixed;
     top: 0;
@@ -336,52 +336,36 @@ button {
 }
 
 .nav-icon {
+  width: 15px;
+  height: 15px;
   display: inline-block;
   margin-right: 10px;
-  width: 18px;
-  height: 18px;
-  margin-bottom: -3px;
 }
 
 .home-icon {
-  background: url(../icons/home.svg) no-repeat;
-}
-.nav-link:hover .home-icon {
-  background: url(../icons/home-dark.svg) no-repeat;
+  background: url(../icons/hamburger.svg) no-repeat;
 }
 
 .score-icon {
-  background: url(../icons/sticks.svg) no-repeat;
-}
-.nav-link:hover .score-icon {
-  background: url(../icons/sticks-dark.svg) no-repeat;
+  background: url(../icons/hamburger.svg) no-repeat;
 }
 
 .ap-icon {
-  background: url(../icons/player.svg) no-repeat;
-}
-.nav-link:hover .ap-icon {
-  background: url(../icons/player-dark.svg) no-repeat;
+  background: url(../icons/hamburger.svg) no-repeat;
 }
 
 .np-icon {
-  background: url(../icons/plus.svg) no-repeat;
-}
-.nav-link:hover .np-icon {
-  background: url(../icons/plus-dark.svg) no-repeat;
+  background: url(../icons/hamburger.svg) no-repeat;
 }
 
 .ag-icon {
-  background: url(../icons/sticks.svg) no-repeat;
-}
-.nav-link:hover .ag-icon {
-  background: url(../icons/sticks-dark.svg) no-repeat;
+  background: url(../icons/hamburger.svg) no-repeat;
 }
 
 .logo-mod {
   padding: 20px;
 }
-@media (max-width: 999px) {
+@media (max-width: 699px) {
   .logo-mod {
     height: 50px;
     position: fixed;
@@ -389,7 +373,7 @@ button {
     top: 0;
     right: 0;
     left: 0;
-    background-color: #180e20;
+    background-color: #bde7ff;
     padding: 0;
   }
 }
@@ -400,7 +384,7 @@ button {
   font-weight: 200;
   color: #fff;
 }
-@media (max-width: 999px) {
+@media (max-width: 699px) {
   .blades-h {
     position: absolute;
     top: 0;
@@ -438,13 +422,13 @@ button {
 .hamburger:focus {
   outline: 0;
 }
-@media (min-width: 1000px) {
+@media (min-width: 700px) {
   .hamburger {
     display: none;
   }
 }
 
-@media (min-width: 760px) and (max-width: 1599px) {
+@media (min-width: 900px) {
   .l-5050 {
     margin-left: -50px;
     *zoom: 1;
@@ -463,31 +447,6 @@ button {
     clear: left;
   }
   .l-5050 > .media-block.n3 {
-    clear: left;
-  }
-}
-@media (min-width: 1600px) {
-  .l-5050 {
-    margin-left: -50px;
-    *zoom: 1;
-  }
-  .l-5050:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .l-5050 > .media-block {
-    float: left;
-    padding-left: 50px;
-    width: 33.3333%;
-  }
-  .l-5050 > .media-block:nth-of-type(3n+4) {
-    clear: left;
-  }
-  .ie7 .l-5050 > .media-block {
-    width: 33%;
-  }
-  .l-5050 > .media-block.n4 {
     clear: left;
   }
 }
@@ -526,31 +485,17 @@ button {
   display: none;
 }
 
-.logo-bg {
-  fill: #fff;
-}
-.logo:hover .logo-bg {
-  fill: #bde7ff;
-}
-
-.logo {
-  display: none;
-  width: 80%;
-  margin: 0 auto;
-  max-width: 700px;
-}
-
 body {
   background-color: #e9e9e9;
   font-family: "proxima nova";
   margin-left: 0;
 }
-@media (max-width: 999px) {
+@media (max-width: 699px) {
   body {
     padding-top: 50px;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 700px) {
   body {
     padding-top: 0px;
     margin-left: 225px;
@@ -558,12 +503,12 @@ body {
 }
 
 .page-container {
-  max-width: 1500px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 30px;
 }
 
-@media (max-width: 999px) {
+@media (max-width: 699px) {
   .logo-mod,
   .home-topper,
   .page-container {
