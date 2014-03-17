@@ -6,7 +6,7 @@ G A M E S
 
 if (Meteor.isClient) {
 
-Session.setDefault('sort_by', 1);
+Session.setDefault('sort_by', -1);
 Session.setDefault('game_range', 1);
 Session.setDefault('results_num', 50);
 
