@@ -7,7 +7,7 @@
 
 
 body {
-	background-color: #FFF;
+	background-color: $bgcolor;
 	font-family: "proxima nova";
 	margin-left: 70px;
 	@include mq(max, $nav-break) {

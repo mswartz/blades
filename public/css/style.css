@@ -380,11 +380,23 @@ input, select {
 .nav-btns li a {
   display: block;
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   text-indent: -10000px;
   color: #fff;
   text-decoration: none;
   vertical-align: middle;
+}
+.nav-btns li a.leaderboard {
+  background: url(/icons/hamburger.svg) no-repeat;
+}
+.nav-btns li a.newgame {
+  background: url(/icons/hamburger.svg) no-repeat;
+}
+.nav-btns li a.players {
+  background: url(/icons/hamburger.svg) no-repeat;
+}
+.nav-btns li a.games {
+  background: url(/icons/hamburger.svg) no-repeat;
 }
 .nav-btns li a:hover {
   background-color: #bde7ff;
@@ -396,26 +408,6 @@ input, select {
   height: 15px;
   display: inline-block;
   margin-right: 10px;
-}
-
-.home-icon {
-  background: url(/public/icons/hamburger.svg) no-repeat;
-}
-
-.score-icon {
-  background: url(/public/icons/hamburger.svg) no-repeat;
-}
-
-.ap-icon {
-  background: url(/public/icons/hamburger.svg) no-repeat;
-}
-
-.np-icon {
-  background: url(/public/icons/hamburger.svg) no-repeat;
-}
-
-.ag-icon {
-  background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .logo-mod {
@@ -510,7 +502,7 @@ input, select {
 }
 
 body {
-  background-color: #FFF;
+  background-color: white;
   font-family: "proxima nova";
   margin-left: 70px;
 }

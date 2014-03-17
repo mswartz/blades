@@ -29,11 +29,27 @@
 	li a {
 		display: block;
 		width: 100%;
-		padding: 20px;
+		padding: 10px;
 		text-indent: -10000px;
 		color: #fff;
 		text-decoration: none;
 		vertical-align:  middle;
+		
+		&.leaderboard {
+			background: url(/icons/hamburger.svg) no-repeat;
+		}
+
+		&.newgame {
+			background: url(/icons/hamburger.svg) no-repeat;
+		}
+
+		&.players {
+			background: url(/icons/hamburger.svg) no-repeat;
+		}
+
+		&.games {
+			background: url(/icons/hamburger.svg) no-repeat;
+		}
 
 		&:hover {
 			background-color: $blue;
@@ -47,26 +63,6 @@
 	@include size(15);
 	display: inline-block;
 	margin-right: 10px;
-}
-
-.home-icon {
-	background: url(/public/icons/hamburger.svg) no-repeat;
-}
-
-.score-icon {
-	background: url(/public/icons/hamburger.svg) no-repeat;
-}
-
-.ap-icon {
-	background: url(/public/icons/hamburger.svg) no-repeat;
-}
-
-.np-icon {
-	background: url(/public/icons/hamburger.svg) no-repeat;
-}
-
-.ag-icon {
-	background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .logo-mod {
