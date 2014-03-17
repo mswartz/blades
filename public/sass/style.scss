@@ -1,10 +1,8 @@
 @import "../bower_components/upbase/components/base";
-
 @import "project/variables";
-
 @import "project/nav";
-
 @import "project/home";
+
 
 body {
 	// background-color: black;
@@ -30,7 +28,6 @@ body {
 .logo-mod,
 .home-topper,
 .page-container {
-
 	@include mq(max, $nav-break) {
 		@include trans;
 		@include transform(translate3d(0, 0, 0));
