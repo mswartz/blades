@@ -2,16 +2,17 @@
 	width: 100%;
 	background-color: #FFF;
 	border-collapse: collapse;
+	border: 1px solid #EEE;
 
 	thead {
-		border-bottom: 1px solid #CCC;
 		th {
 			padding: 5px;
 			font-weight: bold;
 			font-size: 10px;
 			text-transform: uppercase;
-			background-color: $blue;
+			background-color: $red;
 			letter-spacing: 1px;
+			color: #FFF;
 		}
 	}
 
@@ -22,15 +23,16 @@
 			td {
 				text-align: center;
 				padding: 10px;
-				border: 1px solid #EEE;
+				border-bottom: 1px solid #EEE;
+				border-right: 1px solid #EEE;
 			}
 
 			&:nth-child(2n-1) {
-				background-color: $gray;
+				// background-color: $gray;
 			}
-			
+
 			&:hover {
-				background-color: $blue;
+				background-color: $dark-gray;
 			}
 		}
 	}

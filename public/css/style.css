@@ -291,6 +291,15 @@ button {
   letter-spacing: 1px;
 }
 
+.h3 {
+  text-align: center;
+  font-size: 12px;
+  margin: 30px 0;
+  color: #cccccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .big-number {
   font-size: 48px;
   font-weight: 100;
@@ -300,17 +309,16 @@ button {
   width: 100%;
   background-color: #FFF;
   border-collapse: collapse;
-}
-.table thead, .table-input thead {
-  border-bottom: 1px solid #CCC;
+  border: 1px solid #EEE;
 }
 .table thead th, .table-input thead th {
   padding: 5px;
   font-weight: bold;
   font-size: 10px;
   text-transform: uppercase;
-  background-color: #bde7ff;
+  background-color: #a3053a;
   letter-spacing: 1px;
+  color: #FFF;
 }
 .table tbody tr, .table-input tbody tr {
   border-bottom: 1px solid #EEE;
@@ -318,13 +326,11 @@ button {
 .table tbody tr td, .table-input tbody tr td {
   text-align: center;
   padding: 10px;
-  border: 1px solid #EEE;
-}
-.table tbody tr:nth-child(2n-1), .table-input tbody tr:nth-child(2n-1) {
-  background-color: #eeeeee;
+  border-bottom: 1px solid #EEE;
+  border-right: 1px solid #EEE;
 }
 .table tbody tr:hover, .table-input tbody tr:hover {
-  background-color: #bde7ff;
+  background-color: #cccccc;
 }
 
 input, select {
@@ -489,10 +495,6 @@ input, select {
   background-color: #ccc;
   padding: 30px;
   margin-bottom: 50px;
-}
-
-.info-panel-h3 {
-  margin-bottom: 5px;
 }
 
 .home-topper {
