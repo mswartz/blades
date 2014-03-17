@@ -2,7 +2,6 @@
 	<table class="table">
 		<thead>
 		<th>Game No</th>
-		<th>Game ID</th>
 		<th>Players</th>
 		<th>Team</th>
 		{{#each reg_goals}}
@@ -18,8 +17,7 @@
 
 		<tbody>
 		<tr>
-			<td rowspan="2">{{game_no}}</td>
-			<td rowspan="2"><a href="/games/{{_id}}">{{_id}}</a></td>
+			<td rowspan="2"><a href="/games/{{_id}}">{{game_no}}</a></td>
 			<td><a href="/players/{{p1_id}}">{{p1_name}}</a></td>
 			<td>{{p1_team}}</td>
 			{{#each reg_goals}}

@@ -1,5 +1,9 @@
 if (Meteor.isClient) {
 	Template.home.helpers({
+		'latest_game' : function(){
+			var games = Games.find({}, {sort: {'game_no': -1}, limit: 1}).fetch();
+			return games;
+		},
 		'meta_stats' : function(){
 			var data = Games.find({}).fetch();
 			var games_tot = data.length;
@@ -30,10 +34,6 @@ if (Meteor.isClient) {
 		},
 		'player_streaks' : function(){
 			var game_data = Players.find({}, {sort: {'current_streak': -1}}).fetch();
-			for(var i = 0; i<game_data.length; i++){
-				
-				
-			};
 			return game_data;
 		},
 		'game_leaders' : function(){

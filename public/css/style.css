@@ -282,9 +282,67 @@ button {
   margin-right: 0;
 }
 
+.h2 {
+  text-align: center;
+  font-size: 15px;
+  margin: 30px 0;
+  color: #a3053a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.big-number {
+  font-size: 48px;
+  font-weight: 100;
+}
+
+.table, .table-input {
+  width: 100%;
+  background-color: #FFF;
+  border-collapse: collapse;
+}
+.table thead, .table-input thead {
+  border-bottom: 1px solid #CCC;
+}
+.table thead th, .table-input thead th {
+  padding: 5px;
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  background-color: #bde7ff;
+  letter-spacing: 1px;
+}
+.table tbody tr, .table-input tbody tr {
+  border-bottom: 1px solid #EEE;
+}
+.table tbody tr td, .table-input tbody tr td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #EEE;
+}
+.table tbody tr:nth-child(2n-1), .table-input tbody tr:nth-child(2n-1) {
+  background-color: #eeeeee;
+}
+.table tbody tr:hover, .table-input tbody tr:hover {
+  background-color: #bde7ff;
+}
+
+input, select {
+  font-size: 16px;
+}
+
+.table-input .input-number {
+  width: 60px;
+  padding: 10px;
+  border: 0;
+}
+.table-input .input-number:focus {
+  outline: none;
+}
+
 @media (min-width: 700px) {
   .nav-panel {
-    width: 225px;
+    width: 50px;
     left: 0;
     top: 0;
     height: 100%;
@@ -306,32 +364,18 @@ button {
     bottom: 0;
     left: 0;
     background-color: #180e20;
-    width: 225px;
+    width: 50px;
     -webkit-transition: all 0.2s ease-in;
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
-    -webkit-transform: translate3d(-225px, 0, 0);
-    -moz-transform: translate3d(-225px, 0, 0);
-    -ms-transform: translate3d(-225px, 0, 0);
-    -o-transform: translate3d(-225px, 0, 0);
-    transform: translate3d(-225px, 0, 0);
-  }
-  .nav-active .nav-btns {
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
   }
 }
 .nav-btns li a {
   display: block;
   width: 100%;
   padding: 20px;
-  text-align: left;
-  font-size: 18px;
-  font-weight: 300;
+  text-indent: -10000px;
   color: #fff;
   text-decoration: none;
   vertical-align: middle;
@@ -349,23 +393,23 @@ button {
 }
 
 .home-icon {
-  background: url(../icons/hamburger.svg) no-repeat;
+  background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .score-icon {
-  background: url(../icons/hamburger.svg) no-repeat;
+  background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .ap-icon {
-  background: url(../icons/hamburger.svg) no-repeat;
+  background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .np-icon {
-  background: url(../icons/hamburger.svg) no-repeat;
+  background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .ag-icon {
-  background: url(../icons/hamburger.svg) no-repeat;
+  background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .logo-mod {
@@ -381,25 +425,6 @@ button {
     left: 0;
     background-color: #bde7ff;
     padding: 0;
-  }
-}
-
-.blades-h {
-  text-decoration: none;
-  font-size: 40px;
-  font-weight: 200;
-  color: #fff;
-}
-@media (max-width: 699px) {
-  .blades-h {
-    position: absolute;
-    top: 0;
-    right: 40px;
-    left: 40px;
-    text-align: center;
-    font-size: 19px;
-    padding: 15px;
-    font-weight: 500;
   }
 }
 
@@ -470,15 +495,6 @@ button {
   margin-bottom: 5px;
 }
 
-.home-h2 {
-  text-align: center;
-  font-size: 15px;
-  margin: 30px 0;
-  color: #a3053a;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
 .home-topper {
   display: block;
   margin: 0 0 30px;
@@ -492,9 +508,9 @@ button {
 }
 
 body {
-  background-color: #e9e9e9;
+  background-color: #FFF;
   font-family: "proxima nova";
-  margin-left: 0;
+  margin-left: 70px;
 }
 @media (max-width: 699px) {
   body {
@@ -504,14 +520,12 @@ body {
 @media (min-width: 700px) {
   body {
     padding-top: 0px;
-    margin-left: 225px;
   }
 }
 
 .page-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 30px;
 }
 
 @media (max-width: 699px) {
@@ -522,64 +536,5 @@ body {
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
   }
-  .nav-active .logo-mod, .nav-active
-  .home-topper, .nav-active
-  .page-container {
-    -webkit-transform: translate3d(225px, 0, 0);
-    -moz-transform: translate3d(225px, 0, 0);
-    -ms-transform: translate3d(225px, 0, 0);
-    -o-transform: translate3d(225px, 0, 0);
-    transform: translate3d(225px, 0, 0);
-  }
-}
-
-.table, .table-input {
-  width: 100%;
-  background-color: #FFF;
-  border-collapse: collapse;
-}
-.table thead, .table-input thead {
-  border-bottom: 1px solid #CCC;
-}
-.table thead th, .table-input thead th {
-  padding: 5px;
-  font-weight: bold;
-  font-size: 10px;
-  text-transform: uppercase;
-  background-color: #bde7ff;
-  letter-spacing: 1px;
-}
-.table tbody tr, .table-input tbody tr {
-  border-bottom: 1px solid #EEE;
-}
-.table tbody tr td, .table-input tbody tr td {
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #EEE;
-}
-.table tbody tr:nth-child(2n-1), .table-input tbody tr:nth-child(2n-1) {
-  background-color: #F3F1F3;
-}
-
-input, select {
-  font-size: 16px;
-}
-
-.table-input .input-number {
-  width: 60px;
-  padding: 10px;
-  border: 0;
-}
-.table-input .input-number:focus {
-  outline: none;
-}
-
-.big-number {
-  font-size: 48px;
 }

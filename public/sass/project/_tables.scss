@@ -1,0 +1,53 @@
+.table, .table-input {
+	width: 100%;
+	background-color: #FFF;
+	border-collapse: collapse;
+
+	thead {
+		border-bottom: 1px solid #CCC;
+		th {
+			padding: 5px;
+			font-weight: bold;
+			font-size: 10px;
+			text-transform: uppercase;
+			background-color: $blue;
+			letter-spacing: 1px;
+		}
+	}
+
+	tbody {
+		tr {
+			border-bottom: 1px solid #EEE;
+			
+			td {
+				text-align: center;
+				padding: 10px;
+				border: 1px solid #EEE;
+			}
+
+			&:nth-child(2n-1) {
+				background-color: $gray;
+			}
+			
+			&:hover {
+				background-color: $blue;
+			}
+		}
+	}
+}
+
+input, select {
+	font-size: 16px;
+}
+
+.table-input {
+	.input-number {
+		width: 60px;
+		padding: 10px;
+		border: 0;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}

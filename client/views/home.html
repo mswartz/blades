@@ -1,12 +1,25 @@
 <template name="home">
 
-    <div class="home-topper">
-    something
-    </div>
-
     <div class="page-container">
 
-    <h2 class="home-h2">Leaderboards</h2>
+
+    <!-- let's show the latest game that was played -->
+    <h2 class="h2">Last Game</h2>
+
+    <div class="info-panel">
+      {{#each latest_game}}
+            <h1 class="big-number"><a href="players/{{p1_id}}">{{p1_name}}</a> just beat {{game_loser}} in game {{game_no}}</h1>
+            <h3>{{game.p1_name}}</a> vs <a href="players/{{game.p2_id}}">{{game.p2_name}}</a></h3>
+
+            {{>game}}
+      {{/each}}
+    </div>
+
+
+    <!-- and now onto the leaderboards -->
+
+    <h2 class="h2">Leaderboards</h2>
+
     <div class="l-5050">
 
     <div class="media-block">
@@ -161,16 +174,17 @@
 
 
 
-        <h2 class="home-h2">Games Summary</h2>
-        {{#each meta_stats}}
-        <ul class="summary-list">
-            <li><i class="summary-h">There have been </i><strong><span class="big-number">{{games_tot}} games</span></strong></li>
-            <li><i class="summary-h">There have been </i><strong><span class="big-number">{{goals_tot}} goals scored</span></strong></li>
-            <li><i class="summary-h">There have been </i><strong><span class="big-number">{{fights_tot}} fights</span></strong></li>
-            <li><i class="summary-h">There have been </i><strong><span class="big-number">{{gos_tot}} goals on self</span></strong></li>
-            <li><i class="summary-h">With an average of </i><strong><span class="big-number">{{gpg_avg}} goals per game</span></strong></li>
-            <li><i class="summary-h">And an average of </i><strong><span class="big-number">{{fpg_avg}} fights per game</span></strong></li>
-        </ul>
-        {{/each}}
+    <h2 class="h2">Overall Stats</h2>
+
+      {{#each meta_stats}}
+      <ul class="summary-list">
+          <li><i class="summary-h">There have been </i><strong><span class="big-number">{{games_tot}} games</span></strong></li>
+          <li><i class="summary-h">There have been </i><strong><span class="big-number">{{goals_tot}} goals scored</span></strong></li>
+          <li><i class="summary-h">There have been </i><strong><span class="big-number">{{fights_tot}} fights</span></strong></li>
+          <li><i class="summary-h">There have been </i><strong><span class="big-number">{{gos_tot}} goals on self</span></strong></li>
+          <li><i class="summary-h">With an average of </i><strong><span class="big-number">{{gpg_avg}} goals per game</span></strong></li>
+          <li><i class="summary-h">And an average of </i><strong><span class="big-number">{{fpg_avg}} fights per game</span></strong></li>
+      </ul>
+      {{/each}}
 
 </template>

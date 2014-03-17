@@ -1,28 +1,27 @@
 @import "../bower_components/upbase/components/base";
 @import "project/variables";
+@import "project/type";
+@import "project/tables";
 @import "project/nav";
 @import "project/home";
 
 
 body {
-	// background-color: black;
-	background-color: $gray;
+	background-color: #FFF;
 	font-family: "proxima nova";
-	margin-left: 0;
+	margin-left: 70px;
 	@include mq(max, $nav-break) {
 		padding-top: 50px;
 	}
 	@include mq($nav-break) {
 		padding-top: 0px;
-		margin-left: $nav;
 	}
 }
-
 
 .page-container {
 	max-width: 1000px;
 	margin: 0 auto;
-	padding: 30px;
+	// padding: 30px;
 }
 
 .logo-mod,
@@ -30,62 +29,6 @@ body {
 .page-container {
 	@include mq(max, $nav-break) {
 		@include trans;
-		@include transform(translate3d(0, 0, 0));
-		.nav-active & {
-			@include transform(translate3d($nav, 0, 0));
-		}
 	}
 }
 
-.table, .table-input {
-	width: 100%;
-	background-color: #FFF;
-	border-collapse: collapse;
-
-	thead {
-		border-bottom: 1px solid #CCC;
-		th {
-			padding: 5px;
-			font-weight: bold;
-			font-size: 10px;
-			text-transform: uppercase;
-			background-color: $blue;
-			letter-spacing: 1px;
-		}
-	}
-	tbody {
-		tr {
-			border-bottom: 1px solid #EEE;
-			
-			td {
-				text-align: center;
-				padding: 10px;
-				border: 1px solid #EEE;
-			}
-
-			&:nth-child(2n-1) {
-				background-color: #F3F1F3;
-			}
-		}
-	}
-}
-
-input, select {
-	font-size: 16px;
-}
-
-.table-input {
-	.input-number {
-		width: 60px;
-		padding: 10px;
-		border: 0;
-
-		&:focus {
-			outline: none;
-		}
-	}
-}
-
-.big-number {
-	font-size: 48px;
-}

@@ -1,7 +1,7 @@
 
 .nav-panel {
 	@include mq($nav-break) {
-		width: $nav;
+		width: 50px;
 		left: 0;
 		top: 0;
 		height: 100%;
@@ -18,13 +18,10 @@
 		bottom: 0;
 		left: 0;
 		background-color: $purple;
-		width: $nav;
+		width: 50px;
 		@include trans;
-		@include transform(translate3d(-$nav, 0, 0));
-		.nav-active & {
-			@include transform(translate3d(0, 0, 0));
-		}
 	}
+
 	padding: 0;
 	margin: 0;
 	list-style-type: none;
@@ -33,9 +30,7 @@
 		display: block;
 		width: 100%;
 		padding: 20px;
-		text-align: left;
-		font-size: 18px;
-		font-weight: 300;
+		text-indent: -10000px;
 		color: #fff;
 		text-decoration: none;
 		vertical-align:  middle;
@@ -55,22 +50,23 @@
 }
 
 .home-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .score-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .ap-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .np-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(/public/icons/hamburger.svg) no-repeat;
 }
+
 .ag-icon {
-	background: url(../icons/hamburger.svg) no-repeat;
+	background: url(/public/icons/hamburger.svg) no-repeat;
 }
 
 .logo-mod {
@@ -84,21 +80,10 @@
 		background-color: $blue;
 		padding: 0;
 	}
+
 	padding: 20px;
 }
-.blades-h {
-	@include mq(max, $nav-break) {
-		@include absolute(0 40px n 40px);
-		text-align: center;
-		font-size: 19px;
-		padding: 15px;
-		font-weight: 500;
-	}
-	text-decoration: none;
-	font-size: 40px;
-	font-weight: 200;
-	color: #fff;
-}
+
 
 .hamburger {
 	@include input-default;
