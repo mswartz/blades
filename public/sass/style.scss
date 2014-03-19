@@ -9,12 +9,9 @@
 body {
 	background-color: $bgcolor;
 	font-family: "proxima nova";
-	margin-left: 70px;
+	padding: 20px;
 	@include mq(max, $nav-break) {
 		padding-top: 50px;
-	}
-	@include mq($nav-break) {
-		padding-top: 0px;
 	}
 }
 

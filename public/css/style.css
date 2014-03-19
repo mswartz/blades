@@ -306,6 +306,7 @@ button {
 }
 
 .table, .table-input {
+  margin: 0 0 20px 0;
   width: 100%;
   background-color: #FFF;
   border-collapse: collapse;
@@ -330,7 +331,7 @@ button {
   border-right: 1px solid #EEE;
 }
 .table tbody tr:hover, .table-input tbody tr:hover {
-  background-color: #cccccc;
+  background-color: #eeeeee;
 }
 
 input, select {
@@ -346,15 +347,14 @@ input, select {
   outline: none;
 }
 
+.nav-panel {
+  display: none;
+}
 @media (min-width: 700px) {
   .nav-panel {
-    width: 50px;
-    left: 0;
-    top: 0;
-    height: 100%;
-    bottom: 0;
+    left: 10px;
+    top: 10px;
     position: fixed;
-    background-color: #180e20;
   }
 }
 
@@ -367,20 +367,33 @@ input, select {
   .nav-btns {
     position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
-    background-color: #180e20;
-    width: 50px;
     -webkit-transition: all 0.2s ease-in;
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
   }
 }
+.nav-btns li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 50px;
+}
 .nav-btns li a {
+  background-color: #180e20;
   display: block;
-  width: 100%;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
+  border-radius: 80px;
   padding: 10px;
+  height: 40px;
+  width: 40px;
   text-indent: -10000px;
   color: #fff;
   text-decoration: none;
@@ -504,16 +517,11 @@ input, select {
 body {
   background-color: white;
   font-family: "proxima nova";
-  margin-left: 70px;
+  padding: 20px;
 }
 @media (max-width: 699px) {
   body {
     padding-top: 50px;
-  }
-}
-@media (min-width: 700px) {
-  body {
-    padding-top: 0px;
   }
 }
 

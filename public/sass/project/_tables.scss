@@ -1,4 +1,6 @@
+
 .table, .table-input {
+	margin: 0 0 20px 0;
 	width: 100%;
 	background-color: #FFF;
 	border-collapse: collapse;
@@ -32,7 +34,7 @@
 			}
 
 			&:hover {
-				background-color: $dark-gray;
+				background-color: $gray;
 			}
 		}
 	}

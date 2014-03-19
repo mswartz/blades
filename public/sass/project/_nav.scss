@@ -1,13 +1,11 @@
 
 .nav-panel {
+	display: none;
+	
 	@include mq($nav-break) {
-		width: 50px;
-		left: 0;
-		top: 0;
-		height: 100%;
-		bottom: 0;
+		left: 10px;
+		top: 10px;
 		position: fixed;
-		background-color: $purple;
 	}
 }
 
@@ -15,10 +13,7 @@
 	@include mq(max, $nav-break) {
 		position: fixed;
 		top: 0;
-		bottom: 0;
 		left: 0;
-		background-color: $purple;
-		width: 50px;
 		@include trans;
 	}
 
@@ -26,10 +21,18 @@
 	margin: 0;
 	list-style-type: none;
 
+	li {
+		@include inline-block;
+		width: 50px;
+	}
+
 	li a {
+		background-color: $purple;
 		display: block;
-		width: 100%;
+		@include border-radius(80px);
 		padding: 10px;
+		height: 40px;
+		width: 40px;
 		text-indent: -10000px;
 		color: #fff;
 		text-decoration: none;
