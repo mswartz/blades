@@ -2,6 +2,7 @@
 	font-family: $adelle;
 	font-weight: 100;
 	margin: 0 0 20px 0;
+	font-size: 24px;
 
 	a {
 		color: $accent;
@@ -13,10 +14,49 @@
 	}
 }
 
+.h3 {
+	font-family: $adelle;
+	font-weight: 400;
+	text-align: center;
+	font-size: 18px;
+	margin: 0 0 20px 0;
+}
+
 .game-no {
 	font-family: $adelle-sans;
 	font-size: 14px;
 	font-weight: 100;
+}
+
+.big-number {
+	@include border-radius(100px);
+	text-align: center;
+	@include trans;
+
+	.number {
+		display: block;
+		font-family: $adelle-sans;
+		font-size: 72px;
+		color: darken($txtlight, 20%);
+		font-weight: 100;
+	}
+
+	.descrip {
+		display: block;
+		font-family: $adelle-sans;
+		font-size: 16px;
+		color: $accent;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+
+	&:hover {
+		.number {
+			color: lighten($txtlight, 10%);
+		}
+	}
+
 }
 
 .fancy-header {
@@ -51,5 +91,18 @@
 		width: 30px;
 		height: 15px;
 		background-image: url(/img/fancy-bottom.svg);
+	}
+
+	&.dark {
+		background-color: lighten($darkbg, 10%);
+		color: $txtlight;	
+
+		&:before {
+			background-image: url(/img/fancy-top-dark.svg);
+		}
+
+		&:after {
+			background-image: url(/img/fancy-bottom-dark.svg);
+		}
 	}
 }

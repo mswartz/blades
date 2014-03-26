@@ -5,6 +5,7 @@
 	width: 100%;
 	background-color: #FFF;
 	border-collapse: collapse;
+	border: none;
 
 	thead {
 		th {
@@ -20,18 +21,18 @@
 
 	tbody {
 		tr {
-			border-bottom: 1px solid $lightbg;
+			border: 1px solid $lightbg;
 			color: $txtdark;
 			
 			td {
 				text-align: center;
 				padding: 10px;
-				border-bottom: 1px solid #EEE;
-				border-right: 1px solid #EEE;
+				border: 1px solid #EEE;
 			}
 
 			&:hover {
-				background-color: $gray;
+				background-color: $accent;
+				color: $txtlight;
 			}
 		}
 	}

@@ -63,10 +63,23 @@ body {
 
 .split-two {
 	@media (min-width: $tablet) {
-		@include media-grid(2, 40px);
+		@include media-grid(2, 60px);
+
+		.media-block {
+			margin-bottom: 60px;
+		}
 	}
 }
 
+.split-three {
+	@media (min-width: $tablet) {
+		@include media-grid(3, 30px);
+
+		.media-block {
+			margin-bottom: 30px;
+		}
+	}
+}
 
 
 

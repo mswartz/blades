@@ -286,6 +286,7 @@ button {
   font-family: "adelle";
   font-weight: 100;
   margin: 0 0 20px 0;
+  font-size: 24px;
 }
 .h1 a {
   color: #d3453b;
@@ -297,10 +298,50 @@ button {
   }
 }
 
+.h3 {
+  font-family: "adelle";
+  font-weight: 400;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 0 20px 0;
+}
+
 .game-no {
   font-family: "adelle-sans";
   font-size: 14px;
   font-weight: 100;
+}
+
+.big-number {
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  border-radius: 100px;
+  text-align: center;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.big-number .number {
+  display: block;
+  font-family: "adelle-sans";
+  font-size: 72px;
+  color: #bbbbbb;
+  font-weight: 100;
+}
+.big-number .descrip {
+  display: block;
+  font-family: "adelle-sans";
+  font-size: 16px;
+  color: #d3453b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.big-number:hover .number {
+  color: white;
 }
 
 .fancy-header {
@@ -334,6 +375,16 @@ button {
   height: 15px;
   background-image: url(/img/fancy-bottom.svg);
 }
+.fancy-header.dark {
+  background-color: #30304c;
+  color: #eeeeee;
+}
+.fancy-header.dark:before {
+  background-image: url(/img/fancy-top-dark.svg);
+}
+.fancy-header.dark:after {
+  background-image: url(/img/fancy-bottom-dark.svg);
+}
 
 .table, .table-input {
   font-family: "adelle-sans";
@@ -341,6 +392,7 @@ button {
   width: 100%;
   background-color: #FFF;
   border-collapse: collapse;
+  border: none;
 }
 .table thead th, .table-input thead th {
   padding: 5px;
@@ -352,17 +404,17 @@ button {
   color: #eeeeee;
 }
 .table tbody tr, .table-input tbody tr {
-  border-bottom: 1px solid #ededed;
+  border: 1px solid #ededed;
   color: #1d1d1d;
 }
 .table tbody tr td, .table-input tbody tr td {
   text-align: center;
   padding: 10px;
-  border-bottom: 1px solid #EEE;
-  border-right: 1px solid #EEE;
+  border: 1px solid #EEE;
 }
 .table tbody tr:hover, .table-input tbody tr:hover {
-  background-color: #dddddd;
+  background-color: #d3453b;
+  color: #eeeeee;
 }
 
 input, select {
@@ -426,7 +478,7 @@ body {
 
 @media (min-width: 700px) {
   .split-two {
-    margin-left: -40px;
+    margin-left: -60px;
     *zoom: 1;
   }
   .split-two:after {
@@ -436,7 +488,7 @@ body {
   }
   .split-two > .media-block {
     float: left;
-    padding-left: 40px;
+    padding-left: 60px;
     width: 50%;
   }
   .split-two > .media-block:nth-of-type(2n+3) {
@@ -444,5 +496,37 @@ body {
   }
   .split-two > .media-block.n3 {
     clear: left;
+  }
+  .split-two .media-block {
+    margin-bottom: 60px;
+  }
+}
+
+@media (min-width: 700px) {
+  .split-three {
+    margin-left: -30px;
+    *zoom: 1;
+  }
+  .split-three:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .split-three > .media-block {
+    float: left;
+    padding-left: 30px;
+    width: 33.3333%;
+  }
+  .split-three > .media-block:nth-of-type(3n+4) {
+    clear: left;
+  }
+  .ie7 .split-three > .media-block {
+    width: 33%;
+  }
+  .split-three > .media-block.n4 {
+    clear: left;
+  }
+  .split-three .media-block {
+    margin-bottom: 30px;
   }
 }
