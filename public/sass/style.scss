@@ -2,24 +2,65 @@
 $lightbg: #EDEDED;
 $darkbg: #1c1c2d;
 $accent: #d3453b;
-$gray: #EEE;
+$gray: #DDD;
+$txtlight: #EEE;
+$txtdark: #1d1d1d;
 
 // Sizes
-$nav-break: 700px;
+$tablet: 700px;
 
+
+//Typefaces
+$adelle-sans: "adelle-sans";
+$adelle: "adelle";
 
 
 @import "../bower_components/upbase/components/base";
 @import "project/type";
 @import "project/tables";
 @import "project/nav";
-@import "project/home";
 
 
 body {
 	background-color: $lightbg;
-	font-family: "proxima nova";
-	padding: 20px;
 }
+
+
+// Layout
+
+
+.display-panel {
+	background-color: $darkbg;
+	color: $txtlight;
+
+	@media (min-width: $tablet){
+		padding: 100px 0;
+	}
+}
+
+.display-num {
+	width: 60px;
+	height: 60px;
+	margin: 0 auto 20px auto;
+	text-align: center;
+	padding: 20px 0 0 0;
+	color: darken($txtlight, 10%);
+	@include border-radius(60px);
+	background-color: darken($darkbg, 4%);
+
+	@media(min-width: $tablet){
+		width: 100px;
+		height: 100px;
+		padding: 40px 0 0 0;
+		@include border-radius(100px);
+	}
+}
+
+.page-container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+
 
 

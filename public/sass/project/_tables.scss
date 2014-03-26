@@ -1,5 +1,6 @@
 
 .table, .table-input {
+	font-family: $adelle-sans;
 	margin: 0 0 20px 0;
 	width: 100%;
 	background-color: #FFF;
@@ -8,28 +9,25 @@
 	thead {
 		th {
 			padding: 5px;
-			font-weight: bold;
+			font-weight: 200;
 			font-size: 10px;
 			text-transform: uppercase;
 			background-color: lighten($darkbg, 10%);
 			letter-spacing: 1px;
-			color: #FFF;
+			color: $txtlight;
 		}
 	}
 
 	tbody {
 		tr {
-			border-bottom: 1px solid #EEE;
+			border-bottom: 1px solid $lightbg;
+			color: $txtdark;
 			
 			td {
 				text-align: center;
 				padding: 10px;
 				border-bottom: 1px solid #EEE;
 				border-right: 1px solid #EEE;
-			}
-
-			&:nth-child(2n-1) {
-				// background-color: $gray;
 			}
 
 			&:hover {

@@ -282,7 +282,29 @@ button {
   margin-right: 0;
 }
 
+.h1 {
+  font-family: "adelle";
+  font-weight: 100;
+  margin: 0 0 20px 0;
+}
+.h1 a {
+  color: #d3453b;
+  text-decoration: none;
+}
+@media (min-width: 700px) {
+  .h1 {
+    font-size: 42px;
+  }
+}
+
+.game-no {
+  font-family: "adelle-sans";
+  font-size: 14px;
+  font-weight: 100;
+}
+
 .table, .table-input {
+  font-family: "adelle-sans";
   margin: 0 0 20px 0;
   width: 100%;
   background-color: #FFF;
@@ -290,15 +312,16 @@ button {
 }
 .table thead th, .table-input thead th {
   padding: 5px;
-  font-weight: bold;
+  font-weight: 200;
   font-size: 10px;
   text-transform: uppercase;
   background-color: #30304c;
   letter-spacing: 1px;
-  color: #FFF;
+  color: #eeeeee;
 }
 .table tbody tr, .table-input tbody tr {
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid #ededed;
+  color: #1d1d1d;
 }
 .table tbody tr td, .table-input tbody tr td {
   text-align: center;
@@ -307,7 +330,7 @@ button {
   border-right: 1px solid #EEE;
 }
 .table tbody tr:hover, .table-input tbody tr:hover {
-  background-color: #eeeeee;
+  background-color: #dddddd;
 }
 
 input, select {
@@ -325,6 +348,46 @@ input, select {
 
 body {
   background-color: #ededed;
-  font-family: "proxima nova";
-  padding: 20px;
+}
+
+.display-panel {
+  background-color: #1c1c2d;
+  color: #eeeeee;
+}
+@media (min-width: 700px) {
+  .display-panel {
+    padding: 100px 0;
+  }
+}
+
+.display-num {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  padding: 20px 0 0 0;
+  color: #d4d4d4;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  background-color: #141420;
+}
+@media (min-width: 700px) {
+  .display-num {
+    width: 100px;
+    height: 100px;
+    padding: 40px 0 0 0;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    border-radius: 100px;
+  }
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
