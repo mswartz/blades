@@ -1,10 +1,14 @@
 <template name="player_detail">
-<div class="page-container">
 
   {{#each player}}
-  	<h1>{{name}}</h1>
-  	<hr>
-  	<h2>Player Collection Data</h2>
+
+    <div class="page-topper">
+      <h1>{{name}}</h1>
+    </div>
+
+    <div class="page-container">
+
+  	<h2 class="h2">Player Collection Data</h2>
   	<ul>
 		<li>Games Played: <strong>{{games_played}}</strong></li>
   		<li>Game Wins: <strong>{{games_won}}</strong></li>
@@ -24,7 +28,7 @@
   		{{/each}}
 	</ul>
 	 
-   <h2>Calculated Data</h2>
+   <h2 class="h2">Calculated Data</h2>
     <ul>
       <li>Game Win avg: <strong>{{win_avg}}</strong></li>
       <li>Fight win per game avg: <strong>{{fight_avg}}</strong></li>
@@ -42,7 +46,7 @@
   </ul>
 
 
-  <h2>Record vs Opponents</h2>
+  <h2 class="h2">Record vs Opponents</h2>
 
   <table class="table">
     <thead>
@@ -77,11 +81,12 @@
   {{/each}}
     </tbody>
   </table>
+  </div>
 
   {{/each}}
 
-
-  <h2>Game appearances</h2>
+<div class="page-container">
+  <h2 class="h2">Game appearances</h2>
 
   <p>Sort by <a href="#" id="game_no_asc">Game Number Ascending</a> <a href="#" id="game_no_desc">Game Number Descending</a> <a href="#" id="sort_wins">Wins</a> <a href="#" id="sort_losses">Losses</a> <a href="#" id="sort_none">None</a></p>
 

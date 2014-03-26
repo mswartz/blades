@@ -4,7 +4,6 @@
 	width: 100%;
 	background-color: #FFF;
 	border-collapse: collapse;
-	border: 1px solid #EEE;
 
 	thead {
 		th {
@@ -12,7 +11,7 @@
 			font-weight: bold;
 			font-size: 10px;
 			text-transform: uppercase;
-			background-color: $red;
+			background-color: lighten($darkbg, 10%);
 			letter-spacing: 1px;
 			color: #FFF;
 		}

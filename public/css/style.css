@@ -282,42 +282,18 @@ button {
   margin-right: 0;
 }
 
-.h2 {
-  text-align: center;
-  font-size: 15px;
-  margin: 30px 0;
-  color: #a3053a;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.h3 {
-  text-align: center;
-  font-size: 12px;
-  margin: 30px 0;
-  color: #cccccc;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.big-number {
-  font-size: 48px;
-  font-weight: 100;
-}
-
 .table, .table-input {
   margin: 0 0 20px 0;
   width: 100%;
   background-color: #FFF;
   border-collapse: collapse;
-  border: 1px solid #EEE;
 }
 .table thead th, .table-input thead th {
   padding: 5px;
   font-weight: bold;
   font-size: 10px;
   text-transform: uppercase;
-  background-color: #a3053a;
+  background-color: #30304c;
   letter-spacing: 1px;
   color: #FFF;
 }
@@ -347,196 +323,8 @@ input, select {
   outline: none;
 }
 
-.nav-panel {
-  display: none;
-}
-@media (min-width: 700px) {
-  .nav-panel {
-    left: 10px;
-    top: 10px;
-    position: fixed;
-  }
-}
-
-.nav-btns {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-@media (max-width: 699px) {
-  .nav-btns {
-    position: fixed;
-    top: 0;
-    left: 0;
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-  }
-}
-.nav-btns li {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  width: 50px;
-}
-.nav-btns li a {
-  background-color: #180e20;
-  display: block;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  -ms-border-radius: 80px;
-  -o-border-radius: 80px;
-  border-radius: 80px;
-  padding: 10px;
-  height: 40px;
-  width: 40px;
-  text-indent: -10000px;
-  color: #fff;
-  text-decoration: none;
-  vertical-align: middle;
-}
-.nav-btns li a.leaderboard {
-  background: url(/icons/hamburger.svg) no-repeat;
-}
-.nav-btns li a.newgame {
-  background: url(/icons/hamburger.svg) no-repeat;
-}
-.nav-btns li a.players {
-  background: url(/icons/hamburger.svg) no-repeat;
-}
-.nav-btns li a.games {
-  background: url(/icons/hamburger.svg) no-repeat;
-}
-.nav-btns li a:hover {
-  background-color: #bde7ff;
-  color: #180e20;
-}
-
-.nav-icon {
-  width: 15px;
-  height: 15px;
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.logo-mod {
-  padding: 20px;
-}
-@media (max-width: 699px) {
-  .logo-mod {
-    height: 50px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    left: 0;
-    background-color: #bde7ff;
-    padding: 0;
-  }
-}
-
-.hamburger {
-  border: 0;
-  background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  width: 25px;
-  height: 25px;
-  text-indent: -9999pc;
-  background: url(../icons/hamburger.svg) no-repeat;
-  position: absolute;
-  top: 13px;
-  right: 0;
-  bottom: 0;
-  left: 13px;
-}
-.hamburger:focus {
-  outline: 0;
-}
-@media (min-width: 700px) {
-  .hamburger {
-    display: none;
-  }
-}
-
-@media (min-width: 900px) {
-  .l-5050 {
-    margin-left: -50px;
-    *zoom: 1;
-  }
-  .l-5050:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .l-5050 > .media-block {
-    float: left;
-    padding-left: 50px;
-    width: 50%;
-  }
-  .l-5050 > .media-block:nth-of-type(2n+3) {
-    clear: left;
-  }
-  .l-5050 > .media-block.n3 {
-    clear: left;
-  }
-}
-.l-5050 .media-block {
-  margin-bottom: 60px;
-}
-
-.summary-list {
-  background-color: #ccc;
-  padding: 30px;
-  margin-bottom: 50px;
-}
-
-.home-topper {
-  display: block;
-  margin: 0 0 30px;
-  height: 312px;
-  background-image: url(../img/blades_player_bg.jpg);
-  background-repeat: repeat-x;
-}
-
-.summary-h {
-  display: none;
-}
-
 body {
-  background-color: white;
+  background-color: #ededed;
   font-family: "proxima nova";
   padding: 20px;
-}
-@media (max-width: 699px) {
-  body {
-    padding-top: 50px;
-  }
-}
-
-.page-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-@media (max-width: 699px) {
-  .logo-mod,
-  .home-topper,
-  .page-container {
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-  }
 }

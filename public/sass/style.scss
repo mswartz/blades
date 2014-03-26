@@ -1,5 +1,15 @@
+//Colors!
+$lightbg: #EDEDED;
+$darkbg: #1c1c2d;
+$accent: #d3453b;
+$gray: #EEE;
+
+// Sizes
+$nav-break: 700px;
+
+
+
 @import "../bower_components/upbase/components/base";
-@import "project/variables";
 @import "project/type";
 @import "project/tables";
 @import "project/nav";
@@ -7,25 +17,9 @@
 
 
 body {
-	background-color: $bgcolor;
+	background-color: $lightbg;
 	font-family: "proxima nova";
 	padding: 20px;
-	@include mq(max, $nav-break) {
-		padding-top: 50px;
-	}
 }
 
-.page-container {
-	max-width: 1000px;
-	margin: 0 auto;
-	// padding: 30px;
-}
-
-.logo-mod,
-.home-topper,
-.page-container {
-	@include mq(max, $nav-break) {
-		@include trans;
-	}
-}
 
