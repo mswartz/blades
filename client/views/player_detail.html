@@ -2,42 +2,80 @@
 
   {{#each player}}
 
-    <div class="page-topper">
-      <h1>{{name}}</h1>
-    </div>
-
+  	<div class="display-panel">
     <div class="page-container">
 
   	<h2 class="h2">Player Collection Data</h2>
-  	<ul>
-		<li>Games Played: <strong>{{games_played}}</strong></li>
-  		<li>Game Wins: <strong>{{games_won}}</strong></li>
-  		<li>Game Losses: <strong>{{games_lost}}</strong></li>
-  		<li>Fights won: <strong>{{fights_won}}</strong></li>
-  		<li>Fights lost: <strong>{{fights_lost}}</strong></li>
-  		<li>Goals Scored: <strong>{{goals_scored}}</strong></li>
-  		<li>Goals Allowed: <strong>{{goals_allowed}}</strong></li>
-  		<li>Wins as Player 1: <strong>{{p1_wins}}</strong></li>
-  		<li>Wins as Player 2: <strong>{{p2_wins}}</strong></li>
-      <li>Shutouts recorded: <strong>{{shutouts}}</strong></li>
-      <li>Current streak: <strong>{{current_streak}}</strong></li>
-      <li>Record Winning Streak: <strong>{{win_streak_record}}</strong></li>
-      <li>Record Losing Streak: <strong>{{loss_streak_record}}</strong></li>
-  		{{#each p1_reg_pts}}
-  			{{p1_score_p1}}
-  		{{/each}}
-	</ul>
-	 
-   <h2 class="h2">Calculated Data</h2>
-    <ul>
-      <li>Game Win avg: <strong>{{win_avg}}</strong></li>
-      <li>Fight win per game avg: <strong>{{fight_avg}}</strong></li>
-      <li>Goals scored per game avg: <strong>{{gs_avg}}</strong></li>
-      <li>Goals allowed per game avg: <strong>{{ga_avg}}</strong></li>
-      <li>Shutout average: <strong>{{so_avg}}</strong></li>
-  </ul>
+
+  	<div class="split-three">
+  		<div class="media-block">
+          <div class="big-number">
+          	<span class="number">{{current_streak}}</span><span class="descrip">Best: {{win_streak_record}} / Worst: {{loss_streak_record}}</span>
+          </div>
+        </div>
+
+  		<div class="media-block">
+          <div class="big-number">
+          	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}} / {{win_avg}}</span>
+          </div>
+        </div>
+
+        <div class="media-block">
+          <div class="big-number">
+          	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}} / {{win_avg}}</span>
+          </div>
+        </div>
 
 
+  		<div class="media-block">
+          <div class="big-number">
+          	<span class="number">{{gs_avg}}</span><span class="descrip">{{goals_scored}} total</span>
+          </div>
+        </div>
+
+  		<div class="media-block">
+          <div class="big-number">
+          	<span class="number">{{fight_avg}}</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
+          </div>
+        </div>
+
+  		<div class="media-block">
+          <div class="big-number">
+          	<span class="number">{{ga_avg}}</span><span class="descrip">{{goals_allowed}} total</span>
+          </div>
+        </div>
+
+    </div>
+
+  	<table class="table">
+  		<thead><th>Stat</th><th>Stat</th></thead>
+  		<tbody>
+			<tr><td>Games Played:</td><td>{{games_played}}</td></tr>
+	  		<tr><td>Game Wins:</td><td>{{games_won}}</td></tr>
+	  		<tr><td>Game Losses:</td><td>{{games_lost}}</td></tr>
+	  		<tr><td>Fights won:</td><td>{{fights_won}}</td></tr>
+	  		<tr><td>Fights lost:</td><td>{{fights_lost}}</td></tr>
+	  		<tr><td>Goals Scored:</td><td>{{goals_scored}}</td></tr>
+	  		<tr><td>Goals Allowed:</td><td>{{goals_allowed}}</td></tr>
+	  		<tr><td>Wins as Player 1:</td><td>{{p1_wins}}</td></tr>
+	  		<tr><td>Wins as Player 2:</td><td>{{p2_wins}}</td></tr>
+      		<tr><td>Shutouts recorded:</td><td>{{shutouts}}</td></tr>
+      		<tr><td>Current streak:</td><td>{{current_streak}}</td></tr>
+      		<tr><td>Record Winning Streak:</td><td>{{win_streak_record}}</td></tr>
+      		<tr><td>Record Losing Streak: </td><td>{{loss_streak_record}}</td></tr>
+      		<tr><td>Game Win avg:</td><td>{{win_avg}}</td></tr>
+      		<tr><td>Fight win per game avg:</td><td>{{fight_avg}}</td></tr>
+      		<tr><td>Goals scored per game avg:</td><td>{{gs_avg}}</td></tr>
+      		<tr><td>Goals allowed per game avg:</td><td>{{ga_avg}}</td></tr>
+      		<tr><td>Shutout average:</td><td>{{so_avg}}</td></tr>
+
+      </tbody>
+      </table>
+  </div>
+  </div>
+
+
+<div class="page-container">
   <h2>Goal Distribution</h2>
   <ul>
     <li>1p goals: <strong>{{1p_goals}}</strong></li>
