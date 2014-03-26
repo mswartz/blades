@@ -340,6 +340,9 @@ button {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+.big-number .descrip.light {
+  color: #30304c;
+}
 .big-number:hover .number {
   color: white;
 }

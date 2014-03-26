@@ -5,21 +5,23 @@
   	<div class="display-panel">
     <div class="page-container">
 
-  	<h2 class="h2">Player Collection Data</h2>
-
   	<div class="split-three">
+  		<!-- Streaks -->
   		<div class="media-block">
           <div class="big-number">
+          	<span class="descrip light">Streak</span>
           	<span class="number">{{current_streak}}</span><span class="descrip">Best: {{win_streak_record}} / Worst: {{loss_streak_record}}</span>
           </div>
         </div>
 
+        <!-- Wins -->
   		<div class="media-block">
           <div class="big-number">
           	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}} / {{win_avg}}</span>
           </div>
         </div>
 
+        <!-- SOMETHING? -->
         <div class="media-block">
           <div class="big-number">
           	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}} / {{win_avg}}</span>
@@ -27,18 +29,21 @@
         </div>
 
 
+        <!-- Goals Scored avgs -->
   		<div class="media-block">
           <div class="big-number">
           	<span class="number">{{gs_avg}}</span><span class="descrip">{{goals_scored}} total</span>
           </div>
         </div>
 
+        <!-- Fights Avgs -->
   		<div class="media-block">
           <div class="big-number">
           	<span class="number">{{fight_avg}}</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
           </div>
         </div>
 
+        <!-- Goals ALlowed Avgs -->
   		<div class="media-block">
           <div class="big-number">
           	<span class="number">{{ga_avg}}</span><span class="descrip">{{goals_allowed}} total</span>
@@ -46,6 +51,7 @@
         </div>
 
     </div>
+
 
   	<table class="table">
   		<thead><th>Stat</th><th>Stat</th></thead>

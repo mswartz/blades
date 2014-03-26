@@ -49,6 +49,10 @@
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 2px;
+
+		&.light {
+			color: lighten($darkbg, 10%);
+		}
 	}
 
 	&:hover {
