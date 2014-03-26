@@ -303,6 +303,38 @@ button {
   font-weight: 100;
 }
 
+.fancy-header {
+  background-color: #FFF;
+  color: #d3453b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-family: "adelle-sans";
+  width: 300px;
+  margin: 40px auto;
+  text-align: center;
+  padding: 10px 20px;
+  position: relative;
+}
+.fancy-header:before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: 0;
+  width: 30px;
+  height: 15px;
+  background-image: url(/img/fancy-top.svg);
+}
+.fancy-header:after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 30px;
+  height: 15px;
+  background-image: url(/img/fancy-bottom.svg);
+}
+
 .table, .table-input {
   font-family: "adelle-sans";
   margin: 0 0 20px 0;
@@ -390,4 +422,27 @@ body {
 .page-container {
   max-width: 800px;
   margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+  .split-two {
+    margin-left: -40px;
+    *zoom: 1;
+  }
+  .split-two:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .split-two > .media-block {
+    float: left;
+    padding-left: 40px;
+    width: 50%;
+  }
+  .split-two > .media-block:nth-of-type(2n+3) {
+    clear: left;
+  }
+  .split-two > .media-block.n3 {
+    clear: left;
+  }
 }

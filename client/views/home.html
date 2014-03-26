@@ -1,8 +1,6 @@
 <template name="home">
 
     <!-- let's show the latest game that was played -->
-    <h2 class="h2">Last Game</h2>
-
     <div class="display-panel">
 	    <div class="page-container">
 	      {{#each latest_game}}
@@ -16,12 +14,13 @@
 
 
 <div class="page-container">
-
     <!-- and now onto the leaderboards -->
+    <h2 class="fancy-header">Leaderboards</h2>
 
-    <h2 class="h2">Leaderboards</h2>
 
+<div class="split-two">
 
+<div class="media-block">
     <h3 class="h3">Current streaks</h3>
     <table class="table">
         <thead>
@@ -37,7 +36,9 @@
             {{/each}}
         </tbody>
     </table>
+</div><!-- media-block-->
 
+<div class="media-block">
       <h3 class="h3">Longest streaks</h3>
       <table class="table">
 	      <thead>
@@ -55,7 +56,9 @@
 	      {{/each}}
 	      </tbody>
       </table>
+</div><!-- media-block-->
 
+<div class="media-block">
       <h3 class="h3">Most Wins</h3>
       <table class="table">
       	<thead>
@@ -65,18 +68,19 @@
       		<th>Win %</th>
     	</thead>
     	<tbody>
-      {{#each game_leaders}}
-      <tr>
-      	<td>{{name}}</td>
-      	<td>{{games_won}}</td>
-      	<td>{{games_lost}}</td>
-      	<td>{{game_avg}}</td>
-      </tr>
-      {{/each}}
-      </tbody>
+		      {{#each game_leaders}}
+		      <tr>
+		      	<td>{{name}}</td>
+		      	<td>{{games_won}}</td>
+		      	<td>{{games_lost}}</td>
+		      	<td>{{game_avg}}</td>
+		      </tr>
+		      {{/each}}
+		</tbody>
       </table>
+</div><!-- media-block-->
 
-
+<div class="media-block">
       <h3 class="h3">Most Goals</h3>
       <table class="table">
       	<thead>
@@ -96,7 +100,9 @@
       {{/each}}
       </tbody>
       </table>
+</div><!-- media-block-->
 
+<div class="media-block">
       <h3 class="h3">Best defense</h3>
       <table class="table">
       	<thead>
@@ -118,29 +124,32 @@
       {{/each}}
       </tbody>
       </table>
+</div><!-- media-block-->
 
-
-            <h3 class="h3">Best fighter</h3>
-              <table class="table">
-              	<thead>
-              		<th>Player</th>
-              		<th>Fights Won</th>
-              		<th>Fights Lost</th>
-              		<th>Fights / Game</th>
-              		<th>Fight avg</th>
-            	</thead>
-            	<tbody>
-                    {{#each fight_leaders}}
-                    <tr>
-                      	<td>{{name}}</td>
-                      	<td>{{fights_won}}</td>
-                      	<td>{{fights_lost}}</td>
-                      	<td>{{fpg_avg}}</td>
-                      	<td>{{fight_avg}}</td>
-                   </tr>
-                     {{/each}}
-                    </tbody>
-                </table>
+<div class="media-block">
+    <h3 class="h3">Best fighter</h3>
+      <table class="table">
+      	<thead>
+      		<th>Player</th>
+      		<th>Fights Won</th>
+      		<th>Fights Lost</th>
+      		<th>Fights / Game</th>
+      		<th>Fight avg</th>
+    	</thead>
+    	<tbody>
+            {{#each fight_leaders}}
+            <tr>
+              	<td>{{name}}</td>
+              	<td>{{fights_won}}</td>
+              	<td>{{fights_lost}}</td>
+              	<td>{{fpg_avg}}</td>
+              	<td>{{fight_avg}}</td>
+           </tr>
+             {{/each}}
+            </tbody>
+        </table>
+</div><!-- media-block -->
+</div><!-- split-two -->
 </div><!-- page-container -->
 
 

@@ -61,6 +61,12 @@ body {
 	margin: 0 auto;
 }
 
+.split-two {
+	@media (min-width: $tablet) {
+		@include media-grid(2, 40px);
+	}
+}
+
 
 
 

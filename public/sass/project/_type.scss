@@ -18,3 +18,38 @@
 	font-size: 14px;
 	font-weight: 100;
 }
+
+.fancy-header {
+	background-color: #FFF;
+	color: $accent;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 600;
+	font-family: $adelle-sans;
+
+	width: 300px;
+	margin: 40px auto;
+	text-align: center;
+	padding: 10px 20px;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: -15px;
+		right: 0;
+		width: 30px;
+		height: 15px;
+		background-image: url(/img/fancy-top.svg);
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: -15px;
+		left: 0;
+		width: 30px;
+		height: 15px;
+		background-image: url(/img/fancy-bottom.svg);
+	}
+}
