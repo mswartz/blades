@@ -9,7 +9,7 @@
   		<!-- Streaks -->
   		<div class="media-block">
           <div class="big-number">
-          	<span class="descrip light">Streak</span>
+          	<h4 class="descrip light">Streak</h4>
           	<span class="number">{{current_streak}}</span><span class="descrip">Best: {{win_streak_record}} / Worst: {{loss_streak_record}}</span>
           </div>
         </div>
@@ -17,6 +17,7 @@
         <!-- Wins -->
   		<div class="media-block">
           <div class="big-number">
+          	<h4 class="descrip light">Games Won</h4>
           	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}} / {{win_avg}}</span>
           </div>
         </div>
@@ -24,6 +25,7 @@
         <!-- SOMETHING? -->
         <div class="media-block">
           <div class="big-number">
+        	<h4 class="descrip light">Games Won</h4>
           	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}} / {{win_avg}}</span>
           </div>
         </div>
@@ -32,6 +34,7 @@
         <!-- Goals Scored avgs -->
   		<div class="media-block">
           <div class="big-number">
+        	<h4 class="descrip light">Goal scoring</h4>
           	<span class="number">{{gs_avg}}</span><span class="descrip">{{goals_scored}} total</span>
           </div>
         </div>
@@ -39,6 +42,7 @@
         <!-- Fights Avgs -->
   		<div class="media-block">
           <div class="big-number">
+        	<h4 class="descrip light">Fights</h4>
           	<span class="number">{{fight_avg}}</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
           </div>
         </div>
@@ -46,51 +50,19 @@
         <!-- Goals ALlowed Avgs -->
   		<div class="media-block">
           <div class="big-number">
+        	<h4 class="descrip light">Defense</h4>
           	<span class="number">{{ga_avg}}</span><span class="descrip">{{goals_allowed}} total</span>
           </div>
         </div>
 
     </div>
 
-
-  	<table class="table">
-  		<thead><th>Stat</th><th>Stat</th></thead>
-  		<tbody>
-			<tr><td>Games Played:</td><td>{{games_played}}</td></tr>
-	  		<tr><td>Game Wins:</td><td>{{games_won}}</td></tr>
-	  		<tr><td>Game Losses:</td><td>{{games_lost}}</td></tr>
-	  		<tr><td>Fights won:</td><td>{{fights_won}}</td></tr>
-	  		<tr><td>Fights lost:</td><td>{{fights_lost}}</td></tr>
-	  		<tr><td>Goals Scored:</td><td>{{goals_scored}}</td></tr>
-	  		<tr><td>Goals Allowed:</td><td>{{goals_allowed}}</td></tr>
-	  		<tr><td>Wins as Player 1:</td><td>{{p1_wins}}</td></tr>
-	  		<tr><td>Wins as Player 2:</td><td>{{p2_wins}}</td></tr>
-      		<tr><td>Shutouts recorded:</td><td>{{shutouts}}</td></tr>
-      		<tr><td>Current streak:</td><td>{{current_streak}}</td></tr>
-      		<tr><td>Record Winning Streak:</td><td>{{win_streak_record}}</td></tr>
-      		<tr><td>Record Losing Streak: </td><td>{{loss_streak_record}}</td></tr>
-      		<tr><td>Game Win avg:</td><td>{{win_avg}}</td></tr>
-      		<tr><td>Fight win per game avg:</td><td>{{fight_avg}}</td></tr>
-      		<tr><td>Goals scored per game avg:</td><td>{{gs_avg}}</td></tr>
-      		<tr><td>Goals allowed per game avg:</td><td>{{ga_avg}}</td></tr>
-      		<tr><td>Shutout average:</td><td>{{so_avg}}</td></tr>
-
-      </tbody>
-      </table>
   </div>
   </div>
 
 
 <div class="page-container">
-  <h2>Goal Distribution</h2>
-  <ul>
-    <li>1p goals: <strong>{{1p_goals}}</strong></li>
-    <li>2p goals: <strong>{{2p_goals}}</strong></li>
-    <li>3p goals: <strong>{{3p_goals}}</strong></li>
-  </ul>
-
-
-  <h2 class="h2">Record vs Opponents</h2>
+  <h2 class="fancy-header">Record vs Opponents</h2>
 
   <table class="table">
     <thead>
@@ -129,8 +101,9 @@
 
   {{/each}}
 
+<div class="display-panel">
 <div class="page-container">
-  <h2 class="h2">Game appearances</h2>
+  <h2 class="fancy-header dark">Game appearances</h2>
 
   <p>Sort by <a href="#" id="game_no_asc">Game Number Ascending</a> <a href="#" id="game_no_desc">Game Number Descending</a> <a href="#" id="sort_wins">Wins</a> <a href="#" id="sort_losses">Losses</a> <a href="#" id="sort_none">None</a></p>
 
@@ -146,5 +119,6 @@
     {{>game}}
   {{/each}}
 
-</div>  
+</div> <!-- page-container -->
+</div> <!-- display-panel -->
 </template>
