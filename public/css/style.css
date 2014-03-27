@@ -433,6 +433,15 @@ input, select {
   outline: none;
 }
 
+.opp-table th {
+  border-bottom: 1px solid #1d1d1d;
+}
+.opp-table tbody tr td {
+  font-family: "adelle-sans";
+  color: #eeeeee;
+  font-size: 18px;
+}
+
 body {
   background-color: #ededed;
 }
@@ -532,4 +541,21 @@ body {
   .split-three .media-block {
     margin-bottom: 30px;
   }
+}
+
+.player-profile {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.player-avatar {
+  width: 150px;
+  height: 150px;
+  background-color: #30304c;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  -ms-border-radius: 150px;
+  -o-border-radius: 150px;
+  border-radius: 150px;
+  padding: 10px;
 }

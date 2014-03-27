@@ -81,5 +81,17 @@ body {
 	}
 }
 
+.player-profile {
+	width: 300px;
+	margin: 0 auto;
+}
+
+.player-avatar {
+	width: 150px;
+	height: 150px;
+	background-color: lighten($darkbg, 10%);
+	@include border-radius(150px);
+	padding: 10px;
+}
 
 

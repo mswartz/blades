@@ -5,6 +5,11 @@
   	<div class="display-panel">
     <div class="page-container">
 
+    <div class="player-profile">
+	    <div class="player-avatar"><img src="img/min.jpg"/></div>
+	    <h1 class="player-name">{{name}}</h1>
+    </div>
+
   	<div class="split-three">
   		<!-- Streaks -->
   		<div class="media-block">
@@ -57,14 +62,10 @@
 
     </div>
 
-  </div>
-  </div>
 
+  <h2 class="fancy-header dark">Record vs Opponents</h2>
 
-<div class="page-container">
-  <h2 class="fancy-header">Record vs Opponents</h2>
-
-  <table class="table">
+  <table class="opp-table">
     <thead>
       <th>Opponent</th>
       <th>Games Won</th>
@@ -98,12 +99,13 @@
     </tbody>
   </table>
   </div>
+  </div>
 
-  {{/each}}
+{{/each}}
 
-<div class="display-panel">
+
 <div class="page-container">
-  <h2 class="fancy-header dark">Game appearances</h2>
+  <h2 class="fancy-header">Game appearances</h2>
 
   <p>Sort by <a href="#" id="game_no_asc">Game Number Ascending</a> <a href="#" id="game_no_desc">Game Number Descending</a> <a href="#" id="sort_wins">Wins</a> <a href="#" id="sort_losses">Losses</a> <a href="#" id="sort_none">None</a></p>
 

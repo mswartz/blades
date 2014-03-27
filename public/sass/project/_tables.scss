@@ -53,3 +53,17 @@ input, select {
 		}
 	}
 }
+
+.opp-table {
+
+	th {
+		border-bottom: 1px solid $txtdark;
+	}
+
+
+	tbody tr td {
+		font-family: $adelle-sans;
+		color: $txtlight;
+		font-size: 18px;
+	}
+}
