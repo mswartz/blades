@@ -447,8 +447,14 @@ input, select {
 }
 .opp-table tbody tr td {
   font-family: "adelle-sans";
+  padding: 10px;
+  text-align: center;
   color: #eeeeee;
   font-size: 18px;
+  border-bottom: 1px solid #2a2a2a;
+}
+.opp-table tbody tr td a {
+  color: #d3453b;
 }
 
 .nav-panel {
@@ -542,7 +548,7 @@ body {
 
 @media (min-width: 700px) {
   .split-three {
-    margin-left: -60px;
+    margin-left: -30px;
     *zoom: 1;
   }
   .split-three:after {
@@ -552,7 +558,7 @@ body {
   }
   .split-three > .media-block {
     float: left;
-    padding-left: 60px;
+    padding-left: 30px;
     width: 33.3333%;
   }
   .split-three > .media-block:nth-of-type(3n+4) {
@@ -565,7 +571,7 @@ body {
     clear: left;
   }
   .split-three .media-block {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
 }
 
@@ -592,4 +598,5 @@ body {
   font-weight: 100;
   text-align: center;
   color: #FFF;
+  margin: 0 0 30px 0;
 }

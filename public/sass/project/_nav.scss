@@ -1,0 +1,17 @@
+.nav-panel {
+	width: 60px;
+	position: fixed;
+	top: 5px;
+	left: 5px;
+}
+
+.nav-link {
+	display: block;
+	width: 60px;
+	height: 60px;
+	background-color: rgba(0,0,0,.5);
+
+	&:hover {
+		background-color: rgba(0,0,0, 1);
+	}
+}

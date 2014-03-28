@@ -73,10 +73,10 @@ body {
 
 .split-three {
 	@media (min-width: $tablet) {
-		@include media-grid(3, 60px);
+		@include media-grid(3, 30px);
 
 		.media-block {
-			margin-bottom: 30px;
+			margin-bottom: 60px;
 		}
 	}
 }
@@ -93,5 +93,16 @@ body {
 	@include border-radius(150px);
 	padding: 10px;
 }
+
+.player-name {
+	font-size: 26px;
+	font-family: $adelle;
+	font-weight: 100;
+	text-align: center;
+	color: #FFF;
+	margin: 0 0 30px 0;
+}
+
+
 
 

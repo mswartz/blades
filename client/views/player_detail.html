@@ -6,7 +6,7 @@
     <div class="page-container">
 
     <div class="player-profile">
-	    <div class="player-avatar"><img src="img/min.jpg"/></div>
+	    <div class="player-avatar"><img src="img/min.png"/></div>
 	    <h1 class="player-name">{{name}}</h1>
     </div>
 
@@ -15,7 +15,7 @@
   		<div class="media-block">
           <div class="big-number">
           	<h4 class="descrip light">Streak</h4>
-          	<span class="number">{{current_streak}}</span><span class="descrip">Best: {{win_streak_record}} / Worst: {{loss_streak_record}}</span>
+          	<span class="number">{{current_streak}}</span><span class="descrip">Games</span>
           </div>
         </div>
 
@@ -23,15 +23,15 @@
   		<div class="media-block">
           <div class="big-number">
           	<h4 class="descrip light">Games Won</h4>
-          	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}} / {{win_avg}}</span>
+          	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}}</span>
           </div>
         </div>
 
         <!-- SOMETHING? -->
         <div class="media-block">
           <div class="big-number">
-        	<h4 class="descrip light">Games Won</h4>
-          	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}} / {{win_avg}}</span>
+        	<h4 class="descrip light">Best / Worst Streak</h4>
+          	<span class="number">{{win_streak_record}}</span><span class="descrip">{{loss_streak_record}}</span>
           </div>
         </div>
 
@@ -39,26 +39,28 @@
         <!-- Goals Scored avgs -->
   		<div class="media-block">
           <div class="big-number">
-        	<h4 class="descrip light">Goal scoring</h4>
-          	<span class="number">{{gs_avg}}</span><span class="descrip">{{goals_scored}} total</span>
+        	<h4 class="descrip light">PPG</h4>
+          	<span class="number">{{gs_avg}}</span><span class="descrip">{{goals_scored}}</span>
+          </div>
+        </div>
+
+
+        <!-- Goals ALlowed Avgs -->
+      <div class="media-block">
+          <div class="big-number">
+          <h4 class="descrip light">GAPG</h4>
+            <span class="number">{{ga_avg}}</span><span class="descrip">{{goals_allowed}}</span>
           </div>
         </div>
 
         <!-- Fights Avgs -->
   		<div class="media-block">
           <div class="big-number">
-        	<h4 class="descrip light">Fights</h4>
+        	<h4 class="descrip light">Fight %</h4>
           	<span class="number">{{fight_avg}}</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
           </div>
         </div>
 
-        <!-- Goals ALlowed Avgs -->
-  		<div class="media-block">
-          <div class="big-number">
-        	<h4 class="descrip light">Defense</h4>
-          	<span class="number">{{ga_avg}}</span><span class="descrip">{{goals_allowed}} total</span>
-          </div>
-        </div>
 
     </div>
 
@@ -68,38 +70,27 @@
   <table class="opp-table">
     <thead>
       <th>Opponent</th>
-      <th>Games Won</th>
-      <th>Games Lost</th>
-      <th>Games Played</th>
-      <th>Games Avg</th>
-      <th>Goals Scored</th>
-      <th>Goals Allowed</th>
-      <th>Fights won</th>
-      <th>Fights lost</th>
-      <th>Fights avg</th>
+      <th>Record</th>
+      <th>Goals +/-</th>
+      <th>Fights +/-</th>
       <th>Shutouts</th>
     </thead>
 
     <tbody>
   {{#each opponents}}
     <tr>
-      <td>vs <a href="{{id}}">{{name}}</a></td>
-      <td>{{games_won}}</td>
-      <td>{{games_lost}}</td>
-      <td>{{games_played}}</td>
-      <td>{{games_avg}}</td>
-      <td>{{goals_scored}}</td>
-      <td>{{goals_allowed}}</td>
-      <td>{{fights_won}}</td>
-      <td>{{fights_lost}}</td>
-      <td>{{fights_avg}}</td>
+      <td><a href="{{id}}">{{name}}</a></td>
+      <td>{{games_won}} / {{games_lost}}</td>
+      <td>{{goals_scored}} / {{goals_allowed}}</td>
+      <td>{{fights_won}} / {{fights_lost}}</td>
       <td>{{shutouts}}</td>
     </tr>
   {{/each}}
     </tbody>
   </table>
-  </div>
-  </div>
+
+</div>
+</div>
 
 {{/each}}
 
