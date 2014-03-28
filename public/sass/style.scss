@@ -73,7 +73,7 @@ body {
 
 .split-three {
 	@media (min-width: $tablet) {
-		@include media-grid(3, 30px);
+		@include media-grid(3, 60px);
 
 		.media-block {
 			margin-bottom: 30px;
@@ -82,7 +82,7 @@ body {
 }
 
 .player-profile {
-	width: 300px;
+	width: 150px;
 	margin: 0 auto;
 }
 

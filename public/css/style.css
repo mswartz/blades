@@ -516,7 +516,7 @@ body {
 
 @media (min-width: 700px) {
   .split-three {
-    margin-left: -30px;
+    margin-left: -60px;
     *zoom: 1;
   }
   .split-three:after {
@@ -526,7 +526,7 @@ body {
   }
   .split-three > .media-block {
     float: left;
-    padding-left: 30px;
+    padding-left: 60px;
     width: 33.3333%;
   }
   .split-three > .media-block:nth-of-type(3n+4) {
@@ -544,7 +544,7 @@ body {
 }
 
 .player-profile {
-  width: 300px;
+  width: 150px;
   margin: 0 auto;
 }
 
