@@ -4,6 +4,10 @@
 	margin: 0 0 20px 0;
 	font-size: 24px;
 
+	&.centered {
+		text-align: center;
+	}
+
 	a {
 		color: $accent;
 		text-decoration: none;
@@ -39,6 +43,11 @@
 		font-size: 72px;
 		color: darken($txtlight, 20%);
 		font-weight: 100;
+
+		&.small {
+			font-size: 36px;
+			padding: 22px 0;
+		}
 	}
 
 	.descrip {

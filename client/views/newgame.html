@@ -1,7 +1,9 @@
 <template name="newgame">
+<div class="display-panel">
 <div class="page-container">
-  <h1>Let's score game {{game_no}}</h1>
-  {{p1_name}}: {{p1_points}}, {{p2_name}}: {{p2_points}}
+  <h1 class="fancy-header dark">Let's score game {{game_no}}</h1>
+  <h3 class="h1 centered">{{p1_name}} vs {{p2_name}}</h3>
+
   <input id="ot_counter" type="number" min="0" max="20" value="0" />
   {{ot_count}}
   
@@ -87,5 +89,6 @@
 
   <input type="submit" class="btn-submit submit" value="submit" id="newgame_addgame"/>
 
+	</div>
   </div><!-- page-container -->
 </template>

@@ -31,6 +31,14 @@ if (Meteor.isClient) {
 	  	player[0].ga_avg = player[0].goals_allowed / player[0].games_played;
 	  	player[0].so_avg = player[0].shutouts / player[0].games_played;
 
+	  	//Let's snip off some decimals
+	  	player[0].win_avg = player[0].win_avg.toFixed(2) * 100;
+		player[0].fight_avg = player[0].fight_avg.toFixed(2) * 100;
+		player[0].gs_avg = player[0].gs_avg.toFixed(2);
+		player[0].ga_avg = player[0].ga_avg.toFixed(2);
+		player[0].so_avg = player[0].so_avg.toFixed(2);
+
+
 	  	//now return the player with the opp stats to the template
 	  	return player;
 	  },

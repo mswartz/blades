@@ -92,6 +92,11 @@ body {
 	background-color: lighten($darkbg, 10%);
 	@include border-radius(150px);
 	padding: 10px;
+
+	img {
+		width: 100%;
+		@include border-radius(150px);
+	}
 }
 
 .player-name {

@@ -6,7 +6,7 @@
     <div class="page-container">
 
     <div class="player-profile">
-	    <div class="player-avatar"><img src="img/min.png"/></div>
+	    <div class="player-avatar"><img src="/img/min.png"/></div>
 	    <h1 class="player-name">{{name}}</h1>
     </div>
 
@@ -14,7 +14,7 @@
   		<!-- Streaks -->
   		<div class="media-block">
           <div class="big-number">
-          	<h4 class="descrip light">Streak</h4>
+          	<h4 class="descrip light">Current Streak</h4>
           	<span class="number">{{current_streak}}</span><span class="descrip">Games</span>
           </div>
         </div>
@@ -22,8 +22,8 @@
         <!-- Wins -->
   		<div class="media-block">
           <div class="big-number">
-          	<h4 class="descrip light">Games Won</h4>
-          	<span class="number">{{games_won}}</span><span class="descrip">{{games_won}} / {{games_lost}}</span>
+          	<h4 class="descrip light">Record</h4>
+          	<span class="number small">{{games_won}} / {{games_lost}}</span><span class="descrip">{{win_avg}}%</span>
           </div>
         </div>
 
@@ -57,7 +57,7 @@
   		<div class="media-block">
           <div class="big-number">
         	<h4 class="descrip light">Fight %</h4>
-          	<span class="number">{{fight_avg}}</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
+          	<span class="number">{{fight_avg}}%</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
           </div>
         </div>
 

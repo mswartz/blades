@@ -288,6 +288,9 @@ button {
   margin: 0 0 20px 0;
   font-size: 24px;
 }
+.h1.centered {
+  text-align: center;
+}
 .h1 a {
   color: #d3453b;
   text-decoration: none;
@@ -330,6 +333,10 @@ button {
   font-size: 72px;
   color: #bbbbbb;
   font-weight: 100;
+}
+.big-number .number.small {
+  font-size: 36px;
+  padding: 22px 0;
 }
 .big-number .descrip {
   display: block;
@@ -590,6 +597,14 @@ body {
   -o-border-radius: 150px;
   border-radius: 150px;
   padding: 10px;
+}
+.player-avatar img {
+  width: 100%;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  -ms-border-radius: 150px;
+  -o-border-radius: 150px;
+  border-radius: 150px;
 }
 
 .player-name {
