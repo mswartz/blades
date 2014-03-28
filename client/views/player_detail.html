@@ -11,26 +11,27 @@
     </div>
 
   	<div class="split-three player-page">
-  		<!-- Streaks -->
-  		<div class="media-block">
+
+      <!-- Wins -->
+      <div class="media-block">
           <div class="big-number">
-          	<h4 class="descrip light">Current Streak</h4>
-          	<span class="number">{{current_streak}}</span><span class="descrip">Games</span>
+            <h4 class="descrip light">Record</h4>
+            <span class="number small">{{games_won}} / {{games_lost}}</span><span class="descrip">{{win_avg}}%</span>
           </div>
         </div>
 
-        <!-- Wins -->
+  		<!-- Streaks -->
   		<div class="media-block">
           <div class="big-number">
-          	<h4 class="descrip light">Record</h4>
-          	<span class="number small">{{games_won}} / {{games_lost}}</span><span class="descrip">{{win_avg}}%</span>
+          	<h4 class="descrip light">Current</h4>
+          	<span class="number">{{current_streak}}</span><span class="descrip">Streak</span>
           </div>
         </div>
 
         <!-- SOMETHING? -->
         <div class="media-block">
           <div class="big-number">
-        	<h4 class="descrip light">Best / Worst Streak</h4>
+        	<h4 class="descrip light">Best Streak</h4>
           	<span class="number">{{win_streak_record}}</span><span class="descrip">{{loss_streak_record}}</span>
           </div>
         </div>
