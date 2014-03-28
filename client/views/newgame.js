@@ -142,7 +142,6 @@ Template.newgame.events({
     //Find game winner & loser
     var game_winner;
     var game_loser;
-
     var game_winner_name;
     var game_loser_name;
 
@@ -151,10 +150,14 @@ Template.newgame.events({
 
     if(p1_pts > p2_pts){
       game_winner = Session.get('p1_id');
+      game_winner_name = Session.get('p1_name');
       game_loser = Session.get('p2_id');
+      game_loser_name = Session.get('p2_name');
     } else {
       game_winner = Session.get('p2_id');
-      game_loser = Session.get('p1_id');
+      game_winner_name = Session.get('p2_name');
+      game_loser = Session.get('p1_id');      
+      game_loser_name = Session.get('p1_name');
     }
 
     //Find fights winner & loser or tied
@@ -248,7 +251,10 @@ Template.newgame.events({
 
       //Add winners
       'game_winner' : game_winner,
-      'game_loser' : game_loser
+      'game_loser' : game_loser,
+
+      'game_winner_name' : game_winner_name,
+      'game_loser_name' : game_loser_name,
     });
 
 
