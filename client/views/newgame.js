@@ -143,6 +143,9 @@ Template.newgame.events({
     var game_winner;
     var game_loser;
 
+    var game_winner_name;
+    var game_loser_name;
+
     var p1_pts = Session.get('p1_pts');
     var p2_pts = Session.get('p2_pts');
 
@@ -245,7 +248,7 @@ Template.newgame.events({
 
       //Add winners
       'game_winner' : game_winner,
-      'game_loser' : game_loser,
+      'game_loser' : game_loser
     });
 
 
