@@ -1,7 +1,5 @@
 <template name="player_detail">
 
-  {{#each player}}
-
   	<div class="display-panel">
     <div class="page-container">
 
@@ -16,7 +14,7 @@
       <div class="media-block">
           <div class="big-number">
             <h4 class="descrip light">Record</h4>
-            <span class="number small">{{games_won}} / {{games_lost}}</span><span class="descrip">{{win_avg}}%</span>
+            <span class="number small">{{games_won}} / {{games_lost}}</span><span class="descrip">{{player.win_avg}}%</span>
           </div>
         </div>
 
@@ -41,7 +39,7 @@
   		<div class="media-block">
           <div class="big-number">
         	<h4 class="descrip light">PPG</h4>
-          	<span class="number">{{gs_avg}}</span><span class="descrip">{{goals_scored}}</span>
+          	<span class="number">{{player.gs_avg}}</span><span class="descrip">{{goals_scored}}</span>
           </div>
         </div>
 
@@ -50,7 +48,7 @@
       <div class="media-block">
           <div class="big-number">
           <h4 class="descrip light">GAPG</h4>
-            <span class="number">{{ga_avg}}</span><span class="descrip">{{goals_allowed}}</span>
+            <span class="number">{{player.ga_avg}}</span><span class="descrip">{{goals_allowed}}</span>
           </div>
         </div>
 
@@ -58,7 +56,7 @@
   		<div class="media-block">
           <div class="big-number">
         	<h4 class="descrip light">Fight %</h4>
-          	<span class="number">{{fight_avg}}%</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
+          	<span class="number">{{player.fight_avg}}%</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
           </div>
         </div>
 
@@ -92,8 +90,6 @@
 
 </div>
 </div>
-
-{{/each}}
 
 
 <div class="page-container">

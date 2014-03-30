@@ -1,9 +1,56 @@
 <template name="game_detail">
- {{#each game}}
+
+<h1>Game detail</h1>
+
+
  	<h1>Game No. {{game_no}}</h1>
- 	<h3><a href="players/{{game.p1_id}}">{{game.p1_name}}</a> vs <a href="players/{{game.p2_id}}">{{game.p2_name}}</a></h3>
+ 	<h3><a href="players/{{game.p1_id}}">{{p1_name}}</a> vs <a href="players/{{game.p2_id}}">{{p2_name}}</a></h3>
 
- 	{{>game}}
 
- {{/each}}
+	<table class="table">
+		<thead>
+		<th># {{game_no}}</th>
+		<th>Team</th>
+		{{#each reg_goals}}
+			<th>{{period}}</th>
+		{{/each}}
+		{{#each ot_goals}}
+			<th>OT {{ot_num}}</th>
+		{{/each}}
+		<th>GOS</th>
+		<th>Fights</th>
+		<th>Final</th>
+		</thead>
+
+		<tbody>
+		<tr>
+			<td><a href="/players/{{p1_id}}">{{p1_name}}</a></td>
+			<td>{{p1_team}}</td>
+			{{#each reg_goals}}
+				<td>{{p1_score}}</td>
+			{{/each}}
+			{{#each ot_goals}}
+				<td>{{p1_score}}</td>
+			{{/each}}
+			<td>{{p1_gos}}</td>
+			<td>{{p1_fights}}</td>
+			<td>{{p1_final}}</td>
+		</tr>
+		<tr>
+			<td><a href="/players/{{p2_id}}">{{p2_name}}</a></td>
+			<td>{{p2_team}}</td>
+			{{#each reg_goals}}
+				<td>{{p2_score}}</td>
+			{{/each}}
+			{{#each ot_goals}}
+				<td>{{p2_score}}</td>
+			{{/each}}
+			<td>{{p2_gos}}</td>
+			<td>{{p2_fights}}</td>
+			<td>{{p2_final}}</td>
+		</tr>
+		</tbody>
+	</table>
+
+
 </template>

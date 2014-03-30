@@ -15,30 +15,32 @@ if (Meteor.isClient) {
 	  	return Session.get('player_id');
 	  },
 	  player : function(){
-	  	//get the player form the Players collection
-	  	var player = Players.find({_id : Session.get('player_id')}).fetch();
+	  	//get the player from the Players collection
+	  	var player = Players.findOne({_id : Session.get('player_id')});
 
-	  	if(player.opponents){
-		  	//Crunch opponent stats
-		  	for(var i = 0; i<player[0].opponents.length; i++){
-		  		player[0].opponents[i].games_avg = player[0].opponents[i].games_won / player[0].opponents[i].games_played;
-		  		player[0].opponents[i].fights_avg = player[0].opponents[i].fights_won / (player[0].opponents[i].fights_won + player[0].opponents[i].fights_lost);
-		  	}
+	 //  	if(player.opponents!= undefined){
+		//   	//Crunch opponent stats
+		//   	for(var i = 0; i<player.opponents.length; i++){
+		//   		player.opponents[i].games_avg = player.opponents[i].games_won / player.opponents[i].games_played;
+		//   		player.opponents[i].fights_avg = player.opponents[i].fights_won / (player.opponents[i].fights_won + player.opponents[i].fights_lost);
+		//   	}
+		// }
+
+		if(player != undefined){
+		  	//Crunch the player stats
+		  	player.win_avg = player.games_won / player.games_played;
+			player.fight_avg = player.fights_won / (player.fights_won + player.fights_lost);
+		  	player.gs_avg = player.goals_scored / player.games_played;
+		  	player.ga_avg = player.goals_allowed / player.games_played;
+		  	player.so_avg = player.shutouts / player.games_played;
+
+		  	//Let's snip off some decimals
+		  	player.win_avg = player.win_avg.toFixed(2) * 100;
+			player.fight_avg = player.fight_avg.toFixed(2) * 100;
+			player.gs_avg = player.gs_avg.toFixed(2);
+			player.ga_avg = player.ga_avg.toFixed(2);
+			player.so_avg = player.so_avg.toFixed(2);
 		}
-
-	  	//Crunch the player stats
-	  	player[0].win_avg = player[0].games_won / player[0].games_played;
-		player[0].fight_avg = player[0].fights_won / (player[0].fights_won + player[0].fights_lost);
-	  	player[0].gs_avg = player[0].goals_scored / player[0].games_played;
-	  	player[0].ga_avg = player[0].goals_allowed / player[0].games_played;
-	  	player[0].so_avg = player[0].shutouts / player[0].games_played;
-
-	  	//Let's snip off some decimals
-	  	player[0].win_avg = player[0].win_avg.toFixed(2) * 100;
-		player[0].fight_avg = player[0].fight_avg.toFixed(2) * 100;
-		player[0].gs_avg = player[0].gs_avg.toFixed(2);
-		player[0].ga_avg = player[0].ga_avg.toFixed(2);
-		player[0].so_avg = player[0].so_avg.toFixed(2);
 
 
 	  	//now return the player with the opp stats to the template

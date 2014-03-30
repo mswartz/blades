@@ -42,28 +42,17 @@ if (Meteor.isClient) {
 
     // Games Detail
     this.route('gameDetail', {
-      path: '/games/:_id',
+      path: '/games/:game_num',
       template: 'game_detail',
       data: function () {
-        // this.params is available inside the data function
-        var game_id = this.params._id;
-
-        return {
-          id : game_id
-        }
+        return Games.findOne({'game_no' : parseInt(this.params.game_num)});
       },
-      //This can check to make sure the game exists
-      onBeforeAction: function() {
-        if(Games.find({_id:this.params._id}).count()>0){
+      onBeforeAction : function(){
+        if(Games.findOne({'game_no' : parseInt(this.params.game_num)}) != undefined){
           this.render();
         } else {
           this.render('notFound');
-          this.stop();
         }
-      },
-      //If all is well, load the template with the player_id
-      onRun: function() {
-        Session.set('game_id', this.params._id);
       }
     });
 
@@ -81,29 +70,18 @@ if (Meteor.isClient) {
 
     // Player Detail
     this.route('playerDetail', {
-      // matches: '/posts/1'
-      path: '/players/:_id',
+      path: '/players/:player_name',
       template: 'player_detail',
       data: function () {
-        // this.params is available inside the data function
-        var player_id = this.params._id;
-
-        return {
-          id : player_id
-        }
+        return Players.findOne({'name' : this.params.player_name});
       },
-      //This can check to make sure the player exists
-      onBeforeAction: function() {
-        if(Players.find({_id:this.params._id}).count()>0){
+      onBeforeAction : function(){
+        if(Players.findOne({'name' : this.params.player_name}) != undefined){
+          Session.set('player_id', Players.findOne({'name' : this.params.player_name})._id);
           this.render();
         } else {
           this.render('notFound');
-          this.stop();
         }
-      },
-      //If all is well, load the template with the player_id
-      onRun: function() {
-        Session.set('player_id', this.params._id);
       }
     });
 
