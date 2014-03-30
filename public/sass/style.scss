@@ -1,118 +1,128 @@
-@import "base";
-
 //Colors!
-$purple: #180E20;
-$gray: #E9E9E9;
-$blue: #BDE7FF;
-$red: #A3053A;
-$green: #239E00;
-$yellow: #C9C009;
-$orange: #DD730A;
+$lightbg: #EDEDED;
+$darkbg: #1c1c2d;
+$accent: #d3453b;
+$gray: #DDD;
+$txtlight: #EEE;
+$txtdark: #1d1d1d;
+
+// Sizes
+$tablet: 700px;
+
+
+//Typefaces
+$adelle-sans: "adelle-sans";
+$adelle: "adelle";
+
+
+@import "../bower_components/upbase/components/base";
+@import "project/type";
+@import "project/tables";
+@import "project/nav";
+@import "project/objects";
 
 body {
-	// background-color: black;
-	padding: 0;
-	margin-left: 70px;
-	background-color: $gray;
-	font-family: "Helvetica Neue";
+	background-color: $lightbg;
 }
 
-.nav-panel {
-	width: 50px;
-	left: 0;
-	top: 0;
-	height: 100%;
-	bottom: 0;
-	position: fixed;
-	background-color: $purple;
+
+// Layout
+
+
+.display-panel {
+	background-color: $darkbg;
+	color: $txtlight;
+
+	@media (min-width: $tablet){
+		padding: 100px 0;
+	}
 }
 
-.nav-btns {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
+.display-num {
+	width: 60px;
+	height: 60px;
+	margin: 0 auto 20px auto;
+	text-align: center;
+	padding: 20px 0 0 0;
+	color: darken($txtlight, 10%);
+	@include border-radius(60px);
+	background-color: darken($darkbg, 4%);
 
-	li a {
-		margin-bottom: 1px;
-		display: block;
-		width: 50px;
-		height: 50px;
-		background-color: rgba(0,0,0,.5);
-
-		&:hover {
-			background-color: $blue;
-		}
+	@media(min-width: $tablet){
+		width: 100px;
+		height: 100px;
+		padding: 40px 0 0 0;
+		@include border-radius(100px);
 	}
 }
 
 .page-container {
-	max-width: 1000px;
+	max-width: 800px;
 	margin: 0 auto;
 }
 
-.info-panel {
+.split-two {
+	@media (min-width: $tablet) {
+		@include media-grid(2, 60px);
+
+		.media-block {
+			margin-bottom: 60px;
+		}
+	}
+}
+
+.split-three {
+	@media (min-width: $tablet) {
+		@include media-grid(3, 30px);
+
+		.media-block {
+			margin-bottom: 60px;
+		}
+	}
+}
+
+.player-profile {
+	width: 150px;
+	margin: 0 auto;
+}
+
+.player-avatar {
+	width: 150px;
+	height: 150px;
+	background-color: lighten($darkbg, 10%);
+	@include border-radius(150px);
 	padding: 10px;
-	background-color: #D8D8D7;
-	@include border-radius(6px);
-}
 
-.table, .table-input {
-	width: 100%;
-	background-color: #FFF;
-	border-collapse: collapse;
-
-	thead {
-		border-bottom: 1px solid #CCC;
-		th {
-			padding: 5px;
-			font-weight: bold;
-			font-size: 10px;
-			text-transform: uppercase;
-			background-color: $blue;
-		}
-	}
-	tbody {
-		tr {
-			border-bottom: 1px solid #EEE;
-			
-			td {
-				text-align: center;
-				padding: 10px;
-				border: 1px solid #EEE;
-			}
-
-			&:nth-child(2n-1) {
-				background-color: #F3F1F3;
-			}
-		}
+	img {
+		width: 100%;
+		@include border-radius(150px);
 	}
 }
 
-input, select {
-	font-size: 16px;
-}
-
-.table-input {
-	.input-number {
-		width: 60px;
-		padding: 10px;
-		border: 0;
-
-		&:focus {
-			outline: none;
-		}
-	}
+.player-name {
+	font-size: 26px;
+	font-family: $adelle;
+	font-weight: 100;
+	text-align: center;
+	color: #FFF;
+	margin: 0 0 30px 0;
 }
 
 
-.l-5050 {
-	@include media-grid(2, 50px);
+//Game input 
 
-	.media-block {
-		margin-bottom: 60px;
-	}
+.ot-selector {
+	margin: 0 0 20px 0;
+	text-align: center;
 }
 
-.big-number {
-	font-size: 48px;
+.drk-input {
+	background-color: darken($darkbg, 10%);
+	border: 0;
+	color: $txtlight;
+	padding: 10px;
+	@include border-radius(10px);
+	text-align: center;
 }
+
+

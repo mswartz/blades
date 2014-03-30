@@ -1,101 +1,122 @@
 <template name="player_detail">
-<div class="page-container">
 
   {{#each player}}
-  	<h1>{{name}}</h1>
-  	<hr>
-  	<h2>Player Collection Data</h2>
-  	<ul>
-		<li>Games Played: <strong>{{games_played}}</strong></li>
-  		<li>Game Wins: <strong>{{games_won}}</strong></li>
-  		<li>Game Losses: <strong>{{games_lost}}</strong></li>
-  		<li>Fights won: <strong>{{fights_won}}</strong></li>
-  		<li>Fights lost: <strong>{{fights_lost}}</strong></li>
-  		<li>Goals Scored: <strong>{{goals_scored}}</strong></li>
-  		<li>Goals Allowed: <strong>{{goals_allowed}}</strong></li>
-  		<li>Wins as Player 1: <strong>{{p1_wins}}</strong></li>
-  		<li>Wins as Player 2: <strong>{{p2_wins}}</strong></li>
-      <li>Shutouts recorded: <strong>{{shutouts}}</strong></li>
-      <li>Current streak: <strong>{{current_streak}}</strong></li>
-      <li>Record Winning Streak: <strong>{{win_streak_record}}</strong></li>
-      <li>Record Losing Streak: <strong>{{loss_streak_record}}</strong></li>
-  		{{#each p1_reg_pts}}
-  			{{p1_score_p1}}
-  		{{/each}}
-	</ul>
-	 
-   <h2>Calculated Data</h2>
-    <ul>
-      <li>Game Win avg: <strong>{{win_avg}}</strong></li>
-      <li>Fight win per game avg: <strong>{{fight_avg}}</strong></li>
-      <li>Goals scored per game avg: <strong>{{gs_avg}}</strong></li>
-      <li>Goals allowed per game avg: <strong>{{ga_avg}}</strong></li>
-      <li>Shutout average: <strong>{{so_avg}}</strong></li>
-  </ul>
+
+  	<div class="display-panel">
+    <div class="page-container">
+
+    <div class="player-profile">
+	    <div class="player-avatar"><img src="/img/min.png"/></div>
+	    <h1 class="player-name">{{name}}</h1>
+    </div>
+
+  	<div class="split-three player-page">
+
+      <!-- Wins -->
+      <div class="media-block">
+          <div class="big-number">
+            <h4 class="descrip light">Record</h4>
+            <span class="number small">{{games_won}} / {{games_lost}}</span><span class="descrip">{{win_avg}}%</span>
+          </div>
+        </div>
+
+  		<!-- Streaks -->
+  		<div class="media-block">
+          <div class="big-number">
+          	<h4 class="descrip light">Current</h4>
+          	<span class="number">{{current_streak}}</span><span class="descrip">Streak</span>
+          </div>
+        </div>
+
+        <!-- SOMETHING? -->
+        <div class="media-block">
+          <div class="big-number">
+        	<h4 class="descrip light">Best Streak</h4>
+          	<span class="number">{{win_streak_record}}</span><span class="descrip">{{loss_streak_record}}</span>
+          </div>
+        </div>
 
 
-  <h2>Goal Distribution</h2>
-  <ul>
-    <li>1p goals: <strong>{{1p_goals}}</strong></li>
-    <li>2p goals: <strong>{{2p_goals}}</strong></li>
-    <li>3p goals: <strong>{{3p_goals}}</strong></li>
-  </ul>
+        <!-- Goals Scored avgs -->
+  		<div class="media-block">
+          <div class="big-number">
+        	<h4 class="descrip light">PPG</h4>
+          	<span class="number">{{gs_avg}}</span><span class="descrip">{{goals_scored}}</span>
+          </div>
+        </div>
 
 
-  <h2>Record vs Opponents</h2>
+        <!-- Goals ALlowed Avgs -->
+      <div class="media-block">
+          <div class="big-number">
+          <h4 class="descrip light">GAPG</h4>
+            <span class="number">{{ga_avg}}</span><span class="descrip">{{goals_allowed}}</span>
+          </div>
+        </div>
 
-  <table class="table">
+        <!-- Fights Avgs -->
+  		<div class="media-block">
+          <div class="big-number">
+        	<h4 class="descrip light">Fight %</h4>
+          	<span class="number">{{fight_avg}}%</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
+          </div>
+        </div>
+
+
+    </div>
+
+
+  <h2 class="fancy-header dark">Record vs Opponents</h2>
+
+  <table class="opp-table">
     <thead>
       <th>Opponent</th>
-      <th>Games Won</th>
-      <th>Games Lost</th>
-      <th>Games Played</th>
-      <th>Games Avg</th>
-      <th>Goals Scored</th>
-      <th>Goals Allowed</th>
-      <th>Fights won</th>
-      <th>Fights lost</th>
-      <th>Fights avg</th>
+      <th>Record</th>
+      <th>Goals +/-</th>
+      <th>Fights +/-</th>
       <th>Shutouts</th>
     </thead>
 
     <tbody>
   {{#each opponents}}
     <tr>
-      <td>vs <a href="{{id}}">{{name}}</a></td>
-      <td>{{games_won}}</td>
-      <td>{{games_lost}}</td>
-      <td>{{games_played}}</td>
-      <td>{{games_avg}}</td>
-      <td>{{goals_scored}}</td>
-      <td>{{goals_allowed}}</td>
-      <td>{{fights_won}}</td>
-      <td>{{fights_lost}}</td>
-      <td>{{fights_avg}}</td>
+      <td><a href="{{id}}">{{name}}</a></td>
+      <td>{{games_won}} / {{games_lost}}</td>
+      <td>{{goals_scored}} / {{goals_allowed}}</td>
+      <td>{{fights_won}} / {{fights_lost}}</td>
       <td>{{shutouts}}</td>
     </tr>
   {{/each}}
     </tbody>
   </table>
 
-  {{/each}}
+</div>
+</div>
+
+{{/each}}
 
 
-  <h2>Game appearances</h2>
+<div class="page-container">
+  <h2 class="fancy-header">Game appearances</h2>
 
-  <p>Sort by <a href="#" id="game_no_asc">Game Number Ascending</a> <a href="#" id="game_no_desc">Game Number Descending</a> <a href="#" id="sort_wins">Wins</a> <a href="#" id="sort_losses">Losses</a> <a href="#" id="sort_none">None</a></p>
-
-  <input type="number" min="1" max="100" id="results_num" value="50"/>
+  <div class="game-sort-controls">
+    <div class="col-1">
+    <a class="btn" href="#" id="game_no_asc">Ascending</a> <a href="#" class="btn inactive" id="game_no_desc">Descending</a>
+    </div><!-- col-1 -->
   
-  <select id="game_range">
-  {{#each game_range}}
-    <option value="{{range_lower}}">{{range_lower}} - {{range_upper}}</option>
-  {{/each}}
-  </select>
+    <div class="col-2">
+      <input class="drk-input" type="number" min="1" max="100" id="results_num" value="50"/>
+      <select id="game_range">
+        {{#each game_range}}
+          <option value="{{range_lower}}">{{range_lower}} - {{range_upper}}</option>
+        {{/each}}
+      </select>
+    </div><!-- col-2 -->
+  </div><!-- game-sort-controls -->
 
   {{#each games}}
     {{>game}}
   {{/each}}
 
-</div>  
+</div> <!-- page-container -->
 </template>

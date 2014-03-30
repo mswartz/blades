@@ -1,0 +1,120 @@
+.h1 {
+	font-family: $adelle;
+	font-weight: 100;
+	margin: 0 0 20px 0;
+	font-size: 24px;
+
+	&.centered {
+		text-align: center;
+	}
+
+	a {
+		color: $accent;
+		text-decoration: none;
+	}
+
+	@media (min-width: $tablet){
+		font-size: 42px;
+	}
+}
+
+.h3 {
+	font-family: $adelle;
+	font-weight: 400;
+	text-align: center;
+	font-size: 18px;
+	margin: 0 0 20px 0;
+}
+
+.game-no {
+	font-family: $adelle-sans;
+	font-size: 14px;
+	font-weight: 100;
+}
+
+.big-number {
+	@include border-radius(100px);
+	text-align: center;
+	@include trans;
+
+	.number {
+		display: block;
+		font-family: $adelle-sans;
+		font-size: 72px;
+		color: darken($txtlight, 20%);
+		font-weight: 100;
+
+		&.small {
+			font-size: 36px;
+			padding: 22px 0;
+		}
+	}
+
+	.descrip {
+		display: block;
+		font-family: $adelle-sans;
+		font-size: 16px;
+		color: $accent;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+
+		&.light {
+			color: lighten($darkbg, 10%);
+		}
+	}
+
+	&:hover {
+		.number {
+			color: lighten($txtlight, 10%);
+		}
+	}
+}
+
+.fancy-header {
+	background-color: #FFF;
+	color: $accent;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 600;
+	font-family: $adelle-sans;
+
+	width: 300px;
+	margin: 40px auto;
+	text-align: center;
+	padding: 10px 20px;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: -15px;
+		right: 0;
+		width: 30px;
+		height: 15px;
+		background-image: url(/img/fancy-top.svg);
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: -15px;
+		left: 0;
+		width: 30px;
+		height: 15px;
+		background-image: url(/img/fancy-bottom.svg);
+	}
+
+	&.dark {
+		background-color: lighten($darkbg, 10%);
+		color: $txtlight;	
+
+		&:before {
+			background-image: url(/img/fancy-top-dark.svg);
+		}
+
+		&:after {
+			background-image: url(/img/fancy-bottom-dark.svg);
+		}
+	}
+}
