@@ -18,11 +18,13 @@ if (Meteor.isClient) {
 	  	//get the player form the Players collection
 	  	var player = Players.find({_id : Session.get('player_id')}).fetch();
 
-	  	//Crunch opponent stats
-	  	for(var i = 0; i<player[0].opponents.length; i++){
-	  		player[0].opponents[i].games_avg = player[0].opponents[i].games_won / player[0].opponents[i].games_played;
-	  		player[0].opponents[i].fights_avg = player[0].opponents[i].fights_won / (player[0].opponents[i].fights_won + player[0].opponents[i].fights_lost);
-	  	}
+	  	if(player.opponents){
+		  	//Crunch opponent stats
+		  	for(var i = 0; i<player[0].opponents.length; i++){
+		  		player[0].opponents[i].games_avg = player[0].opponents[i].games_won / player[0].opponents[i].games_played;
+		  		player[0].opponents[i].fights_avg = player[0].opponents[i].fights_won / (player[0].opponents[i].fights_won + player[0].opponents[i].fights_lost);
+		  	}
+		}
 
 	  	//Crunch the player stats
 	  	player[0].win_avg = player[0].games_won / player[0].games_played;

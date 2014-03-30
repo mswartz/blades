@@ -259,7 +259,6 @@ Template.newgame.events({
 
 
 
-
     // Update players opponent stats for the player they're facing
 
     // HUGE write-around here, Meteor won't allow client code to modify
@@ -306,33 +305,49 @@ Template.newgame.events({
 
     //If there are no opponent records for this player, add them
     //Add p2_opp to p1
-    if(p1data.opponents == undefined){
-      console.log('not found');
-      p2_exists = true;
-      Players.update({_id:Session.get('p1_id')}, {$addToSet: {'opponents':p2_opp}});
-    } else {
-        // iterate each p1.opponent looking for the right index
-        for(var i = 0; i<p1data.opponents.length; i++){
-          if(p1data.opponents[i].id == Session.get('p2_id')){
-            p2_exists = true;
-            p2_index = i;
-          } 
-        };  
+    // if(p1data.opponents == undefined){
+    //   console.log('not found');
+    //   p2_exists = true;
+    //   Players.update({_id:Session.get('p1_id')}, {$addToSet: {'opponents':p2_opp}});
+    // } else {
+    //     // iterate each p1.opponent looking for the right index
+    //     for(var i = 0; i<p1data.opponents.length; i++){
+    //       if(p1data.opponents[i].id == Session.get('p2_id')){
+    //         p2_exists = true;
+    //         p2_index = i;
+    //       } 
+    //     }
+    // }
+
+    // //Add p1_opp to p2 
+    // if(p2data.opponents == undefined){
+    //   console.log('not found');
+    //   p1_exists = true;
+    //   Players.update({_id:Session.get('p2_id')}, {$addToSet: {'opponents':p1_opp}});
+    // } else {
+    //     // iterate each p2.opponent looking for the right index
+    //     for(var i = 0; i<p2data.opponents.length; i++){
+    //       if(p2data.opponents[i].id == Session.get('p1_id')){
+    //         p1_exists = true;
+    //         p1_index = i;
+    //       } 
+    //     }
+    // }
+
+    if(p1data.opponents){
+      for(var i = 0; i<p1data.opponents.length; i++){
+        if(p1data.opponents[i].id == Session.get('p2_id')){
+          p2_exists = true;
+        } 
+      }
     }
 
-    //Add p1_opp to p2
-    if(p2data.opponents == undefined){
-      console.log('not found');
-      p1_exists = true;
-      Players.update({_id:Session.get('p2_id')}, {$addToSet: {'opponents':p1_opp}});
-    } else {
-        // iterate each p2.opponent looking for the right index
-        for(var i = 0; i<p2data.opponents.length; i++){
-          if(p2data.opponents[i].id == Session.get('p1_id')){
-            p1_exists = true;
-            p1_index = i;
-          } 
-        };
+    if(p2data.opponents){
+      for(var i = 0; i<p2data.opponents.length; i++){
+        if(p2data.opponents[i].id == Session.get('p1_id')){
+          p1_exists = true;
+        } 
+      }
     }
 
     //If the opponents don't exist in each others opponent tables, add them
@@ -348,8 +363,6 @@ Template.newgame.events({
 
     
     //NOW we can finally increment the Opponent stats 
-    //TODO: pass ALL the vars in to this thing, hopefully in a smarter way like with an Object
-    
     var p1_opp_stats = {
       'games_played': 1,
       'goals_scored': p1_pts,
@@ -389,26 +402,16 @@ Template.newgame.events({
 
 
     //Player 1 first
-    Meteor.call("incrementOpponent", Session.get('p1_id'), Session.get('p2_id'), p1_opp_stats, function(error, affectedDocs) {
+    Meteor.call("incrementOpponent", Session.get('p1_id'), Session.get('p2_id'), p1_opp_stats, p2_opp_stats, function(error, affectedDocs) {
       if (error) {
         console.log(error.message);
       } else {
-        console.log('were good');
-      }
-    });
-
-    //Player 2 next
-    Meteor.call("incrementOpponent", Session.get('p2_id'), Session.get('p1_id'), p2_opp_stats, function(error, affectedDocs) {
-      if (error) {
-        console.log(error.message);
-      } else {
-        console.log('were good');
+        console.log('opp stats added');
       }
     });
 
 
     //Update Player 1's other stats
-
     Players.update(Session.get('p1_id'), 
       {$inc: {
         'games_played' : 1,

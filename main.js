@@ -53,7 +53,7 @@ if (Meteor.isClient) {
         }
       },
       //This can check to make sure the game exists
-      before: function() {
+      onBeforeAction: function() {
         if(Games.find({_id:this.params._id}).count()>0){
           this.render();
         } else {
@@ -62,7 +62,7 @@ if (Meteor.isClient) {
         }
       },
       //If all is well, load the template with the player_id
-      load: function() {
+      onRun: function() {
         Session.set('game_id', this.params._id);
       }
     });
@@ -93,7 +93,7 @@ if (Meteor.isClient) {
         }
       },
       //This can check to make sure the player exists
-      before: function() {
+      onBeforeAction: function() {
         if(Players.find({_id:this.params._id}).count()>0){
           this.render();
         } else {
@@ -102,7 +102,7 @@ if (Meteor.isClient) {
         }
       },
       //If all is well, load the template with the player_id
-      load: function() {
+      onRun: function() {
         Session.set('player_id', this.params._id);
       }
     });
