@@ -440,6 +440,11 @@ Template.newgame.events({
     //Update player streak records
     updatePlayerStreak(Session.get('p1_id'));
     updatePlayerStreak(Session.get('p2_id'));
+
+    Session.set('p1_id', undefined);
+    Session.set('p2_id', undefined);
+
+    Router.go('home');
   }
 });
 
