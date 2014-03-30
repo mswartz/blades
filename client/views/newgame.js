@@ -365,6 +365,9 @@ Template.newgame.events({
     //NOW we can finally increment the Opponent stats 
     var p1_opp_stats = {
       'games_played': 1,
+      'games_won' : 0,
+      'games_lost' : 0,
+      'shutouts' : 0,
       'goals_scored': p1_pts,
       'goals_allowed': p2_pts,
       'fights_total': p1_fights + p2_fights,
@@ -374,6 +377,9 @@ Template.newgame.events({
 
     var p2_opp_stats = {
       'games_played': 1,
+      'games_won' : 0,
+      'games_lost' : 0,
+      'shutouts' : 0,
       'goals_scored': p2_pts,
       'goals_allowed': p1_pts,
       'fights_total': p1_fights + p2_fights,
@@ -381,7 +387,7 @@ Template.newgame.events({
       'fights_lost': p1_fights,
     };
 
-    if(game_winner == Session.get('p1_id')){
+    if(p1_pts > p2_pts){
       p1_opp_stats['games_lost'] = 0;
       p1_opp_stats['games_won'] = 1;
       p2_opp_stats['games_lost'] = 1;
@@ -399,6 +405,10 @@ Template.newgame.events({
     if(p1_pts == 0){
       p2_opp_stats['shutouts'] = 1;
     }
+
+
+    console.log(p1_opp_stats);
+    console.log(p2_opp_stats);
 
 
     //Player 1 first
