@@ -400,7 +400,7 @@ button {
   font-family: "adelle-sans";
   margin: 0 0 20px 0;
   width: 100%;
-  background-color: #FFF;
+  background-color: rgba(255, 255, 255, 0.8);
   border-collapse: collapse;
   border: none;
 }
@@ -416,22 +416,24 @@ button {
 .table thead th a, .table-input thead th a {
   color: #eeeeee;
 }
-.table thead th:hover, .table-input thead th:hover {
-  background-color: #d3453b;
-  color: #eeeeee;
-}
 .table tbody tr, .table-input tbody tr {
-  border: 1px solid #ededed;
   color: #1d1d1d;
 }
 .table tbody tr td, .table-input tbody tr td {
   text-align: center;
   padding: 10px;
+  font-size: 14px;
   border: 1px solid #EEE;
+  border-collapse: collapse;
 }
-.table tbody tr:hover, .table-input tbody tr:hover {
-  background-color: #d3453b;
-  color: #eeeeee;
+.table tbody tr td a, .table-input tbody tr td a {
+  display: block;
+  color: #d3453b;
+  font-weight: 800;
+  text-decoration: none;
+}
+.table tbody tr td a:hover, .table-input tbody tr td a:hover {
+  color: #b33128;
 }
 
 input, select {
@@ -639,6 +641,16 @@ input, select {
   text-align: center;
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 body {
   background-color: #ededed;
 }
@@ -650,6 +662,7 @@ body {
   background-image: -moz-radial-gradient(#30304c, #1c1c2d);
   background-image: -o-radial-gradient(#30304c, #1c1c2d);
   background-image: radial-gradient(#30304c, #1c1c2d);
+  background-attachment: fixed;
   color: #eeeeee;
 }
 @media (min-width: 700px) {
@@ -688,6 +701,7 @@ body {
 .page-container {
   max-width: 800px;
   margin: 0 auto;
+  animation: fade-in .5s;
 }
 
 @media (min-width: 700px) {
