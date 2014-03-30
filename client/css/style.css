@@ -645,6 +645,11 @@ body {
 
 .display-panel {
   background-color: #1c1c2d;
+  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #30304c), color-stop(100%, #1c1c2d));
+  background-image: -webkit-radial-gradient(#30304c, #1c1c2d);
+  background-image: -moz-radial-gradient(#30304c, #1c1c2d);
+  background-image: -o-radial-gradient(#30304c, #1c1c2d);
+  background-image: radial-gradient(#30304c, #1c1c2d);
   color: #eeeeee;
 }
 @media (min-width: 700px) {

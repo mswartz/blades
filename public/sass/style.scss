@@ -33,6 +33,8 @@ body {
 // Layout
 .display-panel {
 	background-color: $darkbg;
+
+	@include background-image(radial-gradient(lighten($darkbg, 10%), $darkbg));
 	color: $txtlight;
 
 	@media (min-width: $tablet){

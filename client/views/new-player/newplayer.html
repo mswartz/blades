@@ -2,27 +2,36 @@
 	
   <div class="display-panel">
     <div class="page-container">
-      <h1>Add a player</h1>
+      <h1 class="h1 centered">Add a player</h1>
     </div>
   </div>
 
   <div class="page-container">
-  <h4>Player name</h4>
-  <input type="text" placeholder="Player Name" id="newplayer_name"/>
 
-  <h4>Preferred team</h4>
-  <select id="newplayer_team">
-  		<option value="ny">New York</option>
-  		<option value="min">Minnesota</option>
-  		<option value="tor">Toronto</option>
-  		<option value="edm">Edmonton</option>
-  		<option value="la">Los Angeles</option>
-  		<option value="chi">Chicago</option>
-  		<option value="van">Vancouver</option>
-  		<option value="mtl">Montreal</option>
-	</select>
+        <form class="form-mod">
 
+        <fieldset class="field-row">
+            <label for="account-name" class="h3">Name</label>
+            <input class="input" type="text" id="newplayer_name" />
+        </fieldset>
 
-  <input type="submit" value="Add Player" class="btn newplayer_submitplayer"/>
+        <fieldset class="field-row">
+            <label for="account-name" class="h3">Team</label>
+             <select id="newplayer_team">
+                  <option value="ny">New York</option>
+                  <option value="min">Minnesota</option>
+                  <option value="tor">Toronto</option>
+                  <option value="edm">Edmonton</option>
+                  <option value="la">Los Angeles</option>
+                  <option value="chi">Chicago</option>
+                  <option value="van">Vancouver</option>
+                  <option value="mtl">Montreal</option>
+              </select>
+        </fieldset>
+
+        <input type="submit" value="Add Player" class="btn centered newplayer_submitplayer"/>
+
+        </form>
+
   </div>
 </template>

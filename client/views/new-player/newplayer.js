@@ -21,6 +21,8 @@ Template.newplayer.events({
     };
 
     Players.insert(newplayer);
+
+    Router.go('players');
   }
 });
 
