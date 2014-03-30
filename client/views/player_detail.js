@@ -68,9 +68,13 @@ if (Meteor.isClient) {
 	Template.player_detail.events({
 	  'click #game_no_asc' : function() {
 	    Session.set('sort_by', 1);
+	    $('#game_no_asc').toggleClass('inactive');
+	    $('#game_no_desc').toggleClass('inactive');
 	  },
 	  'click #game_no_desc' : function() {
 	    Session.set('sort_by', -1);
+	    $('#game_no_desc').toggleClass('inactive');
+	    $('#game_no_asc').toggleClass('inactive');
 	  },
 	  'click #sort_wins' : function() {
 	    Session.set('sort_wins', 'wins');
