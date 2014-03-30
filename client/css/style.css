@@ -510,6 +510,33 @@ input, select {
   display: block;
   width: 200px;
 }
+.btn.inactive {
+  background-color: #08080e;
+}
+
+.game-sort-controls {
+  *zoom: 1;
+}
+.game-sort-controls:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.game-sort-controls > .col-1,
+.game-sort-controls > .col.first {
+  margin-right: 5%;
+  width: 47.5%;
+  display: inline;
+  float: left;
+}
+.game-sort-controls > .col-2,
+.game-sort-controls > .col.second,
+.game-sort-controls > .col.last {
+  width: 47.5%;
+  display: inline;
+  float: left;
+  margin-right: 0;
+}
 
 body {
   background-color: #ededed;
@@ -651,7 +678,7 @@ body {
   text-align: center;
 }
 
-.ot-counter {
+.drk-input {
   background-color: #08080e;
   border: 0;
   color: #eeeeee;

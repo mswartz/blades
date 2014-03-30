@@ -23,5 +23,11 @@
 		width: 200px;
 	}
 
+	&.inactive {
+		background-color: darken($darkbg, 10%);
+	}
+}
 
+.game-sort-controls {
+	@include cols(2);
 }

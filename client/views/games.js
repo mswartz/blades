@@ -29,9 +29,13 @@ Template.games.helpers({
 Template.games.events({
   'click #game_no_asc' : function() {
     Session.set('sort_by', 1);
+    $('#game_no_asc').toggleClass('inactive');
+    $('#game_no_desc').toggleClass('inactive');
   },
   'click #game_no_desc' : function() {
     Session.set('sort_by', -1);
+    $('#game_no_desc').toggleClass('inactive');
+    $('#game_no_asc').toggleClass('inactive');
   },
   'change #game_range' : function() {
     var range = parseInt($('#game_range').val());
