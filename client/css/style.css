@@ -465,7 +465,7 @@ input, select {
 }
 
 .nav-panel {
-  width: 60px;
+  width: 40px;
   position: fixed;
   top: 5px;
   left: 5px;
@@ -473,8 +473,8 @@ input, select {
 
 .nav-link {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .nav-link:hover {
@@ -536,6 +536,58 @@ input, select {
   display: inline;
   float: left;
   margin-right: 0;
+}
+
+.player-profile {
+  width: 150px;
+  margin: 0 auto;
+}
+
+.player-avatar {
+  width: 150px;
+  height: 150px;
+  background-color: #30304c;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  -ms-border-radius: 150px;
+  -o-border-radius: 150px;
+  border-radius: 150px;
+  padding: 10px;
+}
+.player-avatar img {
+  width: 100%;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  -ms-border-radius: 150px;
+  -o-border-radius: 150px;
+  border-radius: 150px;
+}
+
+.player-name {
+  font-size: 26px;
+  font-family: "adelle";
+  font-weight: 100;
+  text-align: center;
+  color: #FFF;
+  margin: 0 0 30px 0;
+}
+
+.ot-selector {
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.drk-input {
+  background-color: #08080e;
+  border: 0;
+  color: #eeeeee;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 body {
@@ -637,56 +689,4 @@ body {
   .split-three .media-block {
     margin-bottom: 60px;
   }
-}
-
-.player-profile {
-  width: 150px;
-  margin: 0 auto;
-}
-
-.player-avatar {
-  width: 150px;
-  height: 150px;
-  background-color: #30304c;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px;
-  -ms-border-radius: 150px;
-  -o-border-radius: 150px;
-  border-radius: 150px;
-  padding: 10px;
-}
-.player-avatar img {
-  width: 100%;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px;
-  -ms-border-radius: 150px;
-  -o-border-radius: 150px;
-  border-radius: 150px;
-}
-
-.player-name {
-  font-size: 26px;
-  font-family: "adelle";
-  font-weight: 100;
-  text-align: center;
-  color: #FFF;
-  margin: 0 0 30px 0;
-}
-
-.ot-selector {
-  margin: 0 0 20px 0;
-  text-align: center;
-}
-
-.drk-input {
-  background-color: #08080e;
-  border: 0;
-  color: #eeeeee;
-  padding: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
-  text-align: center;
 }

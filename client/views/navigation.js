@@ -1,6 +1,9 @@
 if (Meteor.isClient) {
   Template.navigation.events({
-  	'click .logout': function(){
+  	'click .nav-trigger' : function(){
+  		alert('something');
+  	},
+  	'click .logout' : function(){
   		Meteor.logout();
   	}
   })

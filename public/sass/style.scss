@@ -21,6 +21,8 @@ $adelle: "adelle";
 @import "project/nav";
 @import "project/objects";
 @import "project/auth";
+@import "project/profile";
+@import "project/input";
 
 
 body {
@@ -29,8 +31,6 @@ body {
 
 
 // Layout
-
-
 .display-panel {
 	background-color: $darkbg;
 	color: $txtlight;
@@ -82,49 +82,3 @@ body {
 		}
 	}
 }
-
-.player-profile {
-	width: 150px;
-	margin: 0 auto;
-}
-
-.player-avatar {
-	width: 150px;
-	height: 150px;
-	background-color: lighten($darkbg, 10%);
-	@include border-radius(150px);
-	padding: 10px;
-
-	img {
-		width: 100%;
-		@include border-radius(150px);
-	}
-}
-
-.player-name {
-	font-size: 26px;
-	font-family: $adelle;
-	font-weight: 100;
-	text-align: center;
-	color: #FFF;
-	margin: 0 0 30px 0;
-}
-
-
-//Game input 
-
-.ot-selector {
-	margin: 0 0 20px 0;
-	text-align: center;
-}
-
-.drk-input {
-	background-color: darken($darkbg, 10%);
-	border: 0;
-	color: $txtlight;
-	padding: 10px;
-	@include border-radius(10px);
-	text-align: center;
-}
-
-

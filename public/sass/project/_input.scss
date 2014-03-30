@@ -1,0 +1,15 @@
+//Game input 
+
+.ot-selector {
+	margin: 0 0 20px 0;
+	text-align: center;
+}
+
+.drk-input {
+	background-color: darken($darkbg, 10%);
+	border: 0;
+	color: $txtlight;
+	padding: 10px;
+	@include border-radius(10px);
+	text-align: center;
+}
