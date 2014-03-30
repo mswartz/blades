@@ -22,12 +22,18 @@ if (Meteor.isClient) {
       template: 'home'
     });
 
+    //Login template
+    this.route('login', {
+      path: '/login',
+      template: 'login'
+    });
+
     //Add a game
     this.route('newgame', {
       path: '/newgame',
       template: 'newgame'
     });
-
+    
     //Games
     this.route('games', {
       path: '/games',

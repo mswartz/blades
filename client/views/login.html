@@ -1,0 +1,47 @@
+<template name="login">
+	<div class="display-panel">
+		<div class="page-container">
+			<h1 class="h1">Login if you dare</h1>
+		</div><!-- page-container -->
+	</div><!-- display-panel -->
+
+	<div class="page-container">
+
+		<div class="login-form account-form">
+			<h3 class="fancy-header">Login</h3>
+			<form id="login-form" action="action">
+		      <div class="form-mod">
+		        <div><h3 class="h3">username:</h3></div>
+		        <input class="input" type="email" id="login-email" />
+		        <div><h3 class="h3">pass:</h3></div>
+		        <input class="input" type="password" id="login-password" />
+		        <div class="submit-mod">
+		        	<input class="submit-button btn" type="submit" id="login-button" value="Sign in" />
+		        </div>
+		     </div>
+		   </form> 
+	   </div>
+
+		<div class="register-form account-form">
+			<h3 class="fancy-header">Register</h3>
+			<form id="register-form" action="action">
+		      <div class="form-mod">
+		      	<div><h3 class="h3">name:</h3></div>
+		       <input class="input" type="name" id="account-name" />
+		      	<div><h3 class="h3">email:</h3></div>
+		       <input class="input" type="email" id="account-email" />
+		       <div><h3 class="h3">password:</h3></div>
+		       <input class="input" type="password" id="account-password" />
+		       <div><h3 class="h3">registration key:</h3></div>
+		       <input class="input" type="text" id="account-key" />
+
+		       <div class="submit-mod">
+		       	<input class="btn" type="submit" id="create-account" value="Create an Account" />
+		       </div>
+		     </div>
+		   </form>
+	   </div>
+
+
+   </div><!-- page-container -->
+</template>

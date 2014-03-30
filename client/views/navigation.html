@@ -2,10 +2,13 @@
 	<div class="nav-panel">
 		<ul class="nav-btns">
 			<li><a class="nav-link leaderboard" href="/">Leaderboards</a></li>
-			<li><a class="nav-link" href="/newgame">Score a game</a></li>
 			<li><a class="nav-link" href="/players">Players</a></li>
 			<li><a class="nav-link" href="/games">Games</a></li>
+
+			{{#if currentUser}}
+				<li><a class="nav-link" href="/newgame">Score a game</a></li>
+				<li><a class="nav-link logout" href="#">Logout</a></li>
+			{{/if}}
 		</ul>
 	</div>
 </template>
-

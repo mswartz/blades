@@ -20,6 +20,8 @@ $adelle: "adelle";
 @import "project/tables";
 @import "project/nav";
 @import "project/objects";
+@import "project/auth";
+
 
 body {
 	background-color: $lightbg;

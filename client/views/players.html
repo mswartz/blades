@@ -3,7 +3,7 @@
 <div class="display-panel">
 <div class="page-container">
   <h1 class="h1">Players</h1>
-  <a href="newplayer" class="btn">New Player</a>
+  {{#if currentUser}}<a href="newplayer" class="btn">New Player</a>{{/if}}
 </div>
 </div>
 
@@ -16,7 +16,7 @@
 	<th>Games Played</th>
 	<th>Win record</th>
 	<th>Fights</th>
-	<th>Delete</th>
+	{{#if currentUser}}<th>Delete</th>{{/if}}
 </thead>
 <tbody>
 {{#each players}}
@@ -27,7 +27,7 @@
 	<td>{{games_played}}</td>
 	<td>{{games_won}} / {{games_lost}}</td>
 	<td>{{fights_won}} / {{games_lost}}</td>
-	<td><input type="submit" class="player_deleteplayer" data-id="{{_id}}" value="Delete Player"/></td>
+	{{#if currentUser}}<td><input type="submit" class="player_deleteplayer" data-id="{{_id}}" value="Delete Player"/></td>{{/if}}
 </tr>
 {{/each}}
 </tbody>
