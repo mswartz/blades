@@ -5,7 +5,7 @@
 	    <div class="page-container">
 	      {{#each latest_game}}
 	      		<div class="display-num"><p class="game-no">{{game_no}}</p></div>
-	            <h1 class="h1 centered"><a href="players/{{game_winner}}">{{game_winner_name}}</a> just beat <a href="players/{{game_loser}}">{{game_loser_name}}</a> in game {{game_no}}</h1>
+	            <h1 class="h1 centered"><a href="players/{{game_winner_name}}">{{game_winner_name}}</a> just beat <a href="players/{{game_loser_name}}">{{game_loser_name}}</a> in game {{game_no}}</h1>
 
 	            <div class="display-game-box">{{>game}}</div>
 	      {{/each}}
@@ -30,7 +30,7 @@
         <tbody>
             {{#each player_streaks}}
             <tr>
-                <td>{{name}}</td>
+                <td><a href="players/{{name}}">{{name}}</a></td>
                 <td>{{current_streak}}</td>
             </tr>
             {{/each}}
@@ -49,7 +49,7 @@
 	      <tbody>
 	      {{#each player_streaks}}
 	      <tr>
-	        <td>{{name}}</td>
+	        <td><a href="players/{{name}}">{{name}}</a></td>
 	        <td>{{win_streak_record}}</td>
 	        <td>{{loss_streak_record}}</td>
 	      </tr>
@@ -70,7 +70,7 @@
     	<tbody>
 		      {{#each game_leaders}}
 		      <tr>
-		      	<td>{{name}}</td>
+		      	<td><a href="players/{{name}}">{{name}}</a></td>
 		      	<td>{{games_won}}</td>
 		      	<td>{{games_lost}}</td>
 		      	<td>{{game_avg}}</td>
@@ -92,7 +92,7 @@
     	<tbody>
       {{#each goal_leaders}}
       <tr>
-      	<td>{{name}}</td>
+      	<td><a href="players/{{name}}">{{name}}</a></td>
       	<td>{{goals_scored}}</td>
       	<td>{{goals_allowed}}</td>
       	<td>{{gpg_avg}}</td>
@@ -115,7 +115,7 @@
     	<tbody>
       {{#each defense_leaders}}
       <tr>
-      	<td>{{name}}</td>
+      	<td><a href="players/{{name}}">{{name}}</a></td>
       	<td>{{goals_allowed}}</td>
       	<td>{{goals_scored}}</td>
       	<td>{{games_won}}</td>
@@ -139,7 +139,7 @@
     	<tbody>
             {{#each fight_leaders}}
             <tr>
-              	<td>{{name}}</td>
+              	<td><a href="players/{{name}}">{{name}}</a></td>
               	<td>{{fights_won}}</td>
               	<td>{{fights_lost}}</td>
               	<td>{{fpg_avg}}</td>

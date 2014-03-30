@@ -16,6 +16,16 @@
 			background-color: lighten($darkbg, 10%);
 			letter-spacing: 1px;
 			color: $txtlight;
+
+			a {
+				color: $txtlight;
+			}
+			
+			&:hover {
+				background-color: $accent;
+				color: $txtlight;
+			}
+
 		}
 	}
 

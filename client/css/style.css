@@ -413,6 +413,13 @@ button {
   letter-spacing: 1px;
   color: #eeeeee;
 }
+.table thead th a, .table-input thead th a {
+  color: #eeeeee;
+}
+.table thead th:hover, .table-input thead th:hover {
+  background-color: #d3453b;
+  color: #eeeeee;
+}
 .table tbody tr, .table-input tbody tr {
   border: 1px solid #ededed;
   color: #1d1d1d;
