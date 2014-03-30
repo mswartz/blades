@@ -261,10 +261,6 @@ Template.newgame.events({
 
     // Update players opponent stats for the player they're facing
 
-    // HUGE write-around here, Meteor won't allow client code to modify
-    // collections with anything but the _id (no _id AND opponents.id), 
-    // so while I could do all this junk with MongoDB selectors I need to do it this way
-    // until I figure out how to do it the 'meteor way'.
 
     var p1data = Players.findOne({_id: Session.get('p1_id')});
     var p2data = Players.findOne({_id: Session.get('p2_id')});
@@ -303,36 +299,6 @@ Template.newgame.events({
       shutouts: 0
     };
 
-    //If there are no opponent records for this player, add them
-    //Add p2_opp to p1
-    // if(p1data.opponents == undefined){
-    //   console.log('not found');
-    //   p2_exists = true;
-    //   Players.update({_id:Session.get('p1_id')}, {$addToSet: {'opponents':p2_opp}});
-    // } else {
-    //     // iterate each p1.opponent looking for the right index
-    //     for(var i = 0; i<p1data.opponents.length; i++){
-    //       if(p1data.opponents[i].id == Session.get('p2_id')){
-    //         p2_exists = true;
-    //         p2_index = i;
-    //       } 
-    //     }
-    // }
-
-    // //Add p1_opp to p2 
-    // if(p2data.opponents == undefined){
-    //   console.log('not found');
-    //   p1_exists = true;
-    //   Players.update({_id:Session.get('p2_id')}, {$addToSet: {'opponents':p1_opp}});
-    // } else {
-    //     // iterate each p2.opponent looking for the right index
-    //     for(var i = 0; i<p2data.opponents.length; i++){
-    //       if(p2data.opponents[i].id == Session.get('p1_id')){
-    //         p1_exists = true;
-    //         p1_index = i;
-    //       } 
-    //     }
-    // }
 
     if(p1data.opponents){
       for(var i = 0; i<p1data.opponents.length; i++){
