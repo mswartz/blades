@@ -6,16 +6,9 @@ NEW G A M E
 
 **********************************/
 
+
 function slackpost(text) {
-  HTTP.post("https://upstatement.slack.com/services/hooks/incoming-webhook", {"params":
-    {"token": "ffaX9oszfuVD3hUBEauvkFSA",
-     "payload": JSON.stringify({
-       "channel": "#general",
-       "username": "bladesbot",
-       "text": text,
-       "icon_emoji": (name.indexOf("bot") > -1 ? ":ghost:" : "")
-      })
-    }}
+  HTTP.post("https://upstatement.slack.com/services/hooks/incoming-webhook?token=ffaX9oszfuVD3hUBEauvkFSA", payload={"channel": "#general", "username": "peachbot", "text": "HEY THERE", "icon_emoji": ":peach:"}, function(error, result){console.log(result);}
   );
 };
 
