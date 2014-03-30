@@ -1,0 +1,28 @@
+.form-mod {
+	margin: 0 auto;
+	max-width: 600px;
+	padding: 20px;
+	background-color: lighten($lightbg, 2%);
+}
+
+.field-row {
+	margin: 0 0 20px 0;
+	text-align: center;
+
+	.label {
+		width: 25%;
+		float: left;
+		text-align: right;
+	}
+
+	.input {
+		width: 75%;
+		float: right;
+	}
+}
+
+.input {
+	padding: 10px;
+	border: 0;
+	background-color: #FFF;
+}

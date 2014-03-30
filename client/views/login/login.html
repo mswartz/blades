@@ -1,7 +1,7 @@
 <template name="login">
 	<div class="display-panel">
 		<div class="page-container">
-			<h1 class="h1">Login if you dare</h1>
+			<h1 class="h1 centered">Login if you dare</h1>
 		</div><!-- page-container -->
 	</div><!-- display-panel -->
 
@@ -9,37 +9,49 @@
 
 		<div class="login-form account-form">
 			<h3 class="fancy-header">Login</h3>
-			<form id="login-form" action="action">
-		      <div class="form-mod">
-		        <div><h3 class="h3">username:</h3></div>
-		        <input class="input" type="email" id="login-email" />
-		        <div><h3 class="h3">pass:</h3></div>
-		        <input class="input" type="password" id="login-password" />
-		        <div class="submit-mod">
-		        	<input class="submit-button btn" type="submit" id="login-button" value="Sign in" />
-		        </div>
-		     </div>
+
+			<form id="login-form" class="form-mod" action="action">
+		        <fieldset class="field-row">
+		        	<label for="login-email" class="h3">username:</label>
+		        	<input class="input" type="email" id="login-email" />
+				</fieldset>
+
+				<fieldset class="field-row">
+		        	<label for="login-password" class="h3">pass:</label>
+		        	<input class="input" type="password" id="login-password" />
+		        </fieldset>
+
+		        <input class="submit-button btn centered" type="submit" id="login-button" value="Sign in" />
 		   </form> 
 	   </div>
 
 		<div class="register-form account-form">
 			<h3 class="fancy-header">Register</h3>
-			<form id="register-form" action="action">
-		      <div class="form-mod">
-		      	<div><h3 class="h3">name:</h3></div>
-		       <input class="input" type="name" id="account-name" />
-		      	<div><h3 class="h3">email:</h3></div>
-		       <input class="input" type="email" id="account-email" />
-		       <div><h3 class="h3">password:</h3></div>
-		       <input class="input" type="password" id="account-password" />
-		       <div><h3 class="h3">registration key:</h3></div>
-		       <input class="input" type="text" id="account-key" />
 
-		       <div class="submit-mod">
-		       	<input class="btn" type="submit" id="create-account" value="Create an Account" />
-		       </div>
-		     </div>
-		   </form>
+			<form id="register-form" class="form-mod" action="action">
+
+				<fieldset class="field-row">
+			    	<label for="account-name" class="h3">name:</label>
+			    	<input class="input" type="name" id="account-name" />
+			    </fieldset>
+
+				<fieldset class="field-row">
+			    	<label for="account-email" class="h3">email:</label>
+			    	<input class="input" type="email" id="account-email" />
+			    </fieldset>
+
+				<fieldset class="field-row">
+			    	<label for="account-password" class="h3">password:</label>
+			    	<input class="input" type="password" id="account-password" />
+				</fieldset>
+
+				<fieldset class="field-row">
+			    	<label for="account-key" class="h3">registration key:</label>
+			    	<input class="input" type="text" id="account-key" />
+				</fieldset>
+
+			    <input class="btn centered" type="submit" id="create-account" value="Create an Account" />
+			</form>
 	   </div>
 
 

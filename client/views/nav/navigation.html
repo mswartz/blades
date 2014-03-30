@@ -5,6 +5,10 @@
 			<li><a class="nav-link" href="/players">Players</a></li>
 			<li><a class="nav-link" href="/games">Games</a></li>
 
+			{{#unless currentUser}}
+				<li><a class="nav-link" href="/login">Login</a></li>
+			{{/unless}}
+			
 			{{#if currentUser}}
 				<li><a class="nav-link" href="/newgame">Score a game</a></li>
 				<li><a class="nav-link logout" href="#">Logout</a></li>

@@ -500,7 +500,7 @@ input, select {
   text-decoration: none;
 }
 .nav-link:hover {
-  background-color: black;
+  background-color: #b33128;
 }
 
 .btn {
@@ -558,6 +558,33 @@ input, select {
   display: inline;
   float: left;
   margin-right: 0;
+}
+
+.form-mod {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+.field-row {
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+.field-row .label {
+  width: 25%;
+  float: left;
+  text-align: right;
+}
+.field-row .input {
+  width: 75%;
+  float: right;
+}
+
+.input {
+  padding: 10px;
+  border: 0;
+  background-color: #FFF;
 }
 
 .player-profile {
