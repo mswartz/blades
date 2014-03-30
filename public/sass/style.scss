@@ -19,7 +19,7 @@ $adelle: "adelle";
 @import "project/type";
 @import "project/tables";
 @import "project/nav";
-
+@import "project/objects";
 
 body {
 	background-color: $lightbg;
@@ -109,5 +109,20 @@ body {
 }
 
 
+//Game input 
+
+.ot-selector {
+	margin: 0 0 20px 0;
+	text-align: center;
+}
+
+.ot-counter {
+	background-color: darken($darkbg, 10%);
+	border: 0;
+	color: $txtlight;
+	padding: 10px;
+	@include border-radius(10px);
+	text-align: center;
+}
 
 
