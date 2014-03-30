@@ -6,6 +6,20 @@ NEW G A M E
 
 **********************************/
 
+function slackpost(text) {
+  HTTP.post("https://upstatement.slack.com/services/hooks/incoming-webhook", {"params":
+    {"token": "ffaX9oszfuVD3hUBEauvkFSA",
+     "payload": JSON.stringify({
+       "channel": "#general",
+       "username": "bladesbot",
+       "text": text,
+       "icon_emoji": (name.indexOf("bot") > -1 ? ":ghost:" : "")
+      })
+    }}
+  );
+};
+
+
 if (Meteor.isClient) {
 
 Session.setDefault('p1_pts', 0);
@@ -153,11 +167,15 @@ Template.newgame.events({
       game_winner_name = Session.get('p1_name');
       game_loser = Session.get('p2_id');
       game_loser_name = Session.get('p2_name');
+
+      slackpost(game_winner_name+' just beat '+game_loser_name);
     } else {
       game_winner = Session.get('p2_id');
       game_winner_name = Session.get('p2_name');
       game_loser = Session.get('p1_id');      
       game_loser_name = Session.get('p1_name');
+
+      slackpost(game_winner_name+' just beat '+game_loser_name);
     }
 
     //Find fights winner & loser or tied
