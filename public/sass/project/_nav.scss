@@ -1,15 +1,20 @@
 .nav-panel {
-	width: 40px;
-	position: fixed;
-	top: 5px;
-	left: 5px;
+	width: 100%;
+	background-color: $accent;
+	text-align: center;
+	@include pie-clearfix;
+}
+
+.nav-btns li {
+	@include inline-block;
 }
 
 .nav-link {
 	display: block;
-	width: 40px;
-	height: 40px;
-	background-color: rgba(0,0,0,.5);
+	font-family: $adelle-sans;
+	padding: 10px;
+	color: $txtlight;
+	text-decoration: none;
 
 	&:hover {
 		background-color: rgba(0,0,0, 1);

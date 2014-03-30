@@ -472,17 +472,32 @@ input, select {
 }
 
 .nav-panel {
-  width: 40px;
-  position: fixed;
-  top: 5px;
-  left: 5px;
+  width: 100%;
+  background-color: #d3453b;
+  text-align: center;
+  *zoom: 1;
+}
+.nav-panel:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.nav-btns li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
 }
 
 .nav-link {
   display: block;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "adelle-sans";
+  padding: 10px;
+  color: #eeeeee;
+  text-decoration: none;
 }
 .nav-link:hover {
   background-color: black;
