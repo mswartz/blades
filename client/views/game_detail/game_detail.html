@@ -1,11 +1,15 @@
 <template name="game_detail">
 
-<h1>Game detail</h1>
+<div class="display-panel">
+	<div class="page-container">
+	 	<div class="display-num"><p class="game-no">{{game_no}}</p></div>
+
+	 	 <h1 class="h1 centered"><a href="/players/{{p1_name}}">{{p1_name}}</a> vs <a href="/players/{{p2_name}}">{{p2_name}}</a></h1>
+	</div>
+ </div>
 
 
- 	<h1>Game No. {{game_no}}</h1>
- 	<h3><a href="players/{{game.p1_id}}">{{p1_name}}</a> vs <a href="players/{{game.p2_id}}">{{p2_name}}</a></h3>
-
+<div class="page-container">
 
 	<table class="table">
 		<thead>
@@ -24,7 +28,7 @@
 
 		<tbody>
 		<tr>
-			<td><a href="/players/{{p1_id}}">{{p1_name}}</a></td>
+			<td><a href="/players/{{p1_name}}">{{p1_name}}</a></td>
 			<td>{{p1_team}}</td>
 			{{#each reg_goals}}
 				<td>{{p1_score}}</td>
@@ -37,7 +41,7 @@
 			<td>{{p1_final}}</td>
 		</tr>
 		<tr>
-			<td><a href="/players/{{p2_id}}">{{p2_name}}</a></td>
+			<td><a href="/players/{{p2_name}}">{{p2_name}}</a></td>
 			<td>{{p2_team}}</td>
 			{{#each reg_goals}}
 				<td>{{p2_score}}</td>
@@ -51,6 +55,6 @@
 		</tr>
 		</tbody>
 	</table>
-
+</div>
 
 </template>
