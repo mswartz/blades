@@ -13,3 +13,19 @@
 	@include border-radius(10px);
 	text-align: center;
 }
+
+
+.newgame-notes {
+	max-width: 600px;
+	margin: 0 auto 20px auto;
+}
+
+.textarea {
+	width: 100%;
+	padding: 20px;
+	font-size: 16px;
+	background-color: darken($darkbg, 10%);
+	color: $txtlight;
+	border: 0;
+	@include border-radius(10px);
+}

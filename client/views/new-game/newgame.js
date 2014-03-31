@@ -206,8 +206,12 @@ Template.newgame.events({
       }
     }
 
+    //Anyone GOS themselves?
     var p1_gos = parseInt($('#p1_gos').val());
     var p2_gos = parseInt($('#p2_gos').val());
+
+    //Lets grab the notes
+    var notes = $('#game-notes').val();
 
     //Save this game 
     Games.insert({
@@ -253,8 +257,12 @@ Template.newgame.events({
       'game_winner' : game_winner,
       'game_loser' : game_loser,
 
+      //Add their real names
       'game_winner_name' : game_winner_name,
       'game_loser_name' : game_loser_name,
+
+      //Add notes
+      'notes' : notes
     });
 
 
