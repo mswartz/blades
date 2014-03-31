@@ -60,7 +60,7 @@ Meteor.methods({
      "payload": JSON.stringify({
        "channel": "#blades",
        "username": "bladesbot",
-       "text": "<https://boiling-waters-7129.herokuapp.com/games/"+game_no+"|Game "+game_no+">: "+winner+" just beat "+loser+" "+winner_points+" to "+loser_points,
+       "text": "<https://blades-app.herokuapp.com/games/"+game_no+"|Game "+game_no+">: "+winner+" just beat "+loser+" "+winner_points+" to "+loser_points,
        "icon_emoji": ":bladesbot:"
       })
     }}
