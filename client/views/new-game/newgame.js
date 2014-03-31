@@ -462,7 +462,7 @@ Template.newgame.events({
     Session.set('p1_id', undefined);
     Session.set('p2_id', undefined);
 
-    Meteor.call("slackPost", game_winner_name, game_loser_name, game_winner_points, game_loser_points, function(error, affectedDocs) {
+    Meteor.call("slackPost", Session.get('game_no'), game_winner_name, game_loser_name, game_winner_points, game_loser_points, function(error, affectedDocs) {
           if (error) {
             console.log(error.message);
           } else {
