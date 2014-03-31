@@ -140,6 +140,8 @@ Template.newgame.events({
     var p2_team = $('#p2_team').val();
 
     //Find game winner & loser
+    var game_winner_points;
+    var game_loser_points;
     var game_winner;
     var game_loser;
     var game_winner_name;
@@ -153,11 +155,15 @@ Template.newgame.events({
       game_winner_name = Session.get('p1_name');
       game_loser = Session.get('p2_id');
       game_loser_name = Session.get('p2_name');
+      game_winner_points = p1_pts;
+      game_loser_points = p2_pts;
     } else {
       game_winner = Session.get('p2_id');
       game_winner_name = Session.get('p2_name');
       game_loser = Session.get('p1_id');      
       game_loser_name = Session.get('p1_name');
+      game_winner_points = p2_pts;
+      game_loser_points = p1_pts;
     }
 
     //Find fights winner & loser or tied
@@ -252,6 +258,10 @@ Template.newgame.events({
       //Add final scores
       'p1_final' : p1_pts,
       'p2_final' : p2_pts,
+
+      //Add points
+      'game_winner_points' : game_winner_points,
+      'game_loser_points' : game_loser_points,
 
       //Add winners
       'game_winner' : game_winner,
@@ -451,6 +461,14 @@ Template.newgame.events({
 
     Session.set('p1_id', undefined);
     Session.set('p2_id', undefined);
+
+    Meteor.call("slackPost", game_winner_name, game_loser_name, game_winner_points, game_loser_points, function(error, affectedDocs) {
+          if (error) {
+            console.log(error.message);
+          } else {
+            console.log('slacked');
+          }
+    });
 
     Router.go('home');
   }

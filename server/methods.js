@@ -54,6 +54,19 @@ Meteor.methods({
     });
   },
 
+  slackPost: function(winner, loser, winner_points, loser_points){
+    HTTP.post("https://upstatement.slack.com/services/hooks/incoming-webhook", {"params":
+    {"token": "ffaX9oszfuVD3hUBEauvkFSA",
+     "payload": JSON.stringify({
+       "channel": "#blades",
+       "username": "bladesbot",
+       "text": winner+" just beat "+loser+" "+winner_points+" to "+loser_points,
+       "icon_emoji": ":bladesbot:"
+      })
+    }}
+  );
+  },
+
   deleteGame: function(game){
     Games.remove(game);
   },
