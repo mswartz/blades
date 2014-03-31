@@ -36,7 +36,7 @@ if (Meteor.isClient) {
 
 		  	//Let's snip off some decimals
 		  	player.win_avg = player.win_avg.toFixed(2) * 100;
-			player.fight_avg = player.fight_avg.toFixed(2) * 100;
+			player.fight_avg = Math.floor(player.fight_avg * 100);
 			player.gs_avg = player.gs_avg.toFixed(2);
 			player.ga_avg = player.ga_avg.toFixed(2);
 			player.so_avg = player.so_avg.toFixed(2);
