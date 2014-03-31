@@ -4,9 +4,6 @@
     "basePackages": {
       "iron-router": {
         "version": "0.7.0"
-      },
-      "iron-transitioner": {
-        "version": "0.1.0"
       }
     },
     "packages": {
@@ -14,11 +11,6 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.7.0",
         "commit": "05f34bc48c4cad9fdaa366c1ddcabe6980232ece"
-      },
-      "iron-transitioner": {
-        "git": "https://github.com/percolatestudio/iron-transitioner.git",
-        "tag": "v0.1.0",
-        "commit": "4a5db7d9c7e212d8784b86aa833334e619bb4bd3"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
