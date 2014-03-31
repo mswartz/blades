@@ -106,7 +106,7 @@
 	}
 
 	&.dark {
-		background-color: lighten($darkbg, 10%);
+		background-color: lighten($darkbg, 20%);
 		color: $txtlight;	
 
 		&:before {

@@ -386,7 +386,7 @@ button {
   background-image: url(/img/fancy-bottom.svg);
 }
 .fancy-header.dark {
-  background-color: #30304c;
+  background-color: #43436c;
   color: #eeeeee;
 }
 .fancy-header.dark:before {
