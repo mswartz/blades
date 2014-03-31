@@ -28,7 +28,7 @@ Template.newplayer.events({
       }
     });
 
-    Router.go('players');
+    // Router.go('players');
   }
 });
 
