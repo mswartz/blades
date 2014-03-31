@@ -377,7 +377,7 @@ Template.newgame.events({
     console.log(p2_opp_stats);
 
 
-    //Player 1 first
+    //Update player tables
     Meteor.call("incrementOpponent", Session.get('p1_id'), Session.get('p2_id'), p1_opp_stats, p2_opp_stats, function(error, affectedDocs) {
       if (error) {
         console.log(error.message);

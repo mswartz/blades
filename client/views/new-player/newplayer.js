@@ -20,7 +20,13 @@ Template.newplayer.events({
       'loss_streak_record' : 0
     };
 
-    Players.insert(newplayer);
+    Meteor.call("addPlayer", newplayer, function(error, affectedDocs) {
+      if (error) {
+        console.log(error.message);
+      } else {
+        console.log('new player added!');
+      }
+    });
 
     Router.go('players');
   }
