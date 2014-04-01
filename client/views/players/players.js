@@ -12,7 +12,7 @@ if (Meteor.isClient) {
 
 Template.players.helpers({
   players : function(){
-    var players = Players.find({}).fetch();
+    var players = Players.find({}, {sort: {games_played : -1}}).fetch();
     return players;
   },
   scorers : function(){

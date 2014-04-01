@@ -435,6 +435,7 @@ button {
   color: #1d1d1d;
 }
 .table tbody tr td, .table-input tbody tr td {
+  vertical-align: middle;
   text-align: center;
   padding: 10px;
   font-size: 14px;
