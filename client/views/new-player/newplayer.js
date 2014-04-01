@@ -25,7 +25,6 @@ Template.newplayer.events({
         console.log(error.message);
       } else {
         console.log('new player added!');
-        Router.go('players');
       }
     });
 

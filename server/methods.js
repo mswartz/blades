@@ -76,6 +76,7 @@ Meteor.methods({
 
   addPlayer: function(player){
     Players.insert(player);
+    Router.go('players');
   },
 
   deletePlayer: function(player){
