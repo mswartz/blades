@@ -225,8 +225,7 @@ Template.newgame.events({
     //Lets grab the notes
     var notes = $('#game-notes').val();
 
-    //Save this game 
-    Games.insert({
+    var game = {
       //Add date info
       'date_created' : date_created,
       'date_parsed' : date_parsed,
@@ -282,8 +281,16 @@ Template.newgame.events({
 
       //Add notes
       'notes' : notes
-    });
+    };
 
+    //Save this game 
+    Meteor.call("addGame", game, function(error, affectedDocs) {
+      if (error) {
+        console.log(error.message);
+      } else {
+        console.log('game added');
+      }
+    });
 
 
     // Update players opponent stats for the player they're facing

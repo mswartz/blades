@@ -70,6 +70,10 @@ Meteor.methods({
   );
   },
 
+  addGame: function(game){
+    Games.insert(game);
+  },
+
   deleteGame: function(game){
     Games.remove(game);
   },

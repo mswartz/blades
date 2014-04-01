@@ -7,6 +7,14 @@ M A I N
 Players = new Meteor.Collection("players");
 Games = new Meteor.Collection("games");
 
+Players.allow({
+  update: function(){
+    return true;
+  },
+  remove: function(){
+    return false;
+  }
+});
 
 if (Meteor.isClient) {
 
