@@ -55,12 +55,15 @@ Meteor.methods({
   },
 
   slackPost: function(game_no, winner, loser, winner_points, loser_points){
+    var words = ["trounced", "beat", "beat down", "drubbed", "smashed", "licked", "lambasted", "thrashed", "shellacked", "smeared", "whipped", "blasted", "battered", "mangled", "socked", "slammed", "tallywhacked", "bashed", "KOd", "whomped", "wiped out", "put away", "took down", "wallopped", "hosed", "clobbered"];
+    var verb = words[Math.floor(Math.random()*words.length)];
+
     HTTP.post("https://upstatement.slack.com/services/hooks/incoming-webhook", {"params":
     {"token": "ffaX9oszfuVD3hUBEauvkFSA",
      "payload": JSON.stringify({
        "channel": "#blades",
        "username": "bladesbot",
-       "text": "<https://blades-app.herokuapp.com/games/"+game_no+"|Game "+game_no+">: "+winner+" just beat "+loser+" "+winner_points+" to "+loser_points,
+       "text": "<https://blades-app.herokuapp.com/games/"+game_no+"|Game "+game_no+">: "+winner+" just "+verb+" "+loser+" "+winner_points+" to "+loser_points,
        "icon_emoji": ":bladesbot:"
       })
     }}

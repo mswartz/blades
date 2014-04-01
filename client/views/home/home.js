@@ -1,8 +1,7 @@
 if (Meteor.isClient) {
 	Template.home.helpers({
 		'beat' : function(){
-			var words = ["trounced", "beat", "drubbed", "smashed", "licked", "lambasted", "thrashed", "shellacked", "smeared", "whipped", "blasted", "battered", "mangled", "socked", "slammed", "tallywhacked", "bashed", "KOd", "whomped", "wiped out", "put away", "took down", "wallopped", "hosed", "clobbered"];
-			return words[Math.floor(Math.random()*words.length)];
+			return Verbs();
 		},
 		'latest_game' : function(){
 			var games = Games.find({}, {sort: {'game_no': -1}, limit: 1}).fetch();

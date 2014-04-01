@@ -13,6 +13,11 @@ Paginate = function(total, results){
     return range;
 };
 
+Verbs = function(){
+	var words = ["trounced", "beat", "beat down", "drubbed", "smashed", "licked", "lambasted", "thrashed", "shellacked", "smeared", "whipped", "blasted", "battered", "mangled", "socked", "slammed", "tallywhacked", "bashed", "KOd", "whomped", "wiped out", "put away", "took down", "wallopped", "hosed", "clobbered"];
+	return words[Math.floor(Math.random()*words.length)];
+};
+
 //Find streaks
 updatePlayerStreak = function(player_id){
 	var player_data = Players.find({_id:player_id}).fetch();
