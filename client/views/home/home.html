@@ -5,7 +5,7 @@
 	    <div class="page-container">
 	      {{#each latest_game}}
 	      		<div class="display-num"><p class="game-no"><a href="/games/{{game_no}}">{{game_no}}</a></p></div>
-	            <h1 class="h1 centered"><a href="players/{{game_winner_name}}">{{game_winner_name}}</a> just beat <a href="players/{{game_loser_name}}">{{game_loser_name}}</a> {{game_winner_points}} to {{game_loser_points}}</h1>
+	            <h1 class="h1 centered"><a href="players/{{game_winner_name}}">{{game_winner_name}}</a> just {{beat}} <a href="players/{{game_loser_name}}">{{game_loser_name}}</a> {{game_winner_points}} to {{game_loser_points}}</h1>
 
               <p class="notes">{{notes}}</p>
 
