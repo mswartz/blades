@@ -1,10 +1,10 @@
 <template name="player_detail">
 
-  	<div class="display-panel">
+  	<div class="display-panel {{team}}">
     <div class="page-container">
 
     <div class="player-profile">
-	    <div class="player-avatar"><img src="/img/min.png"/></div>
+	    <div class="player-avatar"><img src="/img/{{team}}.png"/></div>
 	    <h1 class="player-name">{{name}}</h1>
     </div>
 
@@ -14,7 +14,7 @@
       <div class="media-block">
           <div class="big-number">
             <h4 class="descrip light">Record</h4>
-            <span class="number small">{{games_won}} / {{games_lost}}</span><span class="descrip">{{player.win_avg}}%</span>
+            <span class="number small">{{games_won}} - {{games_lost}}</span><span class="descrip">{{player.win_avg}}%</span>
           </div>
         </div>
 
@@ -56,7 +56,7 @@
   		<div class="media-block">
           <div class="big-number">
         	<h4 class="descrip light">Fight %</h4>
-          	<span class="number">{{player.fight_avg}}%</span><span class="descrip">{{fights_won}} / {{fights_lost}}</span>
+          	<span class="number">{{player.fight_avg}}%</span><span class="descrip">{{fights_won}} - {{fights_lost}}</span>
           </div>
         </div>
 
@@ -79,9 +79,9 @@
   {{#each opponents}}
     <tr>
       <td><a href="/players/{{name}}">{{name}}</a></td>
-      <td>{{games_won}} / {{games_lost}}</td>
-      <td>{{goals_scored}} / {{goals_allowed}}</td>
-      <td>{{fights_won}} / {{fights_lost}}</td>
+      <td>{{games_won}} - {{games_lost}}</td>
+      <td>{{goals_scored}} - {{goals_allowed}}</td>
+      <td>{{fights_won}} - {{fights_lost}}</td>
       <td>{{shutouts}}</td>
     </tr>
   {{/each}}

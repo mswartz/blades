@@ -3,7 +3,7 @@
 	font-family: $adelle-sans;
 	margin: 0 0 20px 0;
 	width: 100%;
-	background-color: rgba(255,255,255,.8);
+	background-color: #FFF;
 	border-collapse: collapse;
 	border: none;
 
@@ -35,6 +35,42 @@
 				border: 1px solid #EEE;
 				border-collapse: collapse;
 
+				background-repeat: no-repeat;
+				background-position: 20px center;
+				background-size: 20px;
+
+				&.team {
+					text-transform: uppercase;
+				}
+
+				&.min {
+					background-image: url(/img/min.png);
+				}
+
+				&.edm {
+					background-image: url(/img/edm.png);
+				}
+
+				&.tor {
+					background-image: url(/img/tor.png);
+				}
+
+				&.mon {
+					background-image: url(/img/mon.png);
+				}
+
+				&.la {
+					background-image: url(/img/la.png);
+				}
+
+				&.ny {
+					background-image: url(/img/ny.png);
+				}
+
+				&.chi {
+					background-image: url(/img/chi.png);
+				}
+
 				a {
 					display: block;
 					color: $accent;
@@ -45,6 +81,19 @@
 					}
 				}
 			}
+
+			&.true {
+				td {
+					font-weight: 900;
+					color: #000;
+				}
+			}
+		}
+	}
+
+	&.players {
+		tr td {
+			font-size: 18px;
 		}
 	}
 }

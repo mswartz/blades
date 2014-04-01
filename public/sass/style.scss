@@ -39,6 +39,7 @@ $adelle: "adelle";
 
 body {
 	background-color: $lightbg;
+	background-image: radial-gradient($lightbg, darken($lightbg, 5%));
 }
 
 // Layout

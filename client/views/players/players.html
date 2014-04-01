@@ -3,12 +3,12 @@
 <div class="display-panel bg-1">
 <div class="page-container">
   <h1 class="h1 centered">Players</h1>
-  {{#if currentUser}}<a href="newplayer" class="btn">New Player</a>{{/if}}
+  {{#if currentUser}}<a href="newplayer" class="btn centered">New Player</a>{{/if}}
 </div>
 </div>
 
 <div class="page-container">
-<table class="table">
+<table class="table players">
 <thead>
 	<th>Name</th>
 	<th>Preferred Team</th>
@@ -21,10 +21,10 @@
 {{#each players}}
 <tr>
 	<td><a href="/players/{{name}}">{{name}}</a></td>
-	<td>{{team}}</td>
+	<td class="team {{team}}">{{team}}</td>
 	<td>{{games_played}}</td>
-	<td>{{games_won}} / {{games_lost}}</td>
-	<td>{{fights_won}} / {{games_lost}}</td>
+	<td>{{games_won}} - {{games_lost}}</td>
+	<td>{{fights_won}} - {{games_lost}}</td>
 	{{#if currentUser}}<td><input type="submit" class="btn player_deleteplayer" data-id="{{_id}}" value="Delete Player"/></td>{{/if}}
 </tr>
 {{/each}}

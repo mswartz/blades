@@ -363,8 +363,8 @@ button {
 }
 
 .fancy-header {
-  background-color: #FFF;
-  color: #d3453b;
+  background-color: #d3453b;
+  color: #FFF;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
@@ -415,7 +415,7 @@ button {
   font-family: "adelle-sans";
   margin: 0 0 20px 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #FFF;
   border-collapse: collapse;
   border: none;
 }
@@ -440,6 +440,33 @@ button {
   font-size: 14px;
   border: 1px solid #EEE;
   border-collapse: collapse;
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 20px;
+}
+.table tbody tr td.team, .table-input tbody tr td.team {
+  text-transform: uppercase;
+}
+.table tbody tr td.min, .table-input tbody tr td.min {
+  background-image: url(/img/min.png);
+}
+.table tbody tr td.edm, .table-input tbody tr td.edm {
+  background-image: url(/img/edm.png);
+}
+.table tbody tr td.tor, .table-input tbody tr td.tor {
+  background-image: url(/img/tor.png);
+}
+.table tbody tr td.mon, .table-input tbody tr td.mon {
+  background-image: url(/img/mon.png);
+}
+.table tbody tr td.la, .table-input tbody tr td.la {
+  background-image: url(/img/la.png);
+}
+.table tbody tr td.ny, .table-input tbody tr td.ny {
+  background-image: url(/img/ny.png);
+}
+.table tbody tr td.chi, .table-input tbody tr td.chi {
+  background-image: url(/img/chi.png);
 }
 .table tbody tr td a, .table-input tbody tr td a {
   display: block;
@@ -449,6 +476,13 @@ button {
 }
 .table tbody tr td a:hover, .table-input tbody tr td a:hover {
   color: #b33128;
+}
+.table tbody tr.true td, .table-input tbody tr.true td {
+  font-weight: 900;
+  color: #000;
+}
+.table.players tr td, .table-input.players tr td {
+  font-size: 18px;
 }
 
 input, select {
@@ -548,6 +582,7 @@ input, select {
   margin: 0 auto;
   display: block;
   width: 200px;
+  text-align: center;
 }
 .btn.inactive {
   background-color: #08080e;
@@ -717,6 +752,7 @@ input, select {
 
 body {
   background-color: #ededed;
+  background-image: radial-gradient(#ededed, #e0e0e0);
 }
 
 .display-panel {
