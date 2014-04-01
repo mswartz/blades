@@ -24,11 +24,6 @@ $adelle: "adelle";
 @import "project/profile";
 @import "project/input";
 
-@keyframes fade-in {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 
 body {
 	background-color: $lightbg;
@@ -38,13 +33,24 @@ body {
 // Layout
 .display-panel {
 	background-color: $darkbg;
-
 	@include background-image(radial-gradient(lighten($darkbg, 10%), $darkbg));
 	background-attachment: fixed;
 	color: $txtlight;
+	// padding: 20px;
 
 	@media (min-width: $tablet){
-		padding: 100px 0;
+		padding: 60px 0;
+	}
+}
+
+.page-container {
+	max-width: 800px;
+	margin: 0 auto;
+
+	padding: 20px;
+
+	@media (min-width: $tablet){
+		padding: 0;
 	}
 }
 
@@ -64,12 +70,6 @@ body {
 		padding: 40px 0 0 0;
 		@include border-radius(100px);
 	}
-}
-
-.page-container {
-	max-width: 800px;
-	margin: 0 auto;
-	animation: fade-in .5s;
 }
 
 .split-two {

@@ -667,16 +667,6 @@ input, select {
   border-radius: 10px;
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 body {
   background-color: #ededed;
 }
@@ -693,7 +683,18 @@ body {
 }
 @media (min-width: 700px) {
   .display-panel {
-    padding: 100px 0;
+    padding: 60px 0;
+  }
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+@media (min-width: 700px) {
+  .page-container {
+    padding: 0;
   }
 }
 
@@ -722,12 +723,6 @@ body {
     -o-border-radius: 100px;
     border-radius: 100px;
   }
-}
-
-.page-container {
-  max-width: 800px;
-  margin: 0 auto;
-  animation: fade-in .5s;
 }
 
 @media (min-width: 700px) {

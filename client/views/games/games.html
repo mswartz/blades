@@ -9,7 +9,7 @@
       </div><!-- col-1 -->
     
       <div class="col-2">
-        <input class="drk-input" type="number" min="1" max="100" id="results_num" value="50"/>
+        <input class="drk-input" type="range" min="1" max="100" id="results_num" value="50"/>
         <select id="game_range">
           {{#each game_range}}
             <option value="{{range_lower}}">{{range_lower}} - {{range_upper}}</option>
