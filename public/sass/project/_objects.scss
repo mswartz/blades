@@ -29,5 +29,23 @@
 }
 
 .game-sort-controls {
+	padding: 0 10px;
+	margin: 0 0 20px 0;
+
 	@include cols(2);
+	background-color: $darkbg;
+
+	.col-2 {
+		text-align: right;
+	}
+}
+
+.sort-btn {
+	@include inline-block;
+	padding: 10px;
+	color: $txtlight;
+
+	&.inactive {
+		color: lighten($txtdark, 25%);
+	} 
 }

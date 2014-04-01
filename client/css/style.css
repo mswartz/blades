@@ -284,7 +284,7 @@ button {
 
 .h1 {
   font-family: "adelle";
-  font-weight: 100;
+  font-weight: 300;
   margin: 0 0 20px 0;
   font-size: 24px;
 }
@@ -303,7 +303,7 @@ button {
 
 .h3 {
   font-family: "adelle";
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
   font-size: 18px;
   margin: 0 0 20px 0;
@@ -311,8 +311,16 @@ button {
 
 .game-no {
   font-family: "adelle-sans";
-  font-size: 14px;
-  font-weight: 100;
+  font-size: 16px;
+  font-weight: 600;
+}
+.game-no a {
+  display: block;
+  color: #eeeeee;
+  text-decoration: none;
+}
+.game-no a:hover {
+  color: #d3453b;
 }
 
 .big-number {
@@ -546,7 +554,10 @@ input, select {
 }
 
 .game-sort-controls {
+  padding: 0 10px;
+  margin: 0 0 20px 0;
   *zoom: 1;
+  background-color: #1c1c2d;
 }
 .game-sort-controls:after {
   content: "";
@@ -567,6 +578,23 @@ input, select {
   display: inline;
   float: left;
   margin-right: 0;
+}
+.game-sort-controls .col-2 {
+  text-align: right;
+}
+
+.sort-btn {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  padding: 10px;
+  color: #eeeeee;
+}
+.sort-btn.inactive {
+  color: #5d5d5d;
 }
 
 .form-mod {
@@ -667,6 +695,26 @@ input, select {
   border-radius: 10px;
 }
 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   background-color: #ededed;
 }
@@ -679,7 +727,23 @@ body {
   background-image: -o-radial-gradient(#30304c, #1c1c2d);
   background-image: radial-gradient(#30304c, #1c1c2d);
   background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: #eeeeee;
+}
+.display-panel.bg-1 {
+  background-image: url(/img/bg-1.jpg);
+}
+.display-panel.bg-2 {
+  background-image: url(/img/bg-2.jpg);
+}
+.display-panel.bg-3 {
+  background-image: url(/img/bg-3.jpg);
+}
+.display-panel.bg-4 {
+  background-image: url(/img/bg-4.jpg);
 }
 @media (min-width: 700px) {
   .display-panel {
@@ -691,6 +755,15 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  -webkit-animation: fadein .5s;
+  /* Safari and Chrome */
+  -moz-animation: fadein .2s;
+  /* Firefox */
+  -ms-animation: fadein .2s;
+  /* Internet Explorer */
+  -o-animation: fadein .2s;
+  /* Opera */
+  animation: fadein .2s;
 }
 @media (min-width: 700px) {
   .page-container {
@@ -710,7 +783,7 @@ body {
   -ms-border-radius: 60px;
   -o-border-radius: 60px;
   border-radius: 60px;
-  background-color: #141420;
+  background-color: #cc382e;
 }
 @media (min-width: 700px) {
   .display-num {

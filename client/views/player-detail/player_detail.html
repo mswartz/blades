@@ -96,18 +96,18 @@
   <h2 class="fancy-header">Game appearances</h2>
 
   <div class="game-sort-controls">
-    <div class="col-1">
-    <a class="btn" href="#" id="game_no_asc">Ascending</a> <a href="#" class="btn inactive" id="game_no_desc">Descending</a>
-    </div><!-- col-1 -->
-  
-    <div class="col-2">
-      <input class="drk-input" type="number" min="1" max="100" id="results_num" value="50"/>
-      <select id="game_range">
-        {{#each game_range}}
-          <option value="{{range_lower}}">{{range_lower}} - {{range_upper}}</option>
-        {{/each}}
-      </select>
-    </div><!-- col-2 -->
+      <div class="col-1">
+     <a href="#" class="sort-btn" id="game_no_desc">Descending</a> <a class="sort-btn inactive" href="#" id="game_no_asc">Ascending</a> 
+      </div><!-- col-1 -->
+    
+      <div class="col-2">
+        <input class="drk-input" type="range" min="1" max="100" id="results_num" value="50"/>
+        <select id="game_range">
+          {{#each game_range}}
+            <option value="{{range_lower}}">{{range_lower}} - {{range_upper}}</option>
+          {{/each}}
+        </select>
+      </div><!-- col-2 -->
   </div><!-- game-sort-controls -->
 
   {{#each games}}

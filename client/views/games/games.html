@@ -1,11 +1,16 @@
 <template name="games">
-<div class="display-panel">
+<div class="display-panel bg-4">
 <div class="page-container">
-  <h1 class="h1">{{total_games}} Games</h1>
+  <h1 class="h1 centered">{{total_games}} Games</h1>
+  
+  </div><!-- page-container -->
+</div><!-- display-panel -->
 
+
+<div class="page-container">
   <div class="game-sort-controls">
       <div class="col-1">
-     <a href="#" class="btn" id="game_no_desc">Descending</a> <a class="btn inactive" href="#" id="game_no_asc">Ascending</a> 
+     <a href="#" class="sort-btn" id="game_no_desc">Descending</a> <a class="sort-btn inactive" href="#" id="game_no_asc">Ascending</a> 
       </div><!-- col-1 -->
     
       <div class="col-2">
@@ -17,12 +22,7 @@
         </select>
       </div><!-- col-2 -->
   </div><!-- game-sort-controls -->
-  
-  </div><!-- page-container -->
-</div><!-- display-panel -->
 
-
-<div class="page-container">
 	{{#each games}}
 		{{>game}}
 	{{/each}}

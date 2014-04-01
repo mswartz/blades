@@ -25,18 +25,46 @@ $adelle: "adelle";
 @import "project/input";
 
 
+//Fade In
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
 body {
 	background-color: $lightbg;
 }
-
 
 // Layout
 .display-panel {
 	background-color: $darkbg;
 	@include background-image(radial-gradient(lighten($darkbg, 10%), $darkbg));
 	background-attachment: fixed;
+	@include background-size(cover);
 	color: $txtlight;
-	// padding: 20px;
+
+	&.bg-1 {
+		background-image: url(/img/bg-1.jpg);
+	}
+
+	&.bg-2 {
+		background-image: url(/img/bg-2.jpg);
+	}
+
+	&.bg-3 {
+		background-image: url(/img/bg-3.jpg);
+	}
+
+	&.bg-4 {
+		background-image: url(/img/bg-4.jpg);
+	}
+
 
 	@media (min-width: $tablet){
 		padding: 60px 0;
@@ -52,6 +80,13 @@ body {
 	@media (min-width: $tablet){
 		padding: 0;
 	}
+
+	-webkit-animation: fadein .5s; /* Safari and Chrome */
+       -moz-animation: fadein .2s; /* Firefox */
+        -ms-animation: fadein .2s; /* Internet Explorer */
+         -o-animation: fadein .2s; /* Opera */
+            animation: fadein .2s;
+
 }
 
 .display-num {
@@ -62,7 +97,7 @@ body {
 	padding: 20px 0 0 0;
 	color: darken($txtlight, 10%);
 	@include border-radius(60px);
-	background-color: darken($darkbg, 4%);
+	background-color: darken($accent, 4%);
 
 	@media(min-width: $tablet){
 		width: 100px;
