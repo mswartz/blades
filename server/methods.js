@@ -75,6 +75,61 @@ Meteor.methods({
   },
 
   deleteGame: function(game){
+    var game = Games.findOne({_id:game});
+
+    Players.update({_id:game.game_winner},
+                   {$inc: { 'games_played': -1,
+                            'games_won': -1,
+                            'goals_scored': -game.game_winner_points,
+                            'goals_allowed': -game.game_loser_points,
+                    }});
+
+
+    Players.update({
+      _id : game.game_winner,
+      'opponents.id' : game.game_loser
+    }, {
+      $inc: {
+        'opponents.$.games_played' : -1,
+        'opponents.$.games_won' : -1,
+        'opponents.$.goals_scored' : -game.game_winner_points,
+        'opponents.$.goals_allowed' :-game.game_loser_points,
+      }
+    }, function(error, affectedDocs) {
+      if (error) {
+        throw new Meteor.Error(500, error.message);
+      } else {
+        return "Delete Successful";
+      }
+    });
+
+
+
+    Players.update({_id:game.game_loser},
+                   {$inc: { 'games_played': -1,
+                            'games_lost': -1,
+                            'goals_scored': -game.game_loser_points,
+                            'goals_allowed': -game.game_winner_points,
+                    }});
+
+    Players.update({
+      _id : game.game_loser,
+      'opponents.id' : game.game_winner
+    }, {
+      $inc: {
+        'opponents.$.games_played' : -1,
+        'opponents.$.games_lost' : -1,
+        'opponents.$.goals_scored' : -game.game_loser_points,
+        'opponents.$.goals_allowed' : -game.game_winner_points,
+      }
+    }, function(error, affectedDocs) {
+      if (error) {
+        throw new Meteor.Error(500, error.message);
+      } else {
+        return "Delete Successful";
+      }
+    });
+
     Games.remove(game);
   },
 

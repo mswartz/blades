@@ -12,6 +12,7 @@
 		<th>GOS</th>
 		<th>Fights</th>
 		<th>Final</th>
+		{{#if currentUser}}<th>Delete</th>{{/if}}
 		</thead>
 
 		<tbody>
@@ -28,6 +29,7 @@
 			<td>{{p1_gos}}</td>
 			<td>{{p1_fights}}</td>
 			<td>{{p1_final}}</td>
+			{{#if currentUser}}<td colspan="2"><input type="submit" class="btn" id="game_deletegame" value="Delete"></td>{{/if}}
 		</tr>
 		<tr class="{{p2_winner}}">
 			<td><a href="/players/{{p2_name}}">{{p2_name}}</a></td>
