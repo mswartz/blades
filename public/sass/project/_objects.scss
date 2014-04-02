@@ -27,6 +27,11 @@
 	&.inactive {
 		background-color: darken($darkbg, 10%);
 	}
+
+	&.gos {
+		width: 50px;
+		float: right;
+	}
 }
 
 .game-sort-controls {
@@ -48,5 +53,5 @@
 
 	&.inactive {
 		color: lighten($txtdark, 25%);
-	} 
+	}
 }

@@ -591,6 +591,10 @@ input, select {
 .btn.inactive {
   background-color: #08080e;
 }
+.btn.gos {
+  width: 50px;
+  float: right;
+}
 
 .game-sort-controls {
   padding: 0 10px;

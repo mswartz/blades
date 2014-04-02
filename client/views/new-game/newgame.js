@@ -1,6 +1,6 @@
 /**********************************
 
-NEW G A M E 
+NEW G A M E
 
 - Add a new game
 
@@ -11,6 +11,7 @@ if (Meteor.isClient) {
 Session.setDefault('p1_pts', 0);
 Session.setDefault('p2_pts', 0);
 Session.setDefault('ot_count', 0);
+Session.setDefault('gos_scored', false);
 
 
 Template.newgame.helpers({
@@ -87,6 +88,12 @@ Template.newgame.helpers({
       }
     }
     return ot_scores;
+  },
+
+  gos_scored : function(){
+    if(Session.get('gos_scored', true)){
+      return true;
+    }
   }
 });
 
@@ -111,6 +118,17 @@ Template.newgame.events({
   //How many overtimes?
   'change #ot_counter' : function(){
     Session.set('ot_count', $('#ot_counter').val());
+  },
+
+  //How many overtimes?
+  'click #gos_scored' : function(){
+    if(Session.get('gos_scored')===false){
+      Session.set('gos_scored', true);
+      $('#gos_scored').toggleClass('inactive');
+    } else {
+      Session.set('gos_scored', false);
+      $('#gos_scored').toggleClass('inactive');
+    }
   },
 
   //Select your player
@@ -164,7 +182,7 @@ Template.newgame.events({
     } else {
       game_winner = Session.get('p2_id');
       game_winner_name = Session.get('p2_name');
-      game_loser = Session.get('p1_id');      
+      game_loser = Session.get('p1_id');
       game_loser_name = Session.get('p1_name');
       game_winner_points = p2_pts;
       game_loser_points = p1_pts;
@@ -205,7 +223,7 @@ Template.newgame.events({
       for(var i = 0; i<=Session.get('ot_count')-1; i++){
         var ot = (i+1)+'ot';
         ot_goals[i] = {ot_num : i+1, p1_score : parseInt($('#p1_score_'+(i+1)+'ot').val()), p2_score : parseInt($('#p2_score_'+(i+1)+'ot').val())};
-        
+
         //Create variable keys so we can pass them in the Players.update
         var p1_ot_key = {};
         var p2_ot_key = {};
@@ -283,7 +301,7 @@ Template.newgame.events({
       'notes' : notes
     };
 
-    //Save this game 
+    //Save this game
     Meteor.call("addGame", game, function(error, affectedDocs) {
       if (error) {
         console.log(error.message);
@@ -338,7 +356,7 @@ Template.newgame.events({
       for(var i = 0; i<p1data.opponents.length; i++){
         if(p1data.opponents[i].id == Session.get('p2_id')){
           p2_exists = true;
-        } 
+        }
       }
     }
 
@@ -346,7 +364,7 @@ Template.newgame.events({
       for(var i = 0; i<p2data.opponents.length; i++){
         if(p2data.opponents[i].id == Session.get('p1_id')){
           p1_exists = true;
-        } 
+        }
       }
     }
 
@@ -361,8 +379,8 @@ Template.newgame.events({
       Players.update({_id: Session.get('p1_id')}, {$addToSet: {'opponents': p2_opp}});
     }
 
-    
-    //NOW we can finally increment the Opponent stats 
+
+    //NOW we can finally increment the Opponent stats
     var p1_opp_stats = {
       'games_played': 1,
       'games_won' : 0,
@@ -401,7 +419,7 @@ Template.newgame.events({
 
     if(p2_pts == 0){
       p1_opp_stats['shutouts'] = 1;
-    } 
+    }
     if(p1_pts == 0){
       p2_opp_stats['shutouts'] = 1;
     }
@@ -422,14 +440,14 @@ Template.newgame.events({
 
 
     //Update Player 1's other stats
-    Players.update(Session.get('p1_id'), 
+    Players.update(Session.get('p1_id'),
       {$inc: {
         'games_played' : 1,
         '1p_goals' : reg_goals[0].p1_score,
         '2p_goals' : reg_goals[1].p1_score,
         '3p_goals' : reg_goals[2].p1_score,
         'p1_games' : 1,
-        'goals_scored' : p1_pts, 
+        'goals_scored' : p1_pts,
         'goals_allowed' : p2_pts,
         'fights_won' : p1_fights,
         'fights_lost' : p2_fights,
@@ -438,14 +456,14 @@ Template.newgame.events({
     }});
 
     //Update Player 2
-    Players.update(Session.get('p2_id'), 
+    Players.update(Session.get('p2_id'),
       {$inc: {
         'games_played' : 1,
         '1p_goals' : reg_goals[0].p2_score,
         '2p_goals' : reg_goals[1].p2_score,
         '3p_goals' : reg_goals[2].p2_score,
         'p2_games' : 1,
-        'goals_scored' : p2_pts, 
+        'goals_scored' : p2_pts,
         'goals_allowed' : p1_pts,
         'fights_won' : p2_fights,
         'fights_lost' : p1_fights,

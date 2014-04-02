@@ -5,12 +5,13 @@
   <h3 class="h1 centered">{{p1_name}} vs {{p2_name}}</h3>
 
   <div class="ot-selector">
-  <span class="ot-label">How many overtimes?</span>
-  <input id="ot_counter" class="drk-input" type="number" min="0" max="20" value="0" />
+  	<span class="ot-label">OT?</span>
+  	<input id="ot_counter" class="drk-input" type="number" min="0" max="20" value="0" />
+  	<input type="submit" class="btn centered gos inactive" id="gos_scored" value="GOS"/>
   </div>
 
   {{ot_count}}
-  
+
   <div class="info-panel">
   <table class="table-input">
 	  <thead>
@@ -22,7 +23,7 @@
 	  	{{#each ot_scores}}
 	  		<th>OT {{ot}}</th>
 	  	{{/each}}
-	  	<th>GOS?</th>
+	  	{{#if gos_scored}}<th>GOS?</th>{{/if}}
 	  	<th>Fights</th>
 	 	<th>Final</th>
 	  </thead>
@@ -53,7 +54,7 @@
 	  		<td><input value="0" class="input-number p1_pts pts" id="p1_score_{{ot}}ot" min="0" type="number"/></td>
 	  	{{/each}}
 
-	  	<td><input class="input-number" value="0" id="p1_gos" min="0" type="number"/></td>
+	  	{{#if gos_scored}}<td><input class="input-number" value="0" id="p1_gos" min="0" type="number"/></td>{{/if}}
 	  	<td><input class="input-number" value="0" id="p1_fights" min="0" type="number"/></td>
 	 	<td id="p1_final">{{p1_points}}</td>
 	 </tr>
@@ -82,7 +83,7 @@
 	  	{{#each ot_scores}}
 	  		<td><input class="input-number p2_pts pts" value="0" id="p2_score_{{ot}}ot" min="0" type="number"/></td>
 	  	{{/each}}
-	  	<td><input class="input-number" value="0" id="p2_gos" min="0" type="number"/></td>
+	  	{{#if gos_scored}}<td><input class="input-number" value="0" id="p2_gos" min="0" type="number"/></td>{{/if}}
 	  	<td><input class="input-number" value="0" id="p2_fights" min="0" type="number"/></td>
 	 	<td id="p2_final">{{p2_points}}</td>
 	 </tr>
