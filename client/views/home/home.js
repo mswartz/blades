@@ -43,6 +43,10 @@ if (Meteor.isClient) {
 			var game_data = Players.find({'games_played': {$gt: threshhold}}, {sort: {'current_streak': -1}, limit: result_limit}).fetch();
 			return game_data;
 		},
+		'longest_streaks' : function(){
+			var game_data = Players.find({'games_played': {$gt: threshhold}}, {sort: {'longest_streak': -1}, limit: result_limit}).fetch();
+			return game_data;
+		},
 		'game_leaders' : function(){
 			var game_data = Players.find({'games_played': {$gt: threshhold}}, {sort: {'games_won': -1}, limit: result_limit}).fetch();
 			for(var i = 0; i<game_data.length; i++){
