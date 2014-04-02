@@ -55,8 +55,10 @@ Meteor.methods({
   },
 
   slackPost: function(game_no, winner, loser, winner_points, loser_points){
-    var words = ["trounced", "beat", "beat down", "drubbed", "smashed", "licked", "lambasted", "thrashed", "shellacked", "smeared", "whipped", "blasted", "battered", "mangled", "socked", "slammed", "tallywhacked", "bashed", "KOd", "whomped", "wiped out", "put away", "took down", "wallopped", "hosed", "clobbered"];
-    var verb = words[Math.floor(Math.random()*words.length)];
+    // var words = ["trounced", "beat", "beat down", "drubbed", "smashed", "licked", "lambasted", "thrashed", "shellacked", "smeared", "whipped", "blasted", "battered", "mangled", "socked", "slammed", "tallywhacked", "bashed", "KOd", "whomped", "wiped out", "put away", "took down", "wallopped", "hosed", "clobbered"];
+    // var verb = words[Math.floor(Math.random()*words.length)];
+
+    var verb = Verbs();
 
     HTTP.post("https://upstatement.slack.com/services/hooks/incoming-webhook", {"params":
     {"token": "ffaX9oszfuVD3hUBEauvkFSA",
