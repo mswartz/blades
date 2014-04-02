@@ -469,6 +469,9 @@ button {
 .table tbody tr td.chi, .table-input tbody tr td.chi {
   background-image: url(/img/chi.png);
 }
+.table tbody tr td.van, .table-input tbody tr td.van {
+  background-image: url(/img/van.png);
+}
 .table tbody tr td a, .table-input tbody tr td a {
   display: block;
   color: #d3453b;

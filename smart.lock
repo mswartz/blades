@@ -2,9 +2,7 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "iron-router": {
-        "version": "0.7.0"
-      }
+      "iron-router": {}
     },
     "packages": {
       "iron-router": {

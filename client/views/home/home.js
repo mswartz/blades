@@ -4,7 +4,8 @@ if (Meteor.isClient) {
 			return Verbs();
 		},
 		'latest_game' : function(){
-			var games = Games.find({}, {sort: {'game_no': -1}, limit: 1}).fetch();
+			var games_num = Games.find().fetch();
+			var games = Games.find({'game_no':games_num.length}, {sort: {'game_no': -1}, limit: 1}).fetch();
 			return games;
 		},
 		'meta_stats' : function(){
@@ -22,7 +23,7 @@ if (Meteor.isClient) {
 
 			var gpg_avg = goals_tot/games_tot;
 			var fpg_avg = fights_tot/games_tot;
-	
+
 			var metadata = [];
 			metadata[0] = {
 				'games_tot' : games_tot,
