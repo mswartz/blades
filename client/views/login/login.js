@@ -58,7 +58,7 @@ if (Meteor.isClient) {
             } else {
               // Success. Account has been created and the user
               // has logged in successfully.
-              Router.go('home');
+              Router.go('players');
               console.log('user created');
             }
 
