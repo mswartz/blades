@@ -896,3 +896,15 @@ body {
     margin-bottom: 60px;
   }
 }
+
+.error-notification {
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  border: solid 1px red;
+  border-radius: 3px;
+  background-color: #FFE0E0;
+  margin: 10px 0;
+  color: black;
+  font-weight: bold;
+}
