@@ -4,6 +4,8 @@ if (Meteor.isClient) {
     'submit #login-form': function(e, t) {
       e.preventDefault();
 
+      $('.error-notification').remove();
+
       var email = t.find('#login-email').value,
         password = t.find('#login-password').value;
 
@@ -36,6 +38,9 @@ if (Meteor.isClient) {
   Template.login.events({
     'submit #register-form': function(e, t) {
       e.preventDefault();
+
+      $('.error-notification').remove();
+
       var email = t.find('#account-email').value,
         password = t.find('#account-password').value,
         username = t.find('#account-name').value,
@@ -47,7 +52,7 @@ if (Meteor.isClient) {
           Accounts.createUser({ username: username, email: email, password: password }, function(err) {
             if (err) {
               // Inform the user that account creation failed
-              $(t.find('.error-notification')).remove();
+
               $(t.find('#register-form')).append('<div class="error-notification">' + (err.reason || 'There was an error') + '</div>');
               console.log('fail', err);
             } else {
