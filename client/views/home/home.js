@@ -23,7 +23,9 @@ if (Meteor.isClient) {
 			for (var i=0; i<games_tot; i++){
 				goals_tot = goals_tot + (data[i].p1_final + data[i].p2_final);
 				fights_tot = fights_tot + (data[i].p1_fights + data[i].p2_fights);
-				gos_tot = gos_tot + (data[i].p1_gos + data[i].p2_gos);
+				if(data[i].p1_gos || data[i].p2_gos){
+					gos_tot = gos_tot + (data[i].p1_gos + data[i].p2_gos);
+				}
 			}
 
 			var gpg_avg = goals_tot/games_tot;

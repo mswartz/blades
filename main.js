@@ -3,9 +3,10 @@
 M A I N
 
 **********************************/
-// Set up collections for 
+// Set up collections for
 Players = new Meteor.Collection("players");
 Games = new Meteor.Collection("games");
+Seasons = new Meteor.Collection("seasons");
 
 Players.allow({
   update: function(){
@@ -22,7 +23,7 @@ if (Meteor.isClient) {
   Router.configure({
     notFoundTemplate: 'notFound' // this will render
   });
-  
+
   //Iron Router routings
   Router.map(function () {
     //Home template
@@ -42,7 +43,7 @@ if (Meteor.isClient) {
       path: '/newgame',
       template: 'newgame'
     });
-    
+
     //Games
     this.route('games', {
       path: '/games',
