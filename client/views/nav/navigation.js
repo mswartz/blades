@@ -5,6 +5,7 @@ if (Meteor.isClient) {
   	},
   	'click .logout' : function(){
   		Meteor.logout();
+  		Router.go('home');
   	}
   })
 }

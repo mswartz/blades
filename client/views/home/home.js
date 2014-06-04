@@ -7,9 +7,11 @@ if (Meteor.isClient) {
 			return Verbs();
 		},
 		'latest_game' : function(){
-			var games_num = Games.find().fetch();
-			var games = Games.find({'game_no':games_num.length}, {sort: {'game_no': -1}, limit: 1}).fetch();
-			return games;
+			var games_num = Games.find().fetch().length;
+			console.log('games-num:' +  games_num);
+			var latest_game = Games.find({'game_no':games_num}, {sort: {'game_no': -1}, limit: 1}).fetch()[0];
+			console.log(latest_game);
+			return latest_game;
 		},
 		'meta_stats' : function(){
 			var data = Games.find({}).fetch();
