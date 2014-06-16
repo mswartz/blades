@@ -13,8 +13,52 @@ Session.setDefault('p2_pts', 0);
 Session.setDefault('ot_count', 0);
 Session.setDefault('gos_scored', false);
 
+Template.newgame.is_disabled = function() {
+  var p1_team = Session.get('p1_team'),
+      p2_team = Session.get('p2_team'),
+      p1_name = Session.get('p1_name'),
+      p2_name = Session.get('p2_name'),
+      p1_id = Session.get('p1_id'),
+      p2_id = Session.get('p2_id'),
+      p1_pts = Session.get('p1_pts'),
+      p2_pts = Session.get('p2_pts');
+
+  if(p1_id === "-1" || p2_id === "-1") {
+    return true;
+  }
+
+  if(p1_team === p2_team) {
+    return true;
+  }
+
+  if(p1_id === p2_id) {
+    return true;
+  }
+
+  if (p1_name === p2_name) {
+    return true;
+  }
+
+  if(p1_pts === p2_pts) {
+    return true;
+  }
+
+  return false;
+};
+
+Template.newgame.rendered = function() {
+
+  Session.set('p1_pts', 0);
+  Session.set('p2_pts', 0);
+
+  Session.set('p1_id', "-1");
+  Session.set('p2_id', "-1");
+  Session.set('ot_count', 0);
+  Session.set('gos_scored', false);
+}
 
 Template.newgame.helpers({
+
   //Get the players
   players : function(){
     var players = Players.find({}).fetch();
@@ -68,11 +112,6 @@ Template.newgame.helpers({
     } else {
       return "Choose Player 2";
     }
-  },
-
-  //Get players from Players collection for choosing
-  all_names : function() {
-    return Players.find().fetch();
   },
 
   //Dynamically add OT inputs
@@ -132,43 +171,68 @@ Template.newgame.events({
   },
 
   //Select your player
-  'change select.name' : function() {
+  'change select#p1_name' : function() {
+
+    //TODO refactor in to function to avoid P1/P2 duplicaiton
+
     Session.set('p1_id', $('#p1_name').val());
-    Session.set('p2_id', $('#p2_name').val());
 
     //get the preferred team for each player and filter the select menu
     var p1_data = Players.find({_id : Session.get('p1_id')}).fetch();
-    Session.set('p1_team', p1_data[0].team);
-    $('#p1_team').val(p1_data[0].team);
+    if(p1_data.length > 0) {
+      Session.set('p1_team', p1_data[0].team);
+      $('#p1_team').val(p1_data[0].team);
+    };
+  },
 
+  'change select#p2_name' : function() {
+    Session.set('p2_id', $('#p2_name').val());
+
+    //get the preferred team for each player and filter the select menu
     var p2_data = Players.find({_id : Session.get('p2_id')}).fetch();
-    Session.set('p2_team', p2_data[0].team);
-    $('#p2_team').val(p2_data[0].team);
+    if(p2_data.length > 0) {
+      Session.set('p2_team', p2_data[0].team);
+      $('#p2_team').val(p2_data[0].team);
+    };
+  },
+
+  'change select#p1_team' : function() {
+    Session.set('p1_team', $('#p1_team').val());
+  },
+
+  'change select#p2_team' : function() {
+    Session.set('p2_team', $('#p2_team').val());
   },
 
 
   //Submit the game
   'click input#newgame_addgame' : function() {
+
+    if(Template.newgame.is_disabled())
+      return;
+
     //Create a date so we can sort by this
     var date_created = new Date();
     var date_parsed = Date.parse(date_created);
 
     //Get player teams
-    var p1_team = $('#p1_team').val();
-    var p2_team = $('#p2_team').val();
+    var p1_team = $('#p1_team').val(),
+        p2_team = $('#p2_team').val(),
+        p1_name = Session.get('p1_name'),
+        p2_name = Session.get('p2_name'),
+        p1_pts = Session.get('p1_pts'),
+        p2_pts = Session.get('p2_pts');
 
     //Find game winner & loser
-    var game_winner_points;
-    var game_loser_points;
-    var game_winner;
-    var game_loser;
-    var game_winner_name;
-    var game_loser_name;
-    var p1_winner;
-    var p2_winner;
+    var game_winner_points,
+        game_loser_points,
+        game_winner,
+        game_loser,
+        game_winner_name,
+        game_loser_name,
+        p1_winner,
+        p2_winner;
 
-    var p1_pts = Session.get('p1_pts');
-    var p2_pts = Session.get('p2_pts');
 
     if(p1_pts > p2_pts){
       game_winner = Session.get('p1_id');
@@ -179,7 +243,7 @@ Template.newgame.events({
       game_loser_points = p2_pts;
       p1_winner = true;
       p2_winner = false;
-    } else {
+    } else  if(p2_pts > p1_pts){
       game_winner = Session.get('p2_id');
       game_winner_name = Session.get('p2_name');
       game_loser = Session.get('p1_id');
@@ -188,14 +252,16 @@ Template.newgame.events({
       game_loser_points = p1_pts;
       p2_winner = true;
       p1_winner = false;
+    } else {
+      return;
     }
 
     //Find fights winner & loser or tied
-    var fight_winner;
-    var fight_loser;
+    var fight_winner,
+        fight_loser;
 
-    var p1_fights = parseInt($('#p1_fights').val());
-    var p2_fights = parseInt($('#p2_fights').val());
+    var p1_fights = parseInt($('#p1_fights').val()),
+        p2_fights = parseInt($('#p2_fights').val());
 
     if(p1_fights > p2_fights){
       fights_winner = Session.get('p1_id');

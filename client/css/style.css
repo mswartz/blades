@@ -901,10 +901,15 @@ body {
   text-align: center;
   width: 100%;
   padding: 10px 0;
-  border: solid 1px red;
+  border: solid 1px #D3453B;
   border-radius: 3px;
-  background-color: #FFE0E0;
+  background-color: #FF786E;
   margin: 10px 0;
   color: black;
   font-weight: bold;
+}
+
+input[type="submit"]:disabled {
+  background-color: #ED5F55;
+  font-style: italic;
 }
