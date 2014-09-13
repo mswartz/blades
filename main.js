@@ -95,6 +95,12 @@ if (Meteor.isClient) {
       }
     });
 
+    //Matchup
+    this.route('faceoff', {
+      path: '/faceoff',
+      template: 'faceoff'
+    });
+
   });
 
 }
