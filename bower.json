@@ -23,6 +23,6 @@
     "tests"
   ],
   "dependencies": {
-    "upbase": "https://github.com/Upstatement/upbase"
+    "Upbase": "git@github.com:Upstatement/upbase.git"
   }
 }
