@@ -7,7 +7,7 @@ images_dir = "public/img"
 javascripts_dir = "js"
 fonts_dir = "fonts"
 relative_assets = true
-add_import_path "public/bower_components/Upbase/components"
+add_import_path "bower_components/Upbase/components"
 
 line_comments = false
 # output_style = :compact :compressed :nested :expanded
