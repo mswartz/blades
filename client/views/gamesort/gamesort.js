@@ -1,5 +1,7 @@
 if(Meteor.isClient) {
 
+  Session.setDefault('sort_by', -1);
+
   Template.gamesort.rendered = function() {
 
     var games_total = Session.get('games_total') || 0;
@@ -34,9 +36,9 @@ if(Meteor.isClient) {
     var games_start = $('#games-start').val();
     if(games_start <= Session.get('games_start_max') && games_start >= 1) {
       Session.set('games_start', games_start);
-      Session.set('games_end_min', games_start + 1);
+      Session.set('games_end_min', games_start);
     } else {
-      $('#games-start').val(1);
+      $('#games-start').val(Session.get('games_start_max'));
     }
   }
 
@@ -46,10 +48,10 @@ if(Meteor.isClient) {
 
     if(games_end <= Session.get('games_total') && games_end >= Session.get('games_end_min')) {
       Session.set('games_end', games_end);
-      Session.set('games_start_max', games_end - 1);
+      Session.set('games_start_max', games_end);
     }
     else {
-      $('#games-end').val(Session.get('games_total'))
+      $('#games-end').val(Session.get('games_end_min'))
     }
 
   }

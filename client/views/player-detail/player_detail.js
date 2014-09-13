@@ -10,6 +10,49 @@ if (Meteor.isClient) {
 	Session.setDefault('results_num', 50);
 	Session.setDefault('sort_wins', undefined);
 
+	Template.player_detail.rendered = function() {
+	  Session.set('games_total', getGames().length);
+	  var games_total = Session.get('games_total');
+	  if(games_total > 0) {
+	  	$('#games-start').val(1);
+  	  	$('#games-end').val(games_total);
+	  }
+	};
+
+	function getGames() {
+
+		// var games = Session.get('games');
+		var start = Session.get('games_start'),
+			end = Session.get('games_end');
+
+
+
+		// if(!games || games.length === 0) {
+			games = Games.find({$or: [{'p1_id':Session.get('player_id')}, {'p2_id':Session.get('player_id')}]}, {sort: {game_no : Session.get('sort_by')}}).fetch();
+
+		  	//If sorted by wins, return only wins
+		    if(Session.get('sort_wins')=='wins'){
+		      games = Games.find({'game_winner':Session.get('player_id')}, {sort: {game_no : Session.get('sort_by')}}).fetch();
+		    }
+		    //If sorted by losses, return only losses
+		    else if (Session.get('sort_wins')=='losses') {
+		      games = Games.find({'game_loser':Session.get('player_id')}, {sort: {game_no : Session.get('sort_by')}}).fetch();
+		    } else {
+		      games = Games.find({$or: [{'p1_id':Session.get('player_id')}, {'p2_id':Session.get('player_id')}]}, {sort: {game_no : Session.get('sort_by')}}).fetch();
+		    }
+
+
+		    if(!Session.get('games_total')) {
+				end = games.length;
+			}
+
+		    // Session.set('games', games);
+		    Session.set('games_total', games.length);
+		// }
+
+		return Splice(start, end, games);
+	}
+
 	Template.player_detail.helpers({
 	  player_id : function(){
 	  	return Session.get('player_id');
@@ -49,39 +92,11 @@ if (Meteor.isClient) {
 	  	return player;
 	  },
 	  games : function(){
-	  	//By default return all games with this player
-	  	var games = Games.find({$or: [{'p1_id':Session.get('player_id')}, {'p2_id':Session.get('player_id')}]}, {sort: {game_no : Session.get('sort_by')}, limit: Session.get('results_num')}).fetch();
-
-	  	//If sorted by wins, return only wins
-	    if(Session.get('sort_wins')=='wins'){
-	      games = Games.find({'game_winner':Session.get('player_id')}, {sort: {game_no : Session.get('sort_by')}, limit: Session.get('results_num')}).fetch();
-	    }
-	    //If sorted by losses, return only losses
-	    else if (Session.get('sort_wins')=='losses') {
-	      games = Games.find({'game_loser':Session.get('player_id')}, {sort: {game_no : Session.get('sort_by')}, limit: Session.get('results_num')}).fetch();
-	    } else {
-	      games = Games.find({$and: [{game_no: {$gte: Session.get('game_range')}},{$or: [{'p1_id':Session.get('player_id')}, {'p2_id':Session.get('player_id')}]}]}, {sort: {game_no : Session.get('sort_by')}, limit: Session.get('results_num')}).fetch();
-	    }
-
-	  	return games;
-	  },
-	  game_range : function(){
-	    // Use the Paginate function and return the range;
-	    return Paginate(Games.find({$or: [{'p1_id':Session.get('player_id')}, {'p2_id':Session.get('player_id')}]}).count(), Session.get('results_num'));
+	  	return getGames();
 	  }
 	});
 
 	Template.player_detail.events({
-	  'click #game_no_asc' : function() {
-	    Session.set('sort_by', 1);
-	    $('#game_no_asc').toggleClass('inactive');
-	    $('#game_no_desc').toggleClass('inactive');
-	  },
-	  'click #game_no_desc' : function() {
-	    Session.set('sort_by', -1);
-	    $('#game_no_desc').toggleClass('inactive');
-	    $('#game_no_asc').toggleClass('inactive');
-	  },
 	  'click #sort_wins' : function() {
 	    Session.set('sort_wins', 'wins');
 	  },
@@ -91,13 +106,5 @@ if (Meteor.isClient) {
 	  'click #sort_none' : function() {
 	    Session.set('sort_wins', undefined);
 	  },
-	  'change #game_range' : function() {
-	    var range = parseInt($('#game_range').val());
-	    Session.set('game_range', range);
-	  },
-	  'input #results_num' : function(){
-	    var results_num = parseInt($('#results_num').val());
-	    Session.set('results_num', results_num);
-	  }
 	})
 }

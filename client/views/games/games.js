@@ -6,8 +6,6 @@ G A M E S
 
 if (Meteor.isClient) {
 
-Session.setDefault('sort_by', -1);
-
 Template.games.rendered = function() {
   Session.set('games_total', Games.find().count());
 };
