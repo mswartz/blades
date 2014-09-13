@@ -1,0 +1,43 @@
+<template name="faceoff">
+	<div class="display-panel">
+		<div class="page-container">
+			<h1 class="fancy-header dark">Face-Off</h1>
+			<div class="player-avatars faceoff">
+				<div class="player-avatar player" id="player1-avatar"><img src="/img/{{player1.team}}.png"/></div>
+				<div class="player-avatar player" id="player2-avatar"><img src="/img/{{player2.team}}.png"/></div>
+			</div>
+			<div class="player-select-mod centered faceoff">
+				<select id="player1" class="h2 player-select" type="select">
+					{{#each players}}
+			  		<option value="{{_id}}">{{name}}</option>
+			  		{{/each}}
+				</select>
+				<span class="h2">vs</span>
+				<select id="player2" class="h2 player-select" type="select">
+					{{#each reverseplayers}}
+			  		<option value="{{_id}}">{{name}}</option>
+			  		{{/each}}
+				</select>
+			</div>
+			{{#if stats}}
+			{{#each stats}}
+			<h4 class="faceoff descrip light centered stat-title">{{name}}</h4>
+			<div class="faceoff stat-values centered">
+				<h2 class="h2 player-1 player stat-value">{{p1}}</h2>
+				<span class="h3">-</span>
+				<h2 class="h2 player-2 player stat-value">{{p2}}</h2>
+			</div>
+			{{/each}}
+			{{else}}
+			<h4 class="faceoff descrip light centered stat-title">No games recorded</h4>
+			{{/if}}
+		</div>
+	</div>
+	<div class="page-container">
+
+		{{#each games}}
+		    {{>game}}
+	  	{{/each}}
+
+	</div>
+</template>

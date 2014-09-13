@@ -1,0 +1,51 @@
+.player-avatars {
+	.player-avatar {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+.faceoff {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	.player {
+		margin: 20px 35px;
+		display:inline-block;
+	}
+
+	// &.stat-title {
+	// 	margin-top: 40px;
+	// }
+
+	&.stat-values {
+		margin-top: 0px;
+
+		> * {
+			margin-top: 0;
+		}
+
+		span {
+			color: lighten($darkbg, 20%);
+		}
+
+		.stat-value {
+			min-width: 100px;
+
+			&.player-1 {
+				text-align: right;
+			}
+
+			&.player-2 {
+				text-align: left;
+			}
+
+		}
+	}
+}
+
+
+.player-select-mod {
+	text-align: center;
+	margin-bottom: 40px;
+}
