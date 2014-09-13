@@ -26,7 +26,9 @@ if (Meteor.isClient) {
 		//   	}
 		// }
 
+
 		if(player != undefined){
+
 		  	//Crunch the player stats
 		  	player.win_avg = (player.games_won / player.games_played) || 0;
 			player.fight_avg = (player.fights_won / (player.fights_won + player.fights_lost)) || 0;

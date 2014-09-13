@@ -83,7 +83,20 @@ if (Meteor.isClient) {
       path: '/players/:player_name',
       template: 'player_detail',
       data: function () {
-        return Players.findOne({'name' : this.params.player_name});
+
+        var player = Players.findOne({'name' : this.params.player_name})
+        if(player) {
+          player.games_won = player.games_won || 0;
+          player.games_lost = player.games_lost || 0;
+          player.win_streak_record = player.win_streak_record || 0;
+          player.loss_streak_record = player.loss_streak_record || 0;
+          player.goals_scored = player.goals_scored || 0;
+          player.goals_allowed = player.goals_allowed || 0;
+          player.fights_won = player.fights_won || 0;
+          player.fights_lost = player.fights_lost || 0;
+        }
+
+        return player;
       },
       onBeforeAction : function(){
         if(Players.findOne({'name' : this.params.player_name}) != undefined){
