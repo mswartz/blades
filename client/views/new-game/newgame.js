@@ -158,12 +158,14 @@ Template.newgame.events({
 
   'keyup input.pts' : updateScores,
 
+  'blur input.pts':updateScores,
+
   //How many overtimes?
   'change #ot_counter' : function(){
     Session.set('ot_count', $('#ot_counter').val());
   },
 
-  //How many overtimes?
+  //Was there a gos?
   'click #gos_scored' : function(){
     if(Session.get('gos_scored')===false){
       Session.set('gos_scored', true);
@@ -336,7 +338,7 @@ Template.newgame.events({
       'reg_goals' : reg_goals,
 
       //Add OT goals
-      'ot_goals' : ot_goals,
+      'ot_goals' : ot_goals || 0,
 
       //Add fights
       'p1_fights' : p1_fights,
@@ -374,7 +376,7 @@ Template.newgame.events({
     //Save this game
     Meteor.call("addGame", game, function(error, affectedDocs) {
       if (error) {
-        console.log(error.message);
+        console.error(error.message);
       } else {
         console.log('game added');
       }
@@ -560,8 +562,8 @@ Template.newgame.events({
     }
 
     //Update player streak records
-    updatePlayerStreak(Session.get('p1_id'));
-    updatePlayerStreak(Session.get('p2_id'));
+    updatePlayerStreak(Session.get('p1_id'), game);
+    updatePlayerStreak(Session.get('p2_id'), game);
 
     Session.set('p1_id', undefined);
     Session.set('p2_id', undefined);

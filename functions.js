@@ -20,14 +20,12 @@ Verbs = function(){
 	"clowned upon",
 	"hornswoggled",
 	"bladesed upon",
-	"squirted",
 	"embarassed",
 	"destroyed",
 	"beat",
 	"beat down",
 	"drubbed",
 	"smashed",
-	"licked",
 	"lambasted",
 	"thrashed",
 	"shellacked",
@@ -52,12 +50,16 @@ Verbs = function(){
 };
 
 //Find streaks
-updatePlayerStreak = function(player_id){
+updatePlayerStreak = function(player_id, game){
 	var player_data = Players.find({_id:player_id}).fetch();
-	var games = Games.find({$or: [{p1_id:player_id}, {p2_id:player_id}]}, {sort: {game_no:-1}, limit: 1}).fetch();
+	var lastGame = Games.findOne({$or: [{p1_id:player_id}, {p2_id:player_id}]}, {sort: {game_no:-1}});
 	var current_streak = player_data[0].current_streak;
 
-	if(games[0].game_winner == player_id){
+	if(!lastGame || lastGame.game_no != game.game_no) {
+		lastGame = game;
+	}
+
+	if(lastGame.game_winner == player_id){
 		console.log('won last game!');
 		if(current_streak>0){
 			console.log("adding one to the winning streak");
