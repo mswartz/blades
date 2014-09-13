@@ -28,11 +28,11 @@ if (Meteor.isClient) {
 
 		if(player != undefined){
 		  	//Crunch the player stats
-		  	player.win_avg = player.games_won / player.games_played;
-			player.fight_avg = player.fights_won / (player.fights_won + player.fights_lost);
-		  	player.gs_avg = player.goals_scored / player.games_played;
-		  	player.ga_avg = player.goals_allowed / player.games_played;
-		  	player.so_avg = player.shutouts / player.games_played;
+		  	player.win_avg = (player.games_won / player.games_played) || 0;
+			player.fight_avg = (player.fights_won / (player.fights_won + player.fights_lost)) || 0;
+		  	player.gs_avg = (player.goals_scored / player.games_played) || 0;
+		  	player.ga_avg = (player.goals_allowed / player.games_played) || 0;
+		  	player.so_avg = (player.shutouts / player.games_played) || 0;
 
 		  	//Let's snip off some decimals
 		  	player.win_avg = player.win_avg.toFixed(2) * 100;
@@ -53,14 +53,14 @@ if (Meteor.isClient) {
 	  	//If sorted by wins, return only wins
 	    if(Session.get('sort_wins')=='wins'){
 	      games = Games.find({'game_winner':Session.get('player_id')}, {sort: {game_no : Session.get('sort_by')}, limit: Session.get('results_num')}).fetch();
-	    } 
+	    }
 	    //If sorted by losses, return only losses
 	    else if (Session.get('sort_wins')=='losses') {
 	      games = Games.find({'game_loser':Session.get('player_id')}, {sort: {game_no : Session.get('sort_by')}, limit: Session.get('results_num')}).fetch();
 	    } else {
 	      games = Games.find({$and: [{game_no: {$gte: Session.get('game_range')}},{$or: [{'p1_id':Session.get('player_id')}, {'p2_id':Session.get('player_id')}]}]}, {sort: {game_no : Session.get('sort_by')}, limit: Session.get('results_num')}).fetch();
 	    }
-    
+
 	  	return games;
 	  },
 	  game_range : function(){
