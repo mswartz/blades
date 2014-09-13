@@ -32,11 +32,12 @@
   	  <!-- Player 1 -->
   	  <tr>
 	  	<td><select class="name" id="p1_name">
+	  			<option value="-1">Choose Player</option>Choose Player
   			  {{#each players}}
 			  	<option value="{{_id}}">{{name}}</option>{{name}}
 			  {{/each}}
 	  	</select></td>
-	  	<td><select id="p1_team">
+	  	<td><select class="team" id="p1_team">
 	  		<option value="ny">New York</option>
 	  		<option value="min">Minnesota</option>
 	  		<option value="tor">Toronto</option>
@@ -63,11 +64,12 @@
 	 <!-- Player 2 -->
   	  <tr>
 	  	<td><select class="name" id="p2_name">
+	  		  <option value="-1">Choose Player</option>Choose Player
 			{{#each players}}
 			  <option value="{{_id}}">{{name}}</option>{{name}}
 			{{/each}}
 	  	</select></td>
-	  	<td><select id="p2_team">
+	  	<td><select class="team" id="p2_team">
 	  		<option value="ny">New York</option>
 	  		<option value="min">Minnesota</option>
 	  		<option value="tor">Toronto</option>
@@ -97,9 +99,11 @@
   </div>
 
   </div>
-
+{{#if is_disabled}}
+  <input type="submit" class="btn centered submit" value="submit" id="newgame_addgame" disabled/>
+{{else}}
   <input type="submit" class="btn centered submit" value="submit" id="newgame_addgame"/>
-
+{{/if}}
 	</div>
   </div><!-- page-container -->
 </template>
