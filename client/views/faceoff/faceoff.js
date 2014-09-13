@@ -318,7 +318,7 @@ Template.faceoff.events({
   	Session.set('games_total', games_total);
   	Session.set('games_start', 1);
   	Session.set('games_end', games_total);
-  	Session.set('games_start_max', games_total-1);
+  	Session.set('games_start_max', games_total);
   	Session.set('games_end_min', 2);
   },
   'change select#player2' : function() {
@@ -332,7 +332,7 @@ Template.faceoff.events({
   	Session.set('games_total', games_total);
   	Session.set('games_start', 1);
   	Session.set('games_end', games_total);
-  	Session.set('games_start_max', games_total-1);
-  	Session.set('games_end_min', 2);
+  	Session.set('games_start_max', games_total);
+  	Session.set('games_end_min', 1);
   },
 });

@@ -5,20 +5,20 @@ if(Meteor.isClient) {
     var games_total = Session.get('games_total') || 0;
 
     Session.set('games_start_max', games_total - 1);
-    Session.set('games_end_min', 2);
+    Session.set('games_end_min', 1);
     Session.set('games_start', 1);
     Session.set('games_end', games_total);
   }
 
   Template.gamesort.helpers({
     games_start_max : function() {
-      return parseInt(Session.get('games_end')) - 1;
+      return parseInt(Session.get('games_end'));
     },
     games_end_max: function() {
       return Session.get('games_total');
     },
     games_end_min: function() {
-      return parseInt(Session.get('games_start')) + 1;
+      return parseInt(Session.get('games_start'));
     },
     disable_controls: function() {
       if(Session.get('games_total') === 0) {
