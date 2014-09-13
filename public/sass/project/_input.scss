@@ -49,3 +49,26 @@
 		text-align: center;
 	}
 }
+
+.gamesort-number[disabled] {
+	cursor: default;
+}
+
+.gamesort-number {
+	background: lighten($darkbg, 2%);
+	border: none;
+	outline: none;
+	@include appearance(none);
+	@extend .h2;
+	color: white;
+	// border-bottom: dotted 1px white;
+	margin:10px;
+}
+
+.gamesort-label {
+	@extend .h3;
+	color: white;
+	opacity: 0.3;
+	vertical-align: middle;
+	margin: 10px;
+}

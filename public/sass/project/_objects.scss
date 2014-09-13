@@ -54,4 +54,7 @@
 	&.inactive {
 		color: lighten($txtdark, 25%);
 	}
+
+	@extend .h3;
+	margin: 10px;
 }

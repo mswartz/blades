@@ -23,6 +23,8 @@
 
 		> * {
 			margin-top: 0;
+			margin-left: 5px;
+			margin-right: 5px;
 		}
 
 		span {
@@ -30,7 +32,6 @@
 		}
 
 		.stat-value {
-			min-width: 100px;
 
 			&.player-1 {
 				text-align: right;

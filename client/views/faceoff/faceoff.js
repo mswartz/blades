@@ -33,12 +33,34 @@ function getGames() {
 			  				'p1_id':Session.get('player2')['_id'],
 			  				'p2_id':Session.get('player1')['_id']
 			  			}
-		  			]
+		  			],
 	  		};
 
-  	var games = Games.find(query).fetch();
+	var start = Session.get('games_start'),
+		end = Session.get('games_end'),
+  		games = Splice(start, end, Games.find(query, {sort: {game_no : Session.get('sort_by')}}).fetch());
 
   	return games;
+}
+
+
+function getTotalGames() {
+
+	var query = {
+		$or: 	[
+		  		{
+		  			'p1_id':Session.get('player1')['_id'],
+		  			'p2_id':Session.get('player2')['_id']
+	  			},
+	  			{
+	  				'p1_id':Session.get('player2')['_id'],
+	  				'p2_id':Session.get('player1')['_id']
+	  			}
+  			]
+		};
+
+
+  	return Games.find(query).fetch().length;
 }
 
 function forceNum(num) {
@@ -48,6 +70,7 @@ function forceNum(num) {
 Template.faceoff.rendered = function(){
 	Session.set('player1', getPlayer('player1'));
 	Session.set('player2', getPlayer('player2'));
+	Session.set('games_total', getTotalGames());
 };
 
 Template.faceoff.helpers({
@@ -93,7 +116,6 @@ Template.faceoff.helpers({
   		player2 = Session.get('player2');
 
   	var games = getGames();
-  	console.log(games);
 
   	var stats = {
   		'p1_wins':0,
@@ -235,20 +257,16 @@ Template.faceoff.helpers({
   			p1: stats.p1_wins,
   			p2: stats.p2_wins
   		},
-  		{
-  			name: 'fights',
-  			p1: stats.p1_fights,
-  			p2: stats.p2_fights
-  		},
+
   		{
   			name: 'goals',
   			p1: stats.p1_goals,
   			p2: stats.p2_goals
   		},
   		{
-  			name: 'period breakdown',
-  			p1: stats.p1_reg_1 + ' - ' + stats.p1_reg_2 + ' - ' + stats.p1_reg_3,
-  			p2: stats.p2_reg_1 + ' - ' + stats.p2_reg_2 + ' - ' + stats.p2_reg_3
+  			name: 'fights',
+  			p1: stats.p1_fights,
+  			p2: stats.p2_fights
   		},
   		{
   			name: 'shutouts',
@@ -266,15 +284,20 @@ Template.faceoff.helpers({
   			p2: stats.p2_ot
   		},
   		{
-  			name: 'Average Winning Margin',
+  			name: 'Best Game',
+  			p1: stats.p1_best.game_winner_points + " - " + stats.p1_best.game_loser_points,
+  			p2: stats.p2_best.game_winner_points + " - " + stats.p2_best.game_loser_points
+  		},
+  		{
+  			name: 'AVG Goal Margin',
   			p1: forceNum(stats.p1_diff/stats.p1_wins),
   			p2: forceNum(stats.p2_diff/stats.p2_wins)
   		},
   		{
-  			name: 'Best Game',
-  			p1: stats.p1_best.game_winner_points + " - " + stats.p1_best.game_loser_points,
-  			p2: stats.p2_best.game_winner_points + " - " + stats.p2_best.game_loser_points
-  		}
+  			name: 'period breakdown',
+  			p1: stats.p1_reg_1 + ' / ' + stats.p1_reg_2 + ' / ' + stats.p1_reg_3,
+  			p2: stats.p2_reg_1 + ' / ' + stats.p2_reg_2 + ' / ' + stats.p2_reg_3
+  		},
   	];
   }
 
@@ -284,8 +307,32 @@ Template.faceoff.events({
   //Update points on the fly
   'change select#player1' : function() {
   	Session.set('player1', getPlayer('player1'));
+
+  	var games_total = getTotalGames();
+
+  	Session.set('games_total', games_total);
+
+  	$('#games-start').val(1);
+  	$('#games-end').val(games_total);
+
+  	Session.set('games_total', games_total);
+  	Session.set('games_start', 1);
+  	Session.set('games_end', games_total);
+  	Session.set('games_start_max', games_total-1);
+  	Session.set('games_end_min', 2);
   },
   'change select#player2' : function() {
   	Session.set('player2', getPlayer('player2'));
+
+  	var games_total = getTotalGames();
+
+  	$('#games-start').val(1);
+  	$('#games-end').val(games_total);
+
+  	Session.set('games_total', games_total);
+  	Session.set('games_start', 1);
+  	Session.set('games_end', games_total);
+  	Session.set('games_start_max', games_total-1);
+  	Session.set('games_end_min', 2);
   },
 });

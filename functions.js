@@ -5,12 +5,17 @@
 Paginate = function(total, results){
 	var range = [];
     var pages = Math.ceil(total/results);
-
+    console.log(total);
+    console.log(results);
     for(var i = 0; i<pages; i++){
       range[i] = {range_lower: ((results*i)+1), range_upper : (results *(i+1))}
     }
 
     return range;
+};
+
+Splice = function(start,end, arr) {
+	return _.first(_.rest(arr, start-1), end-start+1);
 };
 
 Verbs = function(){

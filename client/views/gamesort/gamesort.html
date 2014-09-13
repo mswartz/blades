@@ -1,0 +1,14 @@
+<template name="gamesort">
+  <div class="game-sort-controls">
+      <div class="col-1">
+     <a href="#" class="sort-btn" id="game_no_desc">Descending</a> <a class="sort-btn inactive" href="#" id="game_no_asc">Ascending</a>
+      </div><!-- col-1 -->
+
+      <div class="col-2">
+        <label class="gamesort-label">from</label>
+        <input class="gamesort-number" type="number" {{disable_controls}} min="1" max="{{games_start_max}}" id="games-start"/>
+        <label class="gamesort-label">to</label>
+        <input class="gamesort-number" type="number" {{disable_controls}} min="{{games_end_min}}" max="{{games_end_max}}" id="games-end"/>
+      </div><!-- col-2 -->
+  </div><!-- game-sort-controls -->
+</template>

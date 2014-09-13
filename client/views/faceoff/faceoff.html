@@ -19,25 +19,36 @@
 			  		{{/each}}
 				</select>
 			</div>
+		</div>
+	</div>
+	{{>gamesort}}
+	<div class="page-container">
+		<h1 class="fancy-header">Stats</h1>
+
 			{{#if stats}}
+			<div class="split-three">
 			{{#each stats}}
+			<div class="media-block">
 			<h4 class="faceoff descrip light centered stat-title">{{name}}</h4>
 			<div class="faceoff stat-values centered">
 				<h2 class="h2 player-1 player stat-value">{{p1}}</h2>
-				<span class="h3">-</span>
+				<span class="h3">vs</span>
 				<h2 class="h2 player-2 player stat-value">{{p2}}</h2>
 			</div>
+			</div>
 			{{/each}}
+			</div>
 			{{else}}
-			<h4 class="faceoff descrip light centered stat-title">No games recorded</h4>
+			<h4 class="faceoff descrip light centered stat-title">No stats recorded</h4>
 			{{/if}}
-		</div>
-	</div>
-	<div class="page-container">
 
+		<h1 class="fancy-header">Games</h1>
+		{{#if games}}
 		{{#each games}}
 		    {{>game}}
 	  	{{/each}}
-
+	  	{{else}}
+	  	<h4 class="faceoff descrip light centered stat-title">No games recorded</h4>
+		{{/if}}
 	</div>
 </template>
