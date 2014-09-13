@@ -44,4 +44,10 @@ All the data is stored in MongoDB collections. The JS files interact with these 
 
 #### Adding data
 
+### Set up v2
+
+1. clone this repo `git clone git@github.com:mswartz/blades`
+2. cd in to repo `cd blades`
+3. install meteorite `sudo -H npm install -g meteorite`
+4. run `mrt`
 
