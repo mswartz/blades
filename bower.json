@@ -1,0 +1,28 @@
+{
+  "name": "blades-app",
+  "version": "1.0.1",
+  "homepage": "https://github.com/mswartz/blades",
+  "authors": [
+    "Mike Swartz <mike@upstatement.com>"
+  ],
+  "description": "App to keep track of Upstatement's blades games",
+  "main": "main.js",
+  "keywords": [
+    "blades",
+    "of",
+    "steel",
+    "upstatement"
+  ],
+  "license": "unknown",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "upbase": "https://github.com/Upstatement/upbase"
+  }
+}
