@@ -5,3 +5,5 @@ public/css*
 .sass-cache
 .sass-cache*
 .sass-cache/	
+packages/
+.meteor/
