@@ -2,6 +2,8 @@ public/bower_components/
 public/css
 public/css/
 public/css*
+client/css/
+public/stylesheets/
 .sass-cache
 .sass-cache*
 .sass-cache/	
