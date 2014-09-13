@@ -15,7 +15,7 @@ $adelle-sans: "adelle-sans";
 $adelle: "adelle";
 
 
-@import "../bower_components/upbase/components/base";
+@import "base";
 @import "project/type";
 @import "project/tables";
 @import "project/nav";
