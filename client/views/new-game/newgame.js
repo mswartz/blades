@@ -97,23 +97,27 @@ Template.newgame.helpers({
   }
 });
 
+function updateScores() {
+  var p1_pts = 0;
+  var p2_pts = 0;
+
+  $('.p1_pts').each(function(){
+    p1_pts = p1_pts + parseInt($(this).val());
+  })
+
+  $('.p2_pts').each(function(){
+    p2_pts = p2_pts + parseInt($(this).val());
+  })
+
+  Session.set('p1_pts', p1_pts);
+  Session.set('p2_pts', p2_pts);
+}
+
 Template.newgame.events({
   //Update points on the fly
-  'click input.pts' : function() {
-    var p1_pts = 0;
-    var p2_pts = 0;
+  'click input.pts' : updateScores,
 
-    $('.p1_pts').each(function(){
-      p1_pts = p1_pts + parseInt($(this).val());
-    })
-
-    $('.p2_pts').each(function(){
-      p2_pts = p2_pts + parseInt($(this).val());
-    })
-
-    Session.set('p1_pts', p1_pts);
-    Session.set('p2_pts', p2_pts);
-  },
+  'keyup input.pts' : updateScores,
 
   //How many overtimes?
   'change #ot_counter' : function(){
