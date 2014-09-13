@@ -1,4 +1,4 @@
-//Game input 
+//Game input
 
 .ot-selector {
 	margin: 0 0 20px 0;
@@ -28,4 +28,24 @@
 	color: $txtlight;
 	border: 0;
 	@include border-radius(10px);
+}
+
+.player-select {
+	background: transparent;
+	color: white;
+	margin: 0 30px;
+	border: none;
+	@include appearance(none);
+	border-radius: 0;
+	border-bottom: dotted 1px white;
+	outline: none;
+
+	&::selection {
+		background: none;
+		outline: none;
+	}
+
+	option {
+		text-align: center;
+	}
 }

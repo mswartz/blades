@@ -8,7 +8,7 @@ $txtdark: #1d1d1d;
 
 // Sizes
 $tablet: 700px;
-
+$desktop: 900px;
 
 //Typefaces
 $adelle-sans: "adelle-sans";
@@ -23,6 +23,8 @@ $adelle: "adelle";
 @import "project/auth";
 @import "project/profile";
 @import "project/input";
+@import "project/faceoff";
+
 
 
 //Fade In
@@ -80,6 +82,7 @@ body {
 
 	@media (min-width: $tablet){
 		padding: 0;
+		padding-top: 20px;
 	}
 
 	-webkit-animation: fadein .5s; /* Safari and Chrome */

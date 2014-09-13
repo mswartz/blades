@@ -27,54 +27,63 @@
 	tbody {
 		tr {
 			color: $txtdark;
-			
+
 			td {
 				vertical-align: middle;
 				text-align: center;
-				padding: 10px;
+				padding: 5px;
 				font-size: 14px;
 				border: 1px solid #EEE;
 				border-collapse: collapse;
+				background: none;
+				@include mq($desktop) {
 
-				background-repeat: no-repeat;
-				background-position: 20px center;
-				background-size: 20px;
+					padding: 10px;
+
+					&.team {
+						background-repeat: no-repeat;
+						background-position: 20px center;
+						background-size: 20px;
+						min-width: 60px;
+					}
+
+					&.min {
+						background-image: url(/img/min.png);
+					}
+
+					&.edm {
+						background-image: url(/img/edm.png);
+					}
+
+					&.tor {
+						background-image: url(/img/tor.png);
+					}
+
+					&.mon {
+						background-image: url(/img/mon.png);
+					}
+
+					&.la {
+						background-image: url(/img/la.png);
+					}
+
+					&.ny {
+						background-image: url(/img/ny.png);
+					}
+
+					&.chi {
+						background-image: url(/img/chi.png);
+					}
+
+					&.van {
+						background-image: url(/img/van.png);
+					}
+				}
 
 				&.team {
 					text-transform: uppercase;
 				}
 
-				&.min {
-					background-image: url(/img/min.png);
-				}
-
-				&.edm {
-					background-image: url(/img/edm.png);
-				}
-
-				&.tor {
-					background-image: url(/img/tor.png);
-				}
-
-				&.mon {
-					background-image: url(/img/mon.png);
-				}
-
-				&.la {
-					background-image: url(/img/la.png);
-				}
-
-				&.ny {
-					background-image: url(/img/ny.png);
-				}
-
-				&.chi {
-					background-image: url(/img/chi.png);
-				}
-
-				&.van {
-					background-image: url(/img/van.png);
-				}
 
 				a {
 					display: block;

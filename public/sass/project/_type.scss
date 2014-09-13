@@ -4,10 +4,6 @@
 	margin: 0 0 20px 0;
 	font-size: 24px;
 
-	&.centered {
-		text-align: center;
-	}
-
 	a {
 		color: $accent;
 		text-decoration: none;
@@ -16,6 +12,18 @@
 	@media (min-width: $tablet){
 		font-size: 42px;
 	}
+}
+
+.centered {
+	text-align: center;
+}
+
+.h2 {
+	font-family: $adelle;
+	font-weight: 600;
+	text-align: center;
+	font-size: 30px;
+	margin: 0 0 20px 0;
 }
 
 .h3 {
@@ -42,6 +50,20 @@
 	}
 }
 
+.descrip {
+	display: block;
+	font-family: $adelle-sans;
+	font-size: 16px;
+	color: $accent;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+
+	&.light {
+		color: lighten($darkbg, 20%);
+	}
+}
+
 .big-number {
 	@include border-radius(100px);
 	text-align: center;
@@ -57,20 +79,6 @@
 		&.small {
 			font-size: 36px;
 			padding: 22px 0;
-		}
-	}
-
-	.descrip {
-		display: block;
-		font-family: $adelle-sans;
-		font-size: 16px;
-		color: $accent;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 2px;
-
-		&.light {
-			color: lighten($darkbg, 20%);
 		}
 	}
 
@@ -117,7 +125,7 @@
 
 	&.dark {
 		background-color: lighten($darkbg, 20%);
-		color: $txtlight;	
+		color: $txtlight;
 
 		&:before {
 			background-image: url(/img/fancy-top-dark.svg);
