@@ -77,7 +77,6 @@ Verbs = function(){
 	"squished",
 	"beat",
 	"pummeled",
-	"curbstomped",
 	"hurt the feelings of ",
 	"devastated",
 	"depressed",
